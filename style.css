@@ -1,6 +1,6 @@
 /*!
 Theme Name: GamingTalker Shinka
-Theme URI: https://github.com/AlexzanDev/Ruri
+Theme URI: https://www.gamingtalker.it
 Author: Alessandro Zangrandi & Automattic
 Author URI: https://alexzandev.github.io
 Description: Shinka is a WordPress starter theme based on <code>_s</code>, or <em>underscores</em>, by Automattic.
@@ -15,7 +15,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned.
 
-Ruri is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Shinka is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -48,6 +48,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+/* Custom */
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -623,94 +624,135 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+.shinka-header {
+	background: #212121;
+	height: 60px;
+}
+
+.shinka-header__navigation {
+	display: none;
+	position: absolute;
+	top: 60px;
+	width: 100%;
+	background: #323232;
+}
+
+.shinka-header__navigation-container {
+	padding: 10px;
+}
+
+.shinka-header__menu {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.shinka-header__menu li {
+	margin-top: 10px;
+}
+
+.shinka-header__menu li:first-of-type {
+	margin-top: 0;
+}
+
+.shinka-header__menu li a {
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.shinka-header__menu li a:visited {
+	color: #ffffff;
+}
+
+.shinka-header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 100%;
+}
+
+.shinka-header__container svg {
+	width: 20px;
+	height: 20px;
 	display: block;
+	fill: #ffffff;
+}
+
+.shinka-header__logo, .shinka-header__sns-icon {
+	margin-left: 10px;
+}
+
+.shinka-header__logo svg, .shinka-header__sns-icon svg {
 	width: 100%;
 }
 
-.main-navigation ul {
+.shinka-header__sns {
 	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
 }
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
+.shinka-header__dark-icon {
+	margin-left: auto;
 }
 
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+.shinka-header__menu-icon {
+	margin-right: 10px;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
+.shinka-header__search-icon, .shinka-header__menu-icon {
+	margin-left: 10px;
 }
 
-.main-navigation ul ul a {
-	width: 200px;
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation li {
-	position: relative;
-}
-
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
+@media (min-width: 1200px) {
+	.shinka-header__container {
+		width: 1280px;
+		max-width: 1280px;
+		margin: auto;
+	}
+	.shinka-header__logo {
+		margin: 0;
+	}
+	.shinka-header__menu-icon {
 		display: none;
 	}
-	.main-navigation ul {
+	.shinka-header__sns {
+		display: flex;
+		margin-left: auto;
+	}
+	.shinka-header__sns-icon {
+		margin-left: 15px;
+	}
+	.shinka-header__dark-icon {
+		border-left: 1px solid #424242;
+		padding-left: 10px;
+		margin-left: 10px;
+	}
+	.shinka-header__dark-icon, .shinka-header__search-icon {
+		cursor: pointer;
+	}
+	.shinka-header__navigation {
+		margin-left: 30px;
+		display: block;
+		position: relative;
+		top: 0;
+		width: auto;
+		background: #212121;
+	}
+	.shinka-header__navigation-container {
+		padding: 0;
+	}
+	.shinka-header__menu {
 		display: flex;
 	}
-}
-
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
-	margin: 0 0 1.5em;
-}
-
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-	display: flex;
-}
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	flex: 1 0 50%;
-}
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	text-align: end;
-	flex: 1 0 50%;
+	.shinka-header__menu li {
+		margin-top: 0;
+		margin-left: 15px;
+	}
+	.shinka-header__menu li:first-of-type {
+		margin-left: 0;
+	}
 }
 
 /* Posts and pages
