@@ -149,6 +149,12 @@ function shinka_scripts() {
 add_action( 'wp_enqueue_scripts', 'shinka_scripts' );
 
 /**
+ * Remove global style.
+ */
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

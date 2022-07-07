@@ -6,6 +6,7 @@
 .shinka-header__navigation {
 	display: none;
 	position: absolute;
+	z-index: 99999;
     top: 60px;
     width: 100%;
     background: #323232;
@@ -73,6 +74,21 @@
 	margin-left: 10px;
 }
 
+.shinka-footer {
+	margin-top: 20px;
+	background: $shinka__header;
+}
+
+.shinka-footer__container {
+	display: flex;
+    flex-direction: column;
+	padding: 15px;
+}
+
+.shinka-footer__main {
+	display: flex;
+}
+
 @media (min-width: 1200px) {
 	.shinka-header__container {
 		width: 1280px;
@@ -81,15 +97,18 @@
 	}
 	.shinka-header__logo {
 		margin: 0;
+		svg {
+			height: 25px;
+		}
 	}
 	.shinka-header__menu-icon {
 		display: none;
 	}
-	.shinka-header__sns {
+	.shinka-header__sns, .shinka-footer__sns {
 		display: flex;
 		margin-left: auto;
 	}
-	.shinka-header__sns-icon {
+	.shinka-header__sns-icon, .shinka-footer__sns-icon {
 		margin-left: 15px;
 	}
 	.shinka-header__dark-icon {
@@ -107,6 +126,7 @@
 		top: 0;
 		width: auto;
 		background: $shinka__header;
+		z-index: 1;
 	}
 	.shinka-header__navigation-container {
 		padding: 0;

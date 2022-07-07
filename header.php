@@ -21,12 +21,12 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="shinka-wrapper">
+<div class="shinka-body">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'shinka' ); ?></a>
 
 	<header id="header" class="shinka-header">
 		<div class="shinka-header__container">
-			<a href="<?php get_bloginfo( 'url' ); ?>" class="shinka-header__logo" title="GamingTalker">
+			<a href="<?php echo get_home_url(); ?>" class="shinka-header__logo" title="GamingTalker">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224.49 108.6"><defs><style>.cls-1{fill:#ff1414;}.cls-2{fill:#fff;}</style></defs>
 					<g>
 						<g>
