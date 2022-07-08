@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<div id="main-content" class="shinka-page">
 
 		<?php
 		if ( have_posts() ) :
@@ -50,7 +50,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</div><!-- #main -->
 
 <?php
 get_sidebar();

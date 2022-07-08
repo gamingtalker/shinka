@@ -29,5 +29,24 @@
                 console.log("Header menu hidden!");
             }
         });
+        var postURL = encodeURIComponent(document.URL);
+        var postTitle = document.getElementsByClassName("shinka-post__title")[0].innerText;
+        console.log(postURL + " " + postTitle);
+        $(".shinka-post__sns-btn-facebook").on("click", function() {
+            const url = "https://www.facebook.com/sharer.php?u=" + postURL;
+            window.open(url, '_blank');
+        });
+        $(".shinka-post__sns-btn-twitter").on("click", function() {
+            const url = "https://twitter.com/intent/tweet?url=" + postURL + "&text=" + postTitle + "&via=gamingtalker";
+            window.open(url, '_blank');
+        });
+        $(".shinka-post__sns-btn-whatsapp").on("click", function() {
+            const url = "https://api.whatsapp.com/send?text=" + postTitle + " - " + postURL;
+            window.open(url, '_blank');
+        });
+        $(".shinka-post__sns-btn-telegram").on("click", function() {
+            const url = "https://t.me/share/url?url=" + postURL + "&text=" + postTitle;
+            window.open(url, '_blank');
+        });
     });
 })( jQuery );

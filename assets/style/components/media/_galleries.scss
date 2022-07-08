@@ -1,5 +1,5 @@
 .gallery {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 	display: grid;
 	grid-gap: 1.5em;
 }
@@ -8,6 +8,7 @@
 	display: inline-block;
 	text-align: center;
 	width: 100%;
+	margin: 0;
 }
 
 // Loops to enumerate the classes for gallery columns.

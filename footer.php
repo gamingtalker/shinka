@@ -14,7 +14,7 @@
 	<footer id="footer" class="shinka-footer">
 		<div class="shinka-footer__container">
 			<div class="shinka-footer__main">
-				<a href="<?php echo get_home_url(); ?>" class="shinka-header__logo" title="GamingTalker">
+				<a href="<?php echo get_home_url(); ?>" class="shinka-footer__logo" title="GamingTalker">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224.49 108.6"><defs><style>.cls-1{fill:#ff1414;}.cls-2{fill:#fff;}</style></defs>
 						<g>
 							<g>
@@ -56,9 +56,18 @@
 					</a>
 				</div>
 			</div>
-			<div class="shinka-footer__links">
-				<p>Test</p>
-			</div>
+			<nav id="footer-menu" class="shinka-footer__links">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' 	=> 'menu-footer',
+						'menu_id'        	=> '',
+						'container_class'	=> 'shinka-footer__navigation-container',
+						'menu_class'		=> 'shinka-footer__menu'
+					)
+				);
+				?>
+			</nav>
 			<div class="shinka-footer__text">
 				<p class="shinka-footer__text-content">GamingTalker © 2018-2022</p>
 				<p class="shinka-footer__text-content">Questo sito non rappresenta una testata giornalistica, in quanto viene aggiornato senza alcuna periodicità. Non può, pertanto, considerarsi un prodotto editoriale, ai sensi della legge n. 62 del 7/03/2001.</p>
