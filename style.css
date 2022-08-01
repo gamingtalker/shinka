@@ -433,6 +433,30 @@ h1, h2, h3, h4, h5, h6, p {
 	margin: 0;
 }
 
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 22px;
+}
+
+h6 {
+	font-size: 20px;
+}
+
 dfn,
 cite,
 em,
@@ -538,8 +562,26 @@ figure {
 }
 
 table {
-	margin: 0 0 1.5em;
+	margin-top: 10px;
+	margin-bottom: 1em;
 	width: 100%;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px solid #d8d8d8;
+	border-color: #d8d8d8;
+	border-spacing: 0;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+	background-color: #ffffff;
 }
 
 /* Links
@@ -651,7 +693,7 @@ textarea {
 }
 
 .shinka-header__navigation-container {
-	padding: 10px;
+	padding: 10px 15px;
 }
 
 .shinka-header__menu {
@@ -694,11 +736,19 @@ textarea {
 	fill: #ffffff;
 }
 
-.shinka-header__logo, .shinka-header__sns-icon {
+.shinka-header__logo {
+	margin-left: 15px;
+}
+
+.shinka-header__logo svg {
+	width: 100%;
+}
+
+.shinka-header__sns-icon {
 	margin-left: 10px;
 }
 
-.shinka-header__logo svg, .shinka-header__sns-icon svg {
+.shinka-header__sns-icon svg {
 	width: 100%;
 }
 
@@ -711,7 +761,7 @@ textarea {
 }
 
 .shinka-header__menu-icon {
-	margin-right: 10px;
+	margin-right: 15px;
 }
 
 .shinka-header__search-icon, .shinka-header__menu-icon {
@@ -1157,7 +1207,8 @@ textarea {
 	background: #ff1414;
 	text-transform: uppercase;
 	font-size: 15px;
-	padding: 10px;
+	font-weight: 600;
+	padding: 7px;
 }
 
 .shinka-post__heading {
@@ -1311,6 +1362,128 @@ textarea {
 	fill: #0088CC;
 }
 
+.shinka__related-content {
+	margin-top: 10px;
+}
+
+.shinka__related-content-title {
+	margin-top: 5px;
+	font-size: 20px;
+}
+
+.shinka__related-content-title:first-of-type {
+	margin: 0;
+}
+
+.shinka__post-game {
+	background: #f2f2f2;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+.shinka__post-game-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr;
+	grid-gap: 10px;
+}
+
+.shinka__post-game-cover-img {
+	display: block;
+	width: 100%;
+}
+
+.shinka__post-game-summary {
+	font-size: 16px;
+}
+
+.shinka__post-game-text-bold {
+	font-weight: 600;
+}
+
+.shinka__post-game-text {
+	margin-top: 10px;
+	font-size: 17px;
+}
+
+.shinka__post-game-text:first-of-type {
+	margin: 0;
+}
+
+.shinka__post-game-details {
+	grid-area: 2 / 1 / 3 / 3;
+}
+
+.shinka__in-post-title {
+	margin-top: 10px;
+}
+
+.shinka__recommended-content {
+	margin-top: 10px;
+	padding: 0 15px;
+}
+
+.shinka__recommended-content-post, .shinka-sidebar__popular-post-wrapper, .shinka-sidebar__popular-post {
+	margin-top: 10px;
+}
+
+.shinka__recommended-content-image a, .shinka__recommended-content-image img, .shinka-sidebar__popular-post-image a, .shinka-sidebar__popular-post-image img {
+	display: block;
+}
+
+.shinka__recommended-content-text, .shinka-sidebar__popular-post-text {
+	margin-top: 5px;
+}
+
+.shinka__recommended-content-title, .shinka-sidebar__popular-post-title {
+	font-size: 22px;
+}
+
+.shinka-sidebar a, .shinka__recommended-content a {
+	color: #000000;
+}
+
+.shinka-sidebar a:hover, .shinka__recommended-content a:hover {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2s;
+}
+
+.shinka-sidebar__new-post-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	margin-top: 5px;
+}
+
+.shinka-sidebar__new-post {
+	flex: 0 0 50%;
+	width: 50%;
+}
+
+.shinka-sidebar__new-post:nth-child(odd) {
+	padding-right: 10px;
+}
+
+.shinka-sidebar__new-post:nth-child(even) {
+	padding-left: 10px;
+}
+
+.shinka-sidebar__new-post:nth-child(3), .shinka-sidebar__new-post:nth-child(4) {
+	margin-top: 10px;
+}
+
+.shinka-sidebar__new-post-thumb {
+	display: block;
+	width: 100%;
+}
+
+.shinka-sidebar__new-post-title {
+	font-size: 18px;
+	display: block;
+	margin-top: 8px;
+}
+
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -1417,6 +1590,24 @@ textarea {
 	}
 	.shinka-archive__load-more-link {
 		font-size: 21px;
+	}
+	.shinka-post__thumbnail-wrapper {
+		margin-top: 0;
+	}
+	.shinka-post__content-wrapper {
+		margin-top: 15px;
+		display: flex;
+	}
+	.shinka-post__content-container {
+		padding-right: 15px;
+	}
+	.shinka-sidebar {
+		flex: 1 0 30%;
+		padding-left: 15px;
+		border-left: 1px solid #d8d8d8;
+	}
+	.shinka__in-post-title:first-of-type {
+		margin-top: 0;
 	}
 }
 

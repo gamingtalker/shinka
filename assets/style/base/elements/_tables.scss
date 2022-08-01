@@ -1,4 +1,22 @@
 table {
-	margin: 0 0 1.5em;
+	margin-top: 10px;
+	margin-bottom: 1em;
 	width: 100%;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px solid $shinka__border;
+	border-color: $shinka__border;
+	border-spacing: 0;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: $shinka__grey;
+}
+
+tr:nth-child(odd) {
+	background-color: $shinka__white;
 }

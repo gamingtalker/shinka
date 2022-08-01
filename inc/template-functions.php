@@ -78,3 +78,8 @@ function shinka_magnific_popup_data( $content ) {
 	return $content; // Echo content.
 }
 add_filter( 'the_content', 'shinka_magnific_popup_data' );
+
+/** 
+ * Disable default WordPress sitemap.
+*/
+add_filter( 'wp_sitemaps_enabled', '__return_false' );

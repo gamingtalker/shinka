@@ -15,7 +15,11 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="dns-prefetch preconnect" href="https://analytics.gamingtalker.it" crossorigin>
+	<link rel="dns-prefetch preconnect" href="https://www.google-analytics.com" crossorigin>
+	<link rel="dns-prefetch preconnect" href="https://cdn.iubenda.com" crossorigin>
+	<link rel="dns-prefetch preconnect" href="https://www.googletagmanager.com" crossorigin>
 	<?php wp_head(); ?>
 </head>
 

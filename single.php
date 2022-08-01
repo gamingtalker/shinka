@@ -15,19 +15,61 @@ get_header();
 			<?php
 			while ( have_posts() ) :
 				the_post();
-
 				get_template_part( 'template-parts/content', get_post_type() );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
 			endwhile; // End of the loop.
 			?>
 		</div>
+		<div class="shinka__recommended-content">
+			<h3 class="shinka__in-post-title">Contenuti consigliati</h3>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+		</div>
 	</div>
-
 <?php
-get_sidebar();
 get_footer();

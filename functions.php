@@ -149,10 +149,20 @@ function shinka_scripts() {
 add_action( 'wp_enqueue_scripts', 'shinka_scripts' );
 
 /**
- * Remove global style.
+ * Remove content in <head> element.
  */
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_filter( 'render_block', 'wp_render_layout_support_flag' );
+remove_filter( 'render_block', 'gutenberg_render_layout_support_flag' );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+add_filter( 'emoji_svg_url', '__return_false' );
 
 /**
  * Implement the Custom Header feature.

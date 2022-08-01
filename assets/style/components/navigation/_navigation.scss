@@ -13,7 +13,7 @@
 }
 
 .shinka-header__navigation-container {
-	padding: 10px;
+	padding: 10px 15px;
 }
 
 .shinka-header__menu {
@@ -51,7 +51,14 @@
 	}
 }
 
-.shinka-header__logo, .shinka-header__sns-icon {
+.shinka-header__logo {
+	margin-left: 15px;
+	svg {
+		width: 100%;
+	}
+}
+
+.shinka-header__sns-icon {
 	margin-left: 10px;
 	svg {
 		width: 100%;
@@ -67,7 +74,7 @@
 }
 
 .shinka-header__menu-icon {
-	margin-right: 10px;
+	margin-right: 15px;
 }
 
 .shinka-header__search-icon, .shinka-header__menu-icon {

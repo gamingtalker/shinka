@@ -29,9 +29,10 @@
                 console.log("Header menu hidden!");
             }
         });
+        // Post share.
         var postURL = encodeURIComponent(document.URL);
         var postTitle = document.getElementsByClassName("shinka-post__title")[0].innerText;
-        console.log(postURL + " " + postTitle);
+        console.log('Social message: ' + postTitle + " - " + postURL);
         $(".shinka-post__sns-btn-facebook").on("click", function() {
             const url = "https://www.facebook.com/sharer.php?u=" + postURL;
             window.open(url, '_blank');
