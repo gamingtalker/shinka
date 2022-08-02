@@ -19,59 +19,17 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-
 <div id="comments" class="comments-area">
-
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
-		<h2 class="comments-title">
-			<?php
-			$shinka_comment_count = get_comments_number();
-			if ( '1' === $shinka_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'shinka' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			} else {
-				printf( 
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $shinka_comment_count, 'comments title', 'shinka' ) ),
-					number_format_i18n( $shinka_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
-
-		<?php the_comments_navigation(); ?>
-
-		<ol class="comment-list">
-			<?php
-			wp_list_comments(
-				array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				)
-			);
-			?>
-		</ol><!-- .comment-list -->
-
-		<?php
-		the_comments_navigation();
-
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
-			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'shinka' ); ?></p>
-			<?php
-		endif;
-
-	endif; // Check for have_comments().
-
-	comment_form();
-	?>
-
-</div><!-- #comments -->
+	<div id="disqus_thread"></div>
+	<script>
+		(function() {  // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			
+			s.src = '//gamingtalker.disqus.com/embed.js';
+			
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>

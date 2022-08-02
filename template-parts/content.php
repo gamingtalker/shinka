@@ -135,11 +135,64 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 					</div>
 				</div>
 			</div>
+			<?php if (comments_open()) :?>
 			<h3 class="shinka__in-post-title">Commenti</h3>
-			<p>Inserisci Disqus qui.</p>
+			<?php comments_template(); ?>
+			<?php endif; ?>
 		</div>
 		<?php
 		get_sidebar();
 		?>
 	</div>
+	<h3 class="shinka__in-post-title">Contenuti consigliati</h3>
+		<div class="shinka__recommended-content">
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+			<article class="shinka__recommended-content-post">
+				<div class="shinka__recommended-content-image">
+					<a href="#">
+						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+					</a>
+				</div>
+				<div class="shinka__recommended-content-text">
+					<a href="#">
+						<h3 class="shinka__recommended-content-title">Atittolo</h3>
+					</a>
+				</div>
+			</article>
+		</div>
 </article>
