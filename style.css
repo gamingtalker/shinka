@@ -509,6 +509,7 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
+	overflow-x: hidden;
 }
 
 hr {
@@ -641,9 +642,8 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	padding: 7px;
+	border: none;
 }
 
 input[type="text"]:focus,
@@ -693,7 +693,7 @@ textarea {
 }
 
 .shinka-header__navigation-container {
-	padding: 10px 15px;
+	padding: 15px;
 }
 
 .shinka-header__menu {
@@ -834,6 +834,35 @@ textarea {
 	text-align: center;
 }
 
+.shinka-search__wrapper {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #323232;
+	z-index: 99999;
+}
+
+.shinka-search__form {
+	display: flex;
+	padding: 15px;
+}
+
+.shinka-search__field {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.shinka-search__submit {
+	margin-left: 10px;
+	background: #ff1414;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
 @media (min-width: 1200px) {
 	.shinka-header__container {
 		width: 1280px;
@@ -904,6 +933,17 @@ textarea {
 	.shinka-footer__menu a {
 		margin: 0 10px;
 		padding: 0;
+	}
+	.shinka-search__wrapper {
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
+	}
+	.shinka-search__form {
+		width: 1280px;
+		max-width: 1280px;
+		margin: auto;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 

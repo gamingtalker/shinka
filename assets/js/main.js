@@ -3,6 +3,7 @@
     $(document).ready(function() {
         // Get elements.
         const menu = document.getElementById("header-menu");
+        const searchElement = document.getElementById("search-bar");
         // Call Magnific Popup.
         $('.post-img-link, .game-cover-img').magnificPopup({
             type: 'image'
@@ -27,6 +28,17 @@
             } else {
                 menu.style.display = "none";
                 console.log("Header menu hidden!");
+            }
+        });
+        $(".shinka-header__search-icon").click( function() {
+            var searchStyle = getComputedStyle(searchElement);
+            const searchDisplay = searchStyle.display;
+            if (searchDisplay === "none") {
+                searchElement.style.display = "block";
+                console.log("Search bar visible!");
+            } else {
+                searchElement.style.display = "none";
+                console.log("Search bar hidden!");
             }
         });
         // Post share.
