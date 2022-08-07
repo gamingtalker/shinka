@@ -49,9 +49,9 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 		</div>
 		<div class="shinka-post__share">
 			<div class="shinka-post__sns-btn shinka-post__sns-btn-facebook">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-					<path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
-				</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+				<path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+			</svg>
 			</div>
 			<div class="shinka-post__sns-btn shinka-post__sns-btn-twitter">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -80,7 +80,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 						alt="<?php the_title(); ?>"
 					>
 					<?php if ( $post_thumbnail_caption ): ?>
-						<figcaption><?php echo esc_html( $post_thumbnail_caption ); ?></figcaption>
+						<figcaption class="shinka-post__image-caption"><?php echo esc_html( $post_thumbnail_caption ); ?></figcaption>
 					<?php endif; ?>
 				</figure>
 			</div>
@@ -135,7 +135,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 					</div>
 				</div>
 			</div>
-			<?php if (comments_open()) :?>
+			<?php if ( comments_open() ): ?>
 			<h3 class="shinka__in-post-title">Commenti</h3>
 			<?php comments_template(); ?>
 			<?php endif; ?>
@@ -145,54 +145,54 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 		?>
 	</div>
 	<h3 class="shinka__in-post-title">Contenuti consigliati</h3>
-		<div class="shinka__recommended-content">
-			<article class="shinka__recommended-content-post">
-				<div class="shinka__recommended-content-image">
-					<a href="#">
-						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-					</a>
-				</div>
-				<div class="shinka__recommended-content-text">
-					<a href="#">
-						<h3 class="shinka__recommended-content-title">Atittolo</h3>
-					</a>
-				</div>
-			</article>
-			<article class="shinka__recommended-content-post">
-				<div class="shinka__recommended-content-image">
-					<a href="#">
-						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-					</a>
-				</div>
-				<div class="shinka__recommended-content-text">
-					<a href="#">
-						<h3 class="shinka__recommended-content-title">Atittolo</h3>
-					</a>
-				</div>
-			</article>
-			<article class="shinka__recommended-content-post">
-				<div class="shinka__recommended-content-image">
-					<a href="#">
-						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-					</a>
-				</div>
-				<div class="shinka__recommended-content-text">
-					<a href="#">
-						<h3 class="shinka__recommended-content-title">Atittolo</h3>
-					</a>
-				</div>
-			</article>
-			<article class="shinka__recommended-content-post">
-				<div class="shinka__recommended-content-image">
-					<a href="#">
-						<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-					</a>
-				</div>
-				<div class="shinka__recommended-content-text">
-					<a href="#">
-						<h3 class="shinka__recommended-content-title">Atittolo</h3>
-					</a>
-				</div>
-			</article>
-		</div>
+	<div class="shinka__recommended-content">
+		<article class="shinka__recommended-content-post">
+			<div class="shinka__recommended-content-image">
+				<a href="#">
+					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				</a>
+			</div>
+			<div class="shinka__recommended-content-text">
+				<a href="#">
+					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				</a>
+			</div>
+		</article>
+		<article class="shinka__recommended-content-post">
+			<div class="shinka__recommended-content-image">
+				<a href="#">
+					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				</a>
+			</div>
+			<div class="shinka__recommended-content-text">
+				<a href="#">
+					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				</a>
+			</div>
+		</article>
+		<article class="shinka__recommended-content-post">
+			<div class="shinka__recommended-content-image">
+				<a href="#">
+					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				</a>
+			</div>
+			<div class="shinka__recommended-content-text">
+				<a href="#">
+					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				</a>
+			</div>
+		</article>
+		<article class="shinka__recommended-content-post">
+			<div class="shinka__recommended-content-image">
+				<a href="#">
+					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				</a>
+			</div>
+			<div class="shinka__recommended-content-text">
+				<a href="#">
+					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				</a>
+			</div>
+		</article>
+	</div>
 </article>

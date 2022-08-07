@@ -1,10 +1,9 @@
 (function( $ ) {
     'use strict';
     $(document).ready(function() {
-        // Get elements.
-        const menu = document.getElementById("header-menu");
-        const searchElement = document.getElementById("search-bar");
-        // Call Magnific Popup.
+        var isMenuOpen = false;
+        var isSearchOpen = false;
+        // Magnific Popup.
         $('.post-img-link, .game-cover-img').magnificPopup({
             type: 'image'
         });
@@ -18,27 +17,38 @@
                 type: 'image'
             });
         });
-        // Header mobile menu handler.
+        // Header events handler.
         $(".shinka-header__menu-icon").click( function() {
-            var menuStyle = getComputedStyle(menu);
-            const menuDisplay = menuStyle.display;
-            if (menuDisplay === "none") {
-                menu.style.display = "block";
-                console.log("Header menu visible!");
-            } else {
-                menu.style.display = "none";
-                console.log("Header menu hidden!");
+            if(!isMenuOpen) {
+                $("#header-menu").show();
+                isMenuOpen = true;
+            }
+            else {
+                $("#header-menu").hide();
+                isMenuOpen = false;
             }
         });
         $(".shinka-header__search-icon").click( function() {
-            var searchStyle = getComputedStyle(searchElement);
-            const searchDisplay = searchStyle.display;
-            if (searchDisplay === "none") {
-                searchElement.style.display = "block";
-                console.log("Search bar visible!");
-            } else {
-                searchElement.style.display = "none";
-                console.log("Search bar hidden!");
+            if(!isSearchOpen) {
+                $("#search-bar").show();
+                isSearchOpen = true;
+            }
+            else {
+                $("#search-bar").hide();
+                isSearchOpen = false;
+            }
+        });
+        $(".menu-item-has-children").click( function() {
+            $(".sub-menu").toggle();
+        });
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#header-menu, .shinka-header__menu-icon').length && isMenuOpen) {
+                $("#header-menu").hide();
+                isMenuOpen = false;
+            }
+            if (!$(event.target).closest('#search-bar, .shinka-header__search-icon').length && isSearchOpen) {
+                $("#search-bar").hide();
+                isSearchOpen = false;
             }
         });
         // Post share.

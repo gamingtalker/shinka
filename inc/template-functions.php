@@ -22,16 +22,6 @@ function shinka_body_classes( $classes ) {
 add_filter( 'body_class', 'shinka_body_classes' );
 
 /**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
- */
-function shinka_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
-	}
-}
-add_action( 'wp_head', 'shinka_pingback_header' );
-
-/**
  * Custom error message on login.
  */
 function shinka_login_error() {
@@ -83,3 +73,38 @@ add_filter( 'the_content', 'shinka_magnific_popup_data' );
  * Disable default WordPress sitemap.
 */
 add_filter( 'wp_sitemaps_enabled', '__return_false' );
+
+/**
+ * Reset images with a caption in post.
+ * 
+ * Solution source: https://wordpress.stackexchange.com/questions/89221/removing-inline-styles-from-wp-caption-div
+ */
+add_shortcode( 'wp_caption', 'shinka_image_caption_shortcode' );
+add_shortcode( 'caption', 'shinka_image_caption_shortcode' );
+function shinka_image_caption_shortcode( $attr, $content = null ) {
+    if ( ! isset( $attr['caption'] ) ) {
+        if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
+			$content = $matches[1];
+			$attr['caption'] = trim( $matches[2] );
+        }
+    }
+
+    $output = apply_filters( 'img_caption_shortcode', '', $attr, $content );
+    if ( $output != '' )
+    return $output;
+
+    extract( shortcode_atts( array(
+        'id' => '',
+        'align' => 'alignnone',
+        'width' => '',
+        'caption' => ''
+    ), $attr ) );
+
+    if ( 1 > ( int ) $width || empty( $caption ) ) {
+		return $content;
+	}
+
+    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+
+	return '<div class="shinka-post__captioned-image">' . do_shortcode( $content ) . '<figcaption class="shinka-post__image-caption">' . $caption . '</figcaption></div>';
+}

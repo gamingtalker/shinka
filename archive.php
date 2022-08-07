@@ -11,41 +11,55 @@ get_header();
 ?>
 
 	<div id="main-content" class="shinka-page">
-
+		<div class="shinka-wrapper">
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</div><!-- #main -->
+			<div class="shinka-post__main">
+				<div class="shinka-post__heading">
+					<?php the_archive_title( '<h1 class="shinka-post__title">', '</h1>' ); ?>
+				</div>
+				<div class="shinka-archive__timeline-container">
+					<div class="shinka-archive__timeline-content">
+						<?php while ( have_posts() ) : the_post();
+							$post_title = get_the_title();
+							$post_url = get_the_permalink();
+							$post_image = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+							$post_excerpt = get_the_excerpt();
+							$post_date = get_the_date( 'j F Y, H:i' );
+						?>
+							<div class="shinka-archive__timeline-news">
+								<?php if ( $post_image ): ?>
+								<div class="shinka-archive__timeline-news-media">
+									<a href="<?php echo esc_url( $post_url ); ?>">
+										<img class="shinka-archive__timeline-news-image" src="<?php echo esc_url( $post_image ); ?>">
+									</a>
+								</div>
+								<?php endif; ?>
+								<div class="shinka-archive__timeline-news-text">
+									<p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata">Notizia</p>
+									<h2 class="shinka-archive__timeline-news-title">
+										<a href="<?php echo esc_url( $post_url ); ?>"><?php echo esc_html( $post_title ); ?></a>
+									</h2>
+									<p class="shinka-archive__timeline-news-date shinka-archive__timeline-news-metadata"><time datetime="<?php the_time( 'c' ); ?>"><?php echo $post_date; ?></time></p>
+									<?php if ( $post_excerpt ): ?>
+										<p class="shinka-archive__timeline-news-excerpt shinka-archive__timeline-news-metadata"><?php echo esc_html( $post_excerpt ); ?></p>
+									<?php endif; ?>
+								</div>
+							</div>
+						<?php endwhile; ?>
+						<div class="shinka-archive__pagination">
+							<?php the_posts_pagination( array(
+								'mid_size'  => 2,
+								'prev_text' => __( '<', 'shinka' ),
+								'next_text' => __( '>', 'shinka' ),
+							) ); ?>
+						</div>
+					</div>
+					<?php get_sidebar(); ?>
+				</div>
+			</div>
+		</div>
+		<?php endif; ?>
+	</div>
 
 <?php
-get_sidebar();
 get_footer();
