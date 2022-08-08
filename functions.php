@@ -165,6 +165,13 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 add_filter( 'emoji_svg_url', '__return_false' );
 
 /**
+ * Disable curly quotes.
+ */
+remove_filter('the_content', 'wptexturize');
+remove_filter('the_title', 'wptexturize');
+remove_filter('the_excerpt', 'wptexturize');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

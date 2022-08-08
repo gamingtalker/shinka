@@ -11,11 +11,12 @@ $categories_list = get_the_category();
 $tags_list = get_the_tag_list();
 $author_id = ( $post->post_author ); // Get post author.
 $post_excerpt = get_the_excerpt(); // Get post excerpt.
+$article_category = get_field( 'article_category' );
 /**
  * Post thumbnail variables.
  */
 $post_thumbnail_id = get_post_thumbnail_id();
-$post_thumbnail_size = 'medium';
+$post_thumbnail_size = 'medium_large';
 $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
@@ -33,9 +34,6 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 				<a class="shinka-post__categories-link" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"><?php echo esc_html( $category->name ); ?></a>
 			</li>
 			<?php endforeach; ?>
-			<li class="shinka-post__categories-main">
-				<a class="shinka-post__categories-link" href="#">Video</a>
-			</li>
 		</ul>
 	</div>
 	<?php endif; ?>
@@ -45,7 +43,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 			<p class="shinka-post__excerpt"><?php echo esc_html( $post_excerpt ); ?></p>
 		<?php endif; ?>
 		<div class="shinka-post__meta">
-			<p class="shinka-post__info">Contenuto di <a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>"><?php the_author_meta( 'display_name', $author_id ); ?></a> | <time datetime="<?php the_time( 'c' ); ?>"><?php echo get_the_date( 'j F Y, H:i' ); ?></time></p>
+			<p class="shinka-post__info"><?php echo esc_html( $article_category ); ?> di <a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>"><?php the_author_meta( 'display_name', $author_id ); ?></a> | <time datetime="<?php the_time( 'c' ); ?>"><?php echo get_the_date( 'j F Y, H:i' ); ?></time></p>
 		</div>
 		<div class="shinka-post__share">
 			<div class="shinka-post__sns-btn shinka-post__sns-btn-facebook">
@@ -72,6 +70,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 	</div>
 	<div class="shinka-post__content-wrapper">
 		<div class="shinka-post__content-container">
+			<?php if ( $post_thumbnail_id ): ?>
 			<div class="shinka-post__thumbnail">
 				<figure class="shinka-post__thumbnail-wrapper">
 					<img class="shinka-post__thumbnail-img" src="<?php echo esc_url( $post_thumbnail_src ); ?>"
@@ -84,6 +83,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 					<?php endif; ?>
 				</figure>
 			</div>
+			<?php endif; ?>
 			<div class="shinka-post__content">
 				<?php
 				the_content(
@@ -101,6 +101,65 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 					)
 				);
 				?>
+				<?php // Review content. 
+				if( $article_category == 'Recensione' ):
+					$review_title = get_field( 'review_title' );
+					$review_summary = get_field( 'review_summary' );
+					$review_vote = get_field( 'review_vote' );
+					$vote_color;
+					switch ( $review_vote ) {
+						case ( $review_vote < 6 ):
+							$vote_color = "#ff1414";
+							break;
+						case ( $review_vote >= 6 && $review_vote <= 6.5 ):
+							$vote_color = "#f65002";
+							break;
+						case ( $review_vote >= 7 && $review_vote <= 8.5 ):
+							$vote_color = "#00cd00";
+							break;
+						case ( $review_vote >= 9 && $review_vote <= 10 ):
+							$vote_color = "#008000";
+							break;
+					}
+				?>
+				<div class="shinka-post__review" style="background-image: url('<?php echo esc_url( $post_thumbnail_src ); ?>')">
+					<div class="shinka-post__review-wrapper">
+						<div class="shinka-post__review-title">
+							<h2 class="shinka-post__review-title-text"><?php echo esc_html( $review_title ); ?></h2>
+						</div>
+						<div class="shinka-post__review-summary">
+							<p class="shinka-post__review-text"><?php echo esc_html( $review_summary ); ?></p>
+						</div>
+						<div class="shinka-post__review-vote" style="background: <?php echo $vote_color ?>;">
+							<p class="shinka-post__review-vote-text"><?php echo esc_html( $review_vote ); ?></p>
+						</div>
+					</div>
+				</div>
+				<script type="application/ld+json">
+				{
+					"@context": "https://schema.org",
+					"@type": "Review",
+					"itemReviewed": {
+						"@type": "Game",
+						"name": "TKTK",
+						"description": "TKTK.",
+						"image": "https://www.gamingtalker.it/wp-content/uploads/2022/03/ANNO_MUTATIONEM_art_en-1024x576.jpg",
+						"author": "TKTK"
+					},
+					"reviewRating": {
+						"@type": "Rating",
+						"ratingValue": <?php echo esc_html( $review_vote ); ?>,
+						"bestRating": 10,
+						"worstRating": 1
+					},
+					"author": {
+						"@type": "Person",
+						"name": "<?php the_author_meta( 'display_name', $author_id ); ?>"
+					},
+					"reviewBody": "<?php echo esc_html( $review_summary ); ?>"
+				}
+				</script>
+				<?php endif; ?>
 			</div>
 			<?php if ( $tags_list ) { ?>
 			<div class="shinka-post__tags">

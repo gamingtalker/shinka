@@ -105,6 +105,14 @@ function shinka_image_caption_shortcode( $attr, $content = null ) {
 	}
 
     if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-
+	
 	return '<div class="shinka-post__captioned-image">' . do_shortcode( $content ) . '<figcaption class="shinka-post__image-caption">' . $caption . '</figcaption></div>';
 }
+
+/**
+ * Remove links from admin bar.
+ */
+function shinka_remove_admin_bar( $wp_admin_bar ) {
+    $wp_admin_bar->remove_menu( 'customize' );
+}
+add_action( 'admin_bar_menu', 'shinka_remove_admin_bar', 999 );

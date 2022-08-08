@@ -163,6 +163,25 @@
     z-index: 99999;
 }
 
+.shinka-inline-search__wrapper {
+	.shinka-search__form {
+		padding: 0;
+		@media (min-width: 1200px) {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+	.shinka-search__field {
+		border: 1px solid $shinka__border;
+	}
+	svg {
+		width: 20px;
+		height: 20px;
+		display: block;
+		fill: $shinka__white;
+	}
+}
+
 .shinka-search__form {
 	display: flex;
     padding: 15px;
@@ -180,6 +199,7 @@
 	border: none;
 	border-radius: 5px;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .sub-menu {
