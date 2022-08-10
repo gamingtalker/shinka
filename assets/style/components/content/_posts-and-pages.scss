@@ -249,7 +249,7 @@
     text-align: center;
 }
 
-.shinka-archive__load-more-link {
+.shinka-archive__load-more-link, .shinka-game-releases__filter-button-item {
 	padding: 15px;
 	background: $shinka__red;
 	font-weight: 600;
@@ -487,7 +487,7 @@
 	margin-top: 10px;
 }
 
-.shinka__recommended-content-image, .shinka-sidebar__popular-post-image {
+.shinka__recommended-content-image, .shinka-sidebar__popular-post-image, .shinka-game-releases__image {
 	a, img {
 		display: block;
 	}
@@ -501,7 +501,7 @@
 	font-size: 22px;
 }
 
-.shinka-sidebar, .shinka__recommended-content {
+.shinka-sidebar, .shinka__recommended-content, .shinka-game-releases__item {
 	a {
 		color: $shinka__black;
 		&:hover {
@@ -706,6 +706,139 @@
     align-items: center;
 }
 
+.shinka-game-releases__container {
+	padding: 0;
+}
+
+.shinka-game-releases__filter-wrapper {
+	padding: 15px;
+	background: $shinka__grey;
+}
+
+.shinka-game-releases__filter-flex {
+	display: flex;
+}
+
+.shinka-game-releases__filter-dropdown {
+	&:nth-child(n+2) {
+		margin-left: 5px;
+	}
+}
+
+.shinka-game-releases__filter-dropdown-item {
+	font-size: 14px;
+}
+
+.shinka-game-releases__filter-text, .shinka-game-releases__filter-item  {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.shinka-game-releases__filter-text {
+	font-weight: 600;
+}
+
+.shinka-game-releases__filter-button {
+	margin-top: 15px;
+	text-align: center;
+}
+
+.shinka-game-releases__filter-button-item {
+	cursor: pointer;
+}
+
+.shinka-game-releases__content {
+	margin-top: 10px;
+}
+
+.shinka-game-releases__heading {
+	background: #e0e0e0;
+	margin-top: 10px;
+	&:first-of-type {
+		margin: 0;
+	}
+}
+
+.shinka-game-releases__heading-text {
+	font-size: 17px;
+	padding: 5px 8px;
+}
+
+.shinka-game-releases__item {
+	display: flex;
+	padding: 10px 0;
+    align-items: center;
+	border-top: 1px solid $shinka__border;
+	&:first-of-type {
+		border: none;
+	}
+}
+
+.shinka-game-releases__box-art {
+	height: 80px;
+    width: 80px;
+}
+
+.shinka-archive__pre-content-image {
+	width: 200px;
+}
+
+.shinka-game-releases__text {
+	margin-left: 10px;
+}
+
+.shinka-game-releases__platform {
+	font-size: 13px;
+}
+
+.shinka-game-releases__title {
+	margin-top: 5px;
+	h2 {
+		font-size: 17px;
+	}
+}
+
+.shinka-game-releases__platform-text {
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: $shinka__white;
+	font-weight: 600;
+	cursor: default;
+}
+
+.shinka-archive__pre-content-details {
+	margin-top: 10px;
+}
+
+.shinka-archive__pre-content-details-field {
+	span {
+		font-weight: 600;
+	}
+}
+
+.shinka-bg-platform {
+	&__pc, &__mobile, &__generic {
+		background: #292929;
+	}
+	&__ps1, &__ps2, &__ps3, &__ps4, &__ps5, &__psp, &__ps-vita {
+		background: #003791;
+	}
+	&__nes, &__snes, &__n64, &__gamecube, &__wii, &__wii-u, &__switch, &__gb, &__gbc, &__gba, &__ds, &__3ds {
+		background: #E60012;
+	}
+	&__xbox, &__xbox-360, &__xbox-one, &__xbox-series {
+		background: #107C10;
+	}
+	&__stadia {
+		background: #FF4C1D;
+	}
+}
+
+.shinka-game-releases__image, .shinka-archive__pre-content-image img {
+	height: 100%;
+	object-fit: cover;
+}
+
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -715,6 +848,7 @@
 
 	.shinka-home__main-news {
 		display: flex;
+		margin-top: 20px;
 	}
 
 	.shinka-home__main-story {
@@ -934,6 +1068,16 @@
 	.shinka-post__review-wrapper {
 		padding: 15px;
 		text-align: center;
+	}
+
+	.shinka-game-releases__filter {
+		flex: 0 0 20%;
+	}
+
+	.shinka-game-releases__content {
+		flex: 0 0 50%;
+		margin: 0;
+		padding: 0 15px;
 	}
 }
 

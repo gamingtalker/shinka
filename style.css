@@ -1300,7 +1300,7 @@ textarea {
 	text-align: center;
 }
 
-.shinka-archive__load-more-link {
+.shinka-archive__load-more-link, .shinka-game-releases__filter-button-item {
 	padding: 15px;
 	background: #ff1414;
 	font-weight: 600;
@@ -1559,7 +1559,7 @@ textarea {
 	margin-top: 10px;
 }
 
-.shinka__recommended-content-image a, .shinka__recommended-content-image img, .shinka-sidebar__popular-post-image a, .shinka-sidebar__popular-post-image img {
+.shinka__recommended-content-image a, .shinka__recommended-content-image img, .shinka-sidebar__popular-post-image a, .shinka-sidebar__popular-post-image img, .shinka-game-releases__image a, .shinka-game-releases__image img {
 	display: block;
 }
 
@@ -1571,11 +1571,11 @@ textarea {
 	font-size: 22px;
 }
 
-.shinka-sidebar a, .shinka__recommended-content a {
+.shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a {
 	color: #000000;
 }
 
-.shinka-sidebar a:hover, .shinka__recommended-content a:hover {
+.shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover {
 	color: #ff1414;
 	opacity: .9;
 	transition-duration: .2s;
@@ -1780,6 +1780,140 @@ textarea {
 	align-items: center;
 }
 
+.shinka-game-releases__container {
+	padding: 0;
+}
+
+.shinka-game-releases__filter-wrapper {
+	padding: 15px;
+	background: #f2f2f2;
+}
+
+.shinka-game-releases__filter-flex {
+	display: flex;
+}
+
+.shinka-game-releases__filter-dropdown:nth-child(n+2) {
+	margin-left: 5px;
+}
+
+.shinka-game-releases__filter-dropdown-item {
+	font-size: 14px;
+}
+
+.shinka-game-releases__filter-text, .shinka-game-releases__filter-item {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.shinka-game-releases__filter-text {
+	font-weight: 600;
+}
+
+.shinka-game-releases__filter-button {
+	margin-top: 15px;
+	text-align: center;
+}
+
+.shinka-game-releases__filter-button-item {
+	cursor: pointer;
+}
+
+.shinka-game-releases__content {
+	margin-top: 10px;
+}
+
+.shinka-game-releases__heading {
+	background: #e0e0e0;
+	margin-top: 10px;
+}
+
+.shinka-game-releases__heading:first-of-type {
+	margin: 0;
+}
+
+.shinka-game-releases__heading-text {
+	font-size: 17px;
+	padding: 5px 8px;
+}
+
+.shinka-game-releases__item {
+	display: flex;
+	padding: 10px 0;
+	align-items: center;
+	border-top: 1px solid #d8d8d8;
+}
+
+.shinka-game-releases__item:first-of-type {
+	border: none;
+}
+
+.shinka-game-releases__box-art {
+	height: 80px;
+	width: 80px;
+}
+
+.shinka-archive__pre-content-image {
+	width: 200px;
+}
+
+.shinka-game-releases__text {
+	margin-left: 10px;
+}
+
+.shinka-game-releases__platform {
+	font-size: 13px;
+}
+
+.shinka-game-releases__title {
+	margin-top: 5px;
+}
+
+.shinka-game-releases__title h2 {
+	font-size: 17px;
+}
+
+.shinka-game-releases__platform-text {
+	padding: 3px 6px;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: 600;
+	cursor: default;
+}
+
+.shinka-archive__pre-content-details {
+	margin-top: 10px;
+}
+
+.shinka-archive__pre-content-details-field span {
+	font-weight: 600;
+}
+
+.shinka-bg-platform__pc, .shinka-bg-platform__mobile, .shinka-bg-platform__generic {
+	background: #292929;
+}
+
+.shinka-bg-platform__ps1, .shinka-bg-platform__ps2, .shinka-bg-platform__ps3, .shinka-bg-platform__ps4, .shinka-bg-platform__ps5, .shinka-bg-platform__psp, .shinka-bg-platform__ps-vita {
+	background: #003791;
+}
+
+.shinka-bg-platform__nes, .shinka-bg-platform__snes, .shinka-bg-platform__n64, .shinka-bg-platform__gamecube, .shinka-bg-platform__wii, .shinka-bg-platform__wii-u, .shinka-bg-platform__switch, .shinka-bg-platform__gb, .shinka-bg-platform__gbc, .shinka-bg-platform__gba, .shinka-bg-platform__ds, .shinka-bg-platform__3ds {
+	background: #E60012;
+}
+
+.shinka-bg-platform__xbox, .shinka-bg-platform__xbox-360, .shinka-bg-platform__xbox-one, .shinka-bg-platform__xbox-series {
+	background: #107C10;
+}
+
+.shinka-bg-platform__stadia {
+	background: #FF4C1D;
+}
+
+.shinka-game-releases__image, .shinka-archive__pre-content-image img {
+	height: 100%;
+	object-fit: cover;
+}
+
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -1788,6 +1922,7 @@ textarea {
 	}
 	.shinka-home__main-news {
 		display: flex;
+		margin-top: 20px;
 	}
 	.shinka-home__main-story {
 		flex: 0 1 66.666666%;
@@ -1961,6 +2096,14 @@ textarea {
 	.shinka-post__review-wrapper {
 		padding: 15px;
 		text-align: center;
+	}
+	.shinka-game-releases__filter {
+		flex: 0 0 20%;
+	}
+	.shinka-game-releases__content {
+		flex: 0 0 50%;
+		margin: 0;
+		padding: 0 15px;
 	}
 }
 
