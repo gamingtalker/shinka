@@ -15,6 +15,22 @@ $post_thumbnail_size = 'medium';
 $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
+
+$recommended_posts = array(
+	'posts_per_page'    => 4,
+	'post_type'		    => 'post',
+	'post_status'       => 'publish',
+	'ignore_sticky_posts' => true,
+	'nopaging'          => false,
+	'no_found_rows' => true,
+	'meta_query' => array(
+		array(
+			'key' => 'article_recommended',
+			'value' => '1'
+		)
+	),
+);
+$recommended_query = new WP_Query( $recommended_posts );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'shinka-post__main' ); ?>>
@@ -60,55 +76,35 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 		get_sidebar();
 		?>
 	</div>
+	<?php 
+		if( $recommended_query->have_posts() ):
+	?>
 	<h3 class="shinka__in-post-title">Contenuti consigliati</h3>
 	<div class="shinka__recommended-content">
+		<?php while( $recommended_query->have_posts() ):
+            $recommended_query->the_post();
+            $post_permalink = get_the_permalink();
+            $post_title = $post->post_title; 
+        ?>
 		<article class="shinka__recommended-content-post">
+			<?php if ( has_post_thumbnail() ):
+                $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' ); 
+			?>
 			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				<a href="<?php echo esc_url( $post_permalink ); ?>">
+					<figure class="shinka-utils__image-wrapper">
+						<img class="shinka__recommended-content-thumb shinka-utils__crop-16x9" src="<?php echo esc_url( $featured_image_url ); ?>">
+					</figure>
 				</a>
 			</div>
+			<?php endif; ?>
 			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				<a href="<?php echo esc_url( $post_permalink ); ?>">
+					<h3 class="shinka__recommended-content-title"><?php echo esc_html( $post_title ); ?></h3>
 				</a>
 			</div>
 		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
+		<?php endwhile; ?>
 	</div>
+	<?php endif; ?>
 </article>

@@ -123,9 +123,31 @@ add_action( 'after_setup_theme', 'shinka_content_width', 0 );
 function shinka_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Primary sidebar', 'shinka' ),
+			'name'          => esc_html__( 'Sidebar primaria', 'shinka' ),
 			'id'            => 'main-sidebar',
-			'description'   => esc_html__( 'Website\'s main sidebar.', 'shinka' ),
+			'description'   => esc_html__( 'Sidebar principale.', 'shinka' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Articoli popolari', 'shinka' ),
+			'id'            => 'popular-sidebar',
+			'description'   => esc_html__( 'Sidebar per i post popolari.', 'shinka' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Articoli e guide', 'shinka' ),
+			'id'            => 'categories-sidebar',
+			'description'   => esc_html__( 'Sidebar per gli ultimi articoli e guide.', 'shinka' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -167,9 +189,9 @@ add_filter( 'emoji_svg_url', '__return_false' );
 /**
  * Disable curly quotes.
  */
-remove_filter('the_content', 'wptexturize');
-remove_filter('the_title', 'wptexturize');
-remove_filter('the_excerpt', 'wptexturize');
+remove_filter( 'the_content', 'wptexturize' );
+remove_filter( 'the_title', 'wptexturize' );
+remove_filter( 'the_excerpt', 'wptexturize' );
 
 /**
  * Implement the Custom Header feature.
@@ -190,3 +212,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Custom widgets.
+ */
+require get_template_directory() . '/inc/custom-widgets.php';

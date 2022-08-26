@@ -13,7 +13,7 @@
  */
 function shinka_body_classes( $classes ) {
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	if ( ! is_active_sidebar( 'main-sidebar' ) && ! is_active_sidebar( 'popular-sidebar' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -116,3 +116,40 @@ function shinka_remove_admin_bar( $wp_admin_bar ) {
     $wp_admin_bar->remove_menu( 'customize' );
 }
 add_action( 'admin_bar_menu', 'shinka_remove_admin_bar', 999 );
+
+/**
+ * Pagination.
+ */
+function shinka_pagination() {
+    if ( get_query_var( 'paged' ) ) {
+        $paged = get_query_var( 'paged' );
+    } elseif ( get_query_var( 'page' ) ) {
+        $paged = get_query_var( 'page' );
+    } else {
+        $paged = 1;
+    }
+    $pagination = paginate_links( array(
+        'base'     => str_replace( 99999, '%#%', esc_url( get_pagenum_link( 99999 ) ) ),
+        'format'   => '?paged=%#%',
+        'current'  => max( 1, $paged ),
+        'prev_text' => '<',
+        'next_text' => '>',
+    ) );
+    echo '<nav class="navigation pagination" aria-label="Articoli">' . $pagination . '</nav>';
+}
+
+/**
+ * Enqueue CSS for TinyMCE.
+ */
+function shinka_add_editor_styles() {
+    add_editor_style( trailingslashit( get_template_directory_uri() ) . 'assets/admin/style/editor.css' );
+}
+add_action( 'admin_init', 'shinka_add_editor_styles' );
+
+/**
+ * Custom CSS for the login page.
+ */
+function shinka_custom_login() {
+	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/assets/admin/style/login.css" />';
+}
+add_action( 'login_head', 'shinka_custom_login' );

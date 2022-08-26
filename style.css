@@ -370,7 +370,7 @@ template {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 html {
@@ -386,6 +386,7 @@ html {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 300;
+	font-display: swap;
 	src: url("assets/fonts/roboto-light.woff2") format("woff2"), url("assets/fonts/roboto-light.woff") format("woff");
 }
 
@@ -394,8 +395,8 @@ html {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 400;
+	font-display: swap;
 	src: url("assets/fonts/roboto-regular.woff2") format("woff2"), url("assets/fonts/roboto-regular.woff") format("woff");
-	display: swap;
 }
 
 /* roboto-italic - latin */
@@ -403,8 +404,8 @@ html {
 	font-family: 'Roboto';
 	font-style: italic;
 	font-weight: 400;
+	font-display: swap;
 	src: url("assets/fonts/roboto-italic.woff2") format("woff2"), url("assets/fonts/roboto-italic.woff") format("woff");
-	display: swap;
 }
 
 /* roboto-700 - latin */
@@ -412,8 +413,8 @@ html {
 	font-family: 'Roboto';
 	font-style: normal;
 	font-weight: 700;
+	font-display: swap;
 	src: url("assets/fonts/roboto-bold.woff2") format("woff2"), url("assets/fonts/roboto-bold.woff") format("woff");
-	display: swap;
 }
 
 body,
@@ -1122,7 +1123,7 @@ textarea {
 	color: #ff1414;
 }
 
-.shinka-home__hot-news-title {
+.shinka-home__hot-news-title, .shinka__recommended-content-title, .shinka-timeline__extra-news-title {
 	font-size: 15px;
 	line-height: 1.4em;
 }
@@ -1138,11 +1139,14 @@ textarea {
 
 .shinka-home__title {
 	margin-top: 20px;
-	padding: 0 10px;
+	padding: 0 15px;
 }
 
 .shinka-archive__timeline-container {
 	margin-top: 10px;
+}
+
+.shinka-home__timeline-container {
 	padding: 0 15px;
 }
 
@@ -1240,10 +1244,6 @@ textarea {
 	color: #ff1414;
 }
 
-.shinka-timeline__extra-heading-title {
-	text-transform: uppercase;
-}
-
 .shinka-timeline__extra-heading {
 	align-items: center;
 	display: flex;
@@ -1269,11 +1269,7 @@ textarea {
 	margin-right: 10px;
 }
 
-.shinka-timeline__extra-news a, .shinka-timeline__extra-news img {
-	display: block;
-}
-
-.shinka-timeline__extra-news a img:hover, .shinka-timeline__extra-news img img:hover {
+.shinka-timeline__extra-news a img:hover {
 	opacity: .75;
 	transition-duration: .2s;
 }
@@ -1282,12 +1278,17 @@ textarea {
 	margin-right: 0;
 }
 
+.shinka-timeline__extra-news-image {
+	display: block;
+	width: 100%;
+}
+
 .shinka-timeline__extra-news-text {
 	margin-top: 5px;
 }
 
-.shinka-archive__sidebar {
-	margin-top: 20px;
+.home .shinka-sidebar {
+	padding: 0 15px;
 }
 
 .shinka-archive__timeline-container-secondary {
@@ -1547,6 +1548,20 @@ textarea {
 	grid-area: 2 / 1 / 3 / 3;
 }
 
+.shinka__post-game-heading a {
+	color: #000000;
+}
+
+.shinka__post-game-heading a:hover {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2;
+}
+
+.shinka__post-game-title {
+	display: inline-block;
+}
+
 .shinka__in-post-title {
 	margin-top: 10px;
 }
@@ -1555,8 +1570,16 @@ textarea {
 	margin-top: 10px;
 }
 
-.shinka__recommended-content-post, .shinka-sidebar__popular-post-wrapper, .shinka-sidebar__popular-post {
+.shinka__recommended-content-post, .shinka-sidebar__popular-post-wrapper {
 	margin-top: 10px;
+}
+
+.shinka-sidebar__popular-post {
+	margin-top: 15px;
+}
+
+.shinka-sidebar__popular-post:first-of-type {
+	margin: 0;
 }
 
 .shinka__recommended-content-image a, .shinka__recommended-content-image img, .shinka-sidebar__popular-post-image a, .shinka-sidebar__popular-post-image img, .shinka-game-releases__image a, .shinka-game-releases__image img {
@@ -1571,11 +1594,15 @@ textarea {
 	font-size: 22px;
 }
 
-.shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a {
+.shinka-sidebar__popular-post-thumb {
+	width: 100%;
+}
+
+.shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a, .shinka__post-game-heading a, .shinka__post-game-cover a {
 	color: #000000;
 }
 
-.shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover {
+.shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover, .shinka__post-game-heading a:hover, .shinka__post-game-cover a:hover {
 	color: #ff1414;
 	opacity: .9;
 	transition-duration: .2s;
@@ -1640,14 +1667,6 @@ textarea {
 	border-radius: 5px;
 }
 
-.archive .shinka-archive__timeline-container, .search .shinka-archive__timeline-container {
-	padding: 0;
-}
-
-.archive .shinka-sidebar, .search .shinka-sidebar {
-	margin-top: 20px;
-}
-
 .shinka-archive__timeline-news-date {
 	margin-top: 5px;
 }
@@ -1676,6 +1695,12 @@ textarea {
 .nav-links a:hover {
 	color: #ffffff;
 	background: #ff1414;
+}
+
+.nav-links .page-numbers.dots {
+	color: #ff1414;
+	background: #ffffff;
+	border: 1px solid #ff1414;
 }
 
 .shinka-archive__pre-content {
@@ -1873,12 +1898,17 @@ textarea {
 	font-size: 17px;
 }
 
-.shinka-game-releases__platform-text {
+.shinka-game-releases__platform-text, .shinka-game__genre-text {
 	padding: 3px 6px;
+	margin-left: 5px;
 	border-radius: 3px;
 	color: #ffffff;
 	font-weight: 600;
 	cursor: default;
+}
+
+.shinka-game-releases__platform-text:first-of-type, .shinka-game__genre-text:first-of-type {
+	margin: 0;
 }
 
 .shinka-archive__pre-content-details {
@@ -1912,6 +1942,116 @@ textarea {
 .shinka-game-releases__image, .shinka-archive__pre-content-image img {
 	height: 100%;
 	object-fit: cover;
+}
+
+.shinka-game__background {
+	height: 300px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.shinka-game__background::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.96) 100%);
+}
+
+.shinka-game__cover {
+	margin-top: -150px;
+	position: relative;
+}
+
+.shinka-game__cover-link {
+	display: block;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.shinka-game__cover-image {
+	display: block;
+}
+
+.shinka-game__main-info {
+	display: flex;
+	flex-direction: column;
+	padding: 0 15px;
+}
+
+.shinka-game__title {
+	margin-top: 10px;
+}
+
+.shinka-game__genres {
+	margin-top: 7px;
+}
+
+.shinka-game__genre-text {
+	background: #ff1414;
+}
+
+.shinka-game__content {
+	padding: 0 15px;
+	margin-top: 20px;
+}
+
+.shinka-game__description {
+	border: none;
+}
+
+.shinka-game__description p:last-of-type {
+	margin: 0;
+}
+
+.shinka-game__info {
+	margin-top: 10px;
+}
+
+.shinka-game__info-content {
+	display: flex;
+	padding: 8px 0;
+	border-bottom: 1px solid #d8d8d8;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.shinka-game__info-bold {
+	font-weight: 600;
+}
+
+.shinka-game__info-detail {
+	margin-left: 10px;
+}
+
+.shinka-game__timeline-content {
+	margin-top: 7px;
+}
+
+.shinka-sidebar {
+	margin-top: 20px;
+}
+
+.shinka-home__main-thumb {
+	margin: 0;
+}
+
+.shinka-utils__crop-16x9 {
+	object-fit: cover;
+	aspect-ratio: 16 / 9;
+}
+
+.shinka-utils__image-wrapper {
+	margin: 0;
+}
+
+.shinka-home__hot-news-image {
+	width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -1957,7 +2097,7 @@ textarea {
 	.shinka-home__hot-news:nth-child(odd), .shinka__recommended-content-post:nth-child(odd) {
 		margin-right: 20px;
 	}
-	.shinka-home__hot-news-title, .shinka__recommended-content-title {
+	.shinka-home__hot-news-title, .shinka__recommended-content-title, .shinka-timeline__extra-news-title {
 		font-size: 20px;
 		line-height: 1.5em;
 		margin-top: 8px;
@@ -1976,7 +2116,7 @@ textarea {
 		border-left: 1px solid #d8d8d8;
 	}
 	.shinka-archive__timeline-content {
-		flex: 1 0 70%;
+		flex: 0 0 70%;
 		padding-right: 15px;
 	}
 	.shinka-archive__timeline-news-media {
@@ -1989,7 +2129,7 @@ textarea {
 	.shinka-archive__timeline-news-metadata {
 		margin-top: 7px;
 	}
-	.shinka-archive__timeline-news-metadata:first-of-type {
+	.shinka-archive__timeline-news-metadata:first {
 		margin-top: 0;
 	}
 	.shinka-archive__timeline-news-category {
@@ -2029,12 +2169,13 @@ textarea {
 		margin-top: 15px;
 		display: flex;
 	}
-	.shinka-post__content-container {
+	.shinka-post__content-container, .shinka-game__wrapper {
 		flex: 0 0 70%;
 		padding-right: 15px;
 	}
 	.shinka-sidebar {
 		flex: 0 0 30%;
+		margin: 0;
 		padding-left: 15px;
 		border-left: 1px solid #d8d8d8;
 	}
@@ -2072,7 +2213,7 @@ textarea {
 	.shinka__error-404 {
 		padding: 200px;
 	}
-	.archive .shinka-sidebar, .search .shinka-sidebar {
+	.shinka-sidebar {
 		margin-top: 0;
 	}
 	.shinka-archive__pre-content {
@@ -2105,6 +2246,28 @@ textarea {
 		margin: 0;
 		padding: 0 15px;
 	}
+	.shinka-game__cover {
+		width: 20% !important;
+		margin-top: -250px;
+	}
+	.shinka-game__content {
+		display: flex;
+	}
+	.shinka-game__background {
+		height: 450px;
+	}
+	.shinka-game__title {
+		font-size: 40px;
+	}
+	.shinka-game__main-info, .shinka-game__content {
+		padding: 0;
+	}
+	.home .shinka-sidebar {
+		padding-right: 0;
+	}
+	.shinka-game__timeline-content {
+		padding: 0;
+	}
 }
 
 @media (min-width: 700px) {
@@ -2126,6 +2289,19 @@ textarea {
 	.shinka__post-game-text {
 		margin: 0;
 	}
+	.shinka-game__main-info {
+		flex-direction: row;
+	}
+	.shinka-game__cover {
+		width: 30%;
+	}
+	.shinka-game__cover-link {
+		margin: 0;
+		width: 100%;
+	}
+	.shinka-game__heading {
+		margin-left: 20px;
+	}
 }
 
 /* Comments
@@ -2141,11 +2317,11 @@ textarea {
 /* Widgets
 --------------------------------------------- */
 .widget {
-	margin: 0 0 1.5em;
+	margin-top: 1em;
 }
 
-.widget select {
-	max-width: 100%;
+.widget:first-of-type {
+	margin: 0;
 }
 
 /* Media

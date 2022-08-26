@@ -20,7 +20,38 @@ $post_thumbnail_size = 'medium_large';
 $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, $post_thumbnail_size );
 $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
+/**
+ * Games variables.
+ */
+$games_list = get_field( 'article_games' );
+if( $games_list ):
+	$game_id = ( $games_list[0]->ID );
+	$game_featured_image = get_the_post_thumbnail_url( $game_id );
+	$game_permalink = get_permalink( $game_id );
+	$game_title = get_the_title( $game_id );
+	$game_release_date = get_field( 'game_release_date', $game_id );
+	$game_platforms = get_field( 'game_platforms', $game_id );
+	$game_developers = get_field( 'game_developer', $game_id );
+	$game_publishers = get_field( 'game_publisher', $game_id );
+	$game_cover = get_field( 'game_cover', $game_id );
+	$game_summary = get_field( 'game_summary', $game_id ); 
+endif;
 
+$recommended_posts = array(
+	'posts_per_page'    => 4,
+	'post_type'		    => 'post',
+	'post_status'       => 'publish',
+	'ignore_sticky_posts' => true,
+	'nopaging'          => false,
+	'no_found_rows' => true,
+	'meta_query' => array(
+		array(
+			'key' => 'article_recommended',
+			'value' => '1'
+		)
+	),
+);
+$recommended_query = new WP_Query( $recommended_posts );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'shinka-post__main' ); ?>>
@@ -73,7 +104,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 			<?php if ( $post_thumbnail_id ): ?>
 			<div class="shinka-post__thumbnail">
 				<figure class="shinka-post__thumbnail-wrapper">
-					<img class="shinka-post__thumbnail-img" src="<?php echo esc_url( $post_thumbnail_src ); ?>"
+					<img class="shinka-post__thumbnail-img shinka-utils__crop-16x9" src="<?php echo esc_url( $post_thumbnail_src ); ?>"
 						srcset="<?php echo esc_attr( $post_thumbnail_srcset ); ?>"
 						sizes="(max-width: 768px) 800px, (max-width: 1400px) 1400px, (max-width: 2000px) 2000px"
 						alt="<?php the_title(); ?>"
@@ -139,12 +170,16 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 				{
 					"@context": "https://schema.org",
 					"@type": "Review",
+					"url": "<?php echo esc_url( get_permalink() ); ?>",
 					"itemReviewed": {
 						"@type": "Game",
-						"name": "TKTK",
-						"description": "TKTK.",
-						"image": "https://www.gamingtalker.it/wp-content/uploads/2022/03/ANNO_MUTATIONEM_art_en-1024x576.jpg",
-						"author": "TKTK"
+						"name": "<?php echo esc_html( $game_title ); ?>",
+						"description": "<?php echo esc_html( $game_summary ); ?>",
+						"image": "<?php echo esc_url( $game_featured_image ); ?>",
+						"author": {
+							"@type": "Organization",
+							"name": "<?php foreach ( $game_developers as $game_developer ): echo esc_html( get_the_title( $game_developer->ID ) ); endforeach; ?>"
+						}
 					},
 					"reviewRating": {
 						"@type": "Rating",
@@ -161,97 +196,149 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 				</script>
 				<?php endif; ?>
 			</div>
-			<?php if ( $tags_list ) { ?>
+			<?php if ( $tags_list ): ?>
 			<div class="shinka-post__tags">
 				<?php /* translators: 1: list of tags. */
 					printf( esc_html__( 'Tag: %1$s', 'shinka' ), $tags_list );
 				?>
 			</div>
-			<?php } ?>
+			<?php endif; ?>
+			<?php wp_reset_query(); ?>
+			<?php
+				$post_tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
+				$query_args = [
+					'post__not_in'        => array( get_queried_object_id() ),
+					'posts_per_page'      => 5,
+					'ignore_sticky_posts' => 1,
+					'orderby'             => 'date',
+					'tax_query' => [
+						[
+							'taxonomy' => 'post_tag',
+							'terms'    => $post_tags
+						]
+					]
+				];
+				$tag_query = new WP_Query( $query_args );
+			?>
+			<?php if( $tag_query->have_posts() ): ?>
 			<div class="shinka__related-content">
 				<h3>Articoli correlati</h3>
-				<h4 class="shinka__related-content-title"><a href="#" title="A">Plausibile titolo notizia</a></h4>
-				<h4 class="shinka__related-content-title"><a href="#" title="A">Plausibile titolo notizia</a></h4>
-				<h4 class="shinka__related-content-title"><a href="#" title="A">Plausibile titolo notizia</a></h4>
-				<h4 class="shinka__related-content-title"><a href="#" title="A">Plausibile titolo notizia</a></h4>
-				<h4 class="shinka__related-content-title"><a href="#" title="A">Plausibile titolo notizia</a></h4>
+				<?php while( $tag_query->have_posts() ):
+					$tag_query->the_post(); 
+					$post_permalink = get_the_permalink();
+					$post_title = $post->post_title; 
+				?>
+				<h4 class="shinka__related-content-title">
+					<a href="<?php echo esc_url( $post_permalink ); ?>"><?php echo esc_html( $post_title ); ?></a>
+				</h4>
+				<?php endwhile; ?>
 			</div>
+			<?php endif; ?>
+			<?php wp_reset_query(); ?>
+			<?php if( $games_list ): ?>
 			<h3 class="shinka__in-post-title">In questo articolo</h3>
 			<div class="shinka__post-game">
 				<div class="shinka__post-game-wrapper">
+					<?php if ( $game_cover ): ?>
 					<div class="shinka__post-game-cover">
-						<img class="shinka__post-game-cover-img" src="https://www.gematsu.com/wp-content/uploads/2021/09/Game-Page-Box-Art_Bayonetta-3-Initis-320x480.jpg">
+						<a href="<?php echo esc_url( $game_permalink ); ?>">
+							<img class="shinka__post-game-cover-img" src="<?php echo esc_url( $game_cover['sizes']['thumbnail'] ); ?>">
+						</a>
 					</div>
+					<?php endif; ?>
 					<div class="shinka__post-game-heading">
-						<h3 class="shinka__post-game-title">Titolo gioco</h3>
-						<p class="shinka__post-game-summary">Riassunto gioco / sommario.</p>
+						<a href="<?php echo esc_url( $game_permalink ); ?>">
+							<h3 class="shinka__post-game-title"><?php echo esc_html( $game_title ); ?></h3>
+						</a>
+						<p class="shinka__post-game-summary"><?php echo esc_html( $game_summary ); ?></p>
 					</div>
 					<div class="shinka__post-game-details">
-						<div class="shinka__post-game-developer shinka__post-game-text"><span class="shinka__post-game-text-bold">Sviluppatore: </span><span class="shinka__post-game-text-content">Dev</span></div>
-						<div class="shinka__post-game-publisher shinka__post-game-text"><span class="shinka__post-game-text-bold">Publisher: </span><span class="shinka__post-game-text-content">Publisher</span></div>
-						<div class="shinka__post-game-release-date shinka__post-game-text"><span class="shinka__post-game-text-bold">Data di uscita: </span><span class="shinka__post-game-text-content">TK/TK/TKTK</span></div>
-						<div class="shinka__post-game-platforms shinka__post-game-text"><span class="shinka__post-game-text-bold">Piattaforme: </span><span class="shinka__post-game-text-content">TK, TK, TK</span></div>
+						<?php if ( $game_developers ): ?>
+						<div class="shinka__post-game-developer shinka__post-game-text">
+							<span class="shinka__post-game-text-bold">Sviluppatore: </span>
+							<span class="shinka__post-game-text-content">
+							<?php foreach ( $game_developers as $game_developer ):
+								$developer_permalink = get_permalink( $game_developer->ID );
+								$developer_name = get_the_title( $game_developer->ID ); ?>
+								<a href="<?php echo esc_url( $developer_permalink ); ?>"><?php echo esc_html( $developer_name ); ?></a>
+								<?php endforeach; ?>
+							</span>
+						</div>
+						<?php endif; ?>
+						<?php if ( $game_publishers ): ?>
+						<div class="shinka__post-game-publisher shinka__post-game-text">
+							<span class="shinka__post-game-text-bold">Publisher: </span>
+							<span class="shinka__post-game-text-content">
+							<?php foreach ( $game_publishers as $game_publisher ):
+								$publisher_permalink = get_permalink( $game_publisher->ID );
+								$publisher_name = get_the_title( $game_publisher->ID ); ?>
+								<a href="<?php echo esc_url( $publisher_permalink ); ?>"><?php echo esc_html( $publisher_name ); ?></a>
+								<?php endforeach; ?>
+							</span>
+						</div>
+						<?php endif; ?>
+						<?php if ( $game_release_date ): ?>
+						<div class="shinka__post-game-release-date shinka__post-game-text">
+							<span class="shinka__post-game-text-bold">Data di uscita: </span><span class="shinka__post-game-text-content"><?php echo esc_html( $game_release_date ); ?></span>
+						</div>
+						<?php else: ?>
+						<div class="shinka__post-game-release-date shinka__post-game-text">
+							<span class="shinka__post-game-text-bold">Data di uscita: </span><span class="shinka__post-game-text-content">Da determinare</span>
+						</div>
+						<?php endif; ?>
+						<?php if ( $game_platforms ): ?>
+						<div class="shinka__post-game-platforms shinka__post-game-text">
+							<span class="shinka__post-game-text-bold">Piattaforme: </span>
+							<span class="shinka__post-game-text-content">
+							<?php $platforms_string = implode( ', ', $game_platforms );
+								echo $platforms_string; 
+							?>
+							</span>
+						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
+			<?php endif; ?>
+			<?php wp_reset_query(); ?>
 			<?php if ( comments_open() ): ?>
 			<h3 class="shinka__in-post-title">Commenti</h3>
 			<?php comments_template(); ?>
 			<?php endif; ?>
 		</div>
 		<?php
-		get_sidebar();
+			get_template_part( 'template-parts/sidebar/popular-articles' );
 		?>
 	</div>
+	<?php 
+		if( $recommended_query->have_posts() ):
+	?>
 	<h3 class="shinka__in-post-title">Contenuti consigliati</h3>
 	<div class="shinka__recommended-content">
+		<?php while( $recommended_query->have_posts() ):
+            $recommended_query->the_post();
+            $post_permalink = get_the_permalink();
+            $post_title = $post->post_title; 
+        ?>
 		<article class="shinka__recommended-content-post">
+			<?php if ( has_post_thumbnail() ):
+                $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' ); 
+			?>
 			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
+				<a href="<?php echo esc_url( $post_permalink ); ?>">
+					<figure class="shinka-utils__image-wrapper">
+						<img class="shinka__recommended-content-thumb shinka-utils__crop-16x9" src="<?php echo esc_url( $featured_image_url ); ?>">
+					</figure>
 				</a>
 			</div>
+			<?php endif; ?>
 			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
+				<a href="<?php echo esc_url( $post_permalink ); ?>">
+					<h3 class="shinka__recommended-content-title"><?php echo esc_html( $post_title ); ?></h3>
 				</a>
 			</div>
 		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
-		<article class="shinka__recommended-content-post">
-			<div class="shinka__recommended-content-image">
-				<a href="#">
-					<img class="shinka__recommended-content-thumb" src="https://www.gamingtalker.it/wp-content/uploads/2022/07/Skate-StillWorkingOnIt_3.jpg">
-				</a>
-			</div>
-			<div class="shinka__recommended-content-text">
-				<a href="#">
-					<h3 class="shinka__recommended-content-title">Atittolo</h3>
-				</a>
-			</div>
-		</article>
+		<?php endwhile; ?>
 	</div>
+	<?php endif; ?>
 </article>

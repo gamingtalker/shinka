@@ -25,17 +25,20 @@ get_header();
 							$post_image = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
 							$post_excerpt = get_the_excerpt();
 							$post_date = get_the_date( 'j F Y, H:i' );
+							$post_category = get_field( 'article_category' );
 						?>
 							<div class="shinka-archive__timeline-news">
 								<?php if ( $post_image ): ?>
 								<div class="shinka-archive__timeline-news-media">
 									<a href="<?php echo esc_url( $post_url ); ?>">
-										<img class="shinka-archive__timeline-news-image" src="<?php echo esc_url( $post_image ); ?>">
+										<figure class="shinka-utils__image-wrapper">
+											<img class="shinka-archive__timeline-news-image shinka-utils__crop-16x9" src="<?php echo esc_url( $post_image ); ?>">
+										</figure>
 									</a>
 								</div>
 								<?php endif; ?>
 								<div class="shinka-archive__timeline-news-text">
-									<p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata">Notizia</p>
+									<p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata"><?php echo esc_html( $post_category ); ?></p>
 									<h2 class="shinka-archive__timeline-news-title">
 										<a href="<?php echo esc_url( $post_url ); ?>"><?php echo esc_html( $post_title ); ?></a>
 									</h2>
@@ -48,7 +51,6 @@ get_header();
 						<?php endwhile; ?>
 						<div class="shinka-archive__pagination">
 							<?php the_posts_pagination( array(
-								'mid_size'  => 2,
 								'prev_text' => __( '<', 'shinka' ),
 								'next_text' => __( '>', 'shinka' ),
 							) ); ?>

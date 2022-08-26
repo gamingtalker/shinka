@@ -20,8 +20,14 @@ $timeline_posts = array(
 	'post_status'       => 'publish',
     'order' => 'DESC',
     'meta_query' => array(
+        'relation' => 'OR',
         array(
             'key' => 'game_developer',
+            'value' => '"' . get_the_ID() . '"',
+            'compare' => 'LIKE',
+        ),
+        array(
+            'key' => 'game_publisher',
             'value' => '"' . get_the_ID() . '"',
             'compare' => 'LIKE',
         )
@@ -79,7 +85,7 @@ get_header();
                             <?php if ( $post_image ): ?>
                             <div class="shinka-archive__timeline-news-media">
                                 <a href="<?php echo esc_url( $post_url ); ?>">
-                                    <img class="shinka-archive__timeline-news-image" src="<?php echo esc_url( $game_cover['sizes']['thumbnail'] ); ?>">
+                                    <img class="shinka-archive__timeline-news-image" src="<?php echo esc_url( $post_image ); ?>">
                                 </a>
                             </div>
                             <?php endif; ?>

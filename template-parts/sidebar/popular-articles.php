@@ -1,6 +1,6 @@
 <?php
 /**
- * The sidebar containing the main widget area
+ * The sidebar containing the most popular posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
