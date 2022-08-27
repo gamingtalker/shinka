@@ -14,7 +14,7 @@ body a {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    margin-top: 0px;
+    margin: 0px;
 }
 
 p {
@@ -45,14 +45,10 @@ h6 {
 	font-size: 20px;
 }
 
-p, li, ol {
+p, ul, ol {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 1em;
-}
-
-p:last {
-    margin: 0;
 }
 
 blockquote {
@@ -74,10 +70,6 @@ blockquote p:last-of-type {
     }
 }
 
-iframe {
-    height: 100%;
-}
-
 embed,
 iframe,
 object,
@@ -85,8 +77,24 @@ video {
     max-width: 100%;
 }
 
+.mceTemp .wp-caption {
+    margin-bottom: 1em;
+}
+
+td {
+    padding: 10px;
+}
+
+table {
+    margin-bottom: 1em;
+}
+
+p:last, blockquote:last, iframe:last, table:last, ul:last, ol:last, .wpview.wpview-wrap:last {
+    margin-bottom: 0;
+}
+
 @media only screen and (max-width: 1200px) {
-    #content_ifr {
-        height: 1200px;
+    body, body.wp-autoresize {
+        padding: 10px !important;
     }
 }

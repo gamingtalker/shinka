@@ -14,6 +14,8 @@
 
 get_header();
 
+$default_posts_per_page = get_option( 'posts_per_page' );
+
 $main_posts = array(
 	'posts_per_page'    => 3,
 	'post_type'		    => 'post',
@@ -189,7 +191,7 @@ $video_query = new WP_Query( $video_posts );
         <div class="shinka-archive__timeline-container shinka-home__timeline-container">
             <div class="shinka-archive__timeline-content">
             <?php if( $timeline_query->have_posts() ):
-                for( $i=0; $i<6; $i++ ) {
+                for( $i=0; $i<7; $i++ ) {
                     $timeline_query->the_post();
                     $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); 
                     $post_permalink = get_the_permalink();
@@ -244,6 +246,9 @@ $video_query = new WP_Query( $video_posts );
             <?php endif;
             ?>
         </div>
+        <?php 
+            if( $video_query->have_posts() ):
+        ?>
         <div class="shinka-timeline__extra">
             <div class="shinka-timeline__extra-content">
                 <div class="shinka-timeline__extra-heading">
@@ -273,10 +278,11 @@ $video_query = new WP_Query( $video_posts );
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <div class="shinka-archive__timeline-container shinka-archive__timeline-container-secondary shinka-home__timeline-container">
             <div class="shinka-archive__timeline-content">
             <?php if( $timeline_query->have_posts() ):
-                for( $i=0; $i<( 20 - 6 ); $i++ ) {
+                for( $i=0; $i<( 20 - 7 ); $i++ ) {
                     $timeline_query->the_post();
                     $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); 
                     $post_permalink = get_the_permalink();

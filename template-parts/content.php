@@ -242,7 +242,7 @@ $recommended_query = new WP_Query( $recommended_posts );
 					<?php if ( $game_cover ): ?>
 					<div class="shinka__post-game-cover">
 						<a href="<?php echo esc_url( $game_permalink ); ?>">
-							<img class="shinka__post-game-cover-img" src="<?php echo esc_url( $game_cover['sizes']['thumbnail'] ); ?>">
+							<img class="shinka__post-game-cover-img" src="<?php echo esc_url( $game_cover['sizes']['medium'] ); ?>">
 						</a>
 					</div>
 					<?php endif; ?>

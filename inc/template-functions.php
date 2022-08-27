@@ -153,3 +153,32 @@ function shinka_custom_login() {
 	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/assets/admin/style/login.css" />';
 }
 add_action( 'login_head', 'shinka_custom_login' );
+
+/**
+ * Yoast SEO filters.
+ */
+function shinka_yoast_twitter_image( $image ) {
+    if ( !$image ) {
+        $image = esc_url( get_the_post_thumbnail_url( get_the_ID() ) );
+    }
+    return $image;
+};
+add_filter( 'wpseo_twitter_image', 'shinka_yoast_twitter_image' );
+
+function shinka_yoast_twitter_description( $description ) {
+    // If the page is a post, get the excerpt.
+    if ( !$description && ( is_archive() || is_singular( 'post' ) ) ) {
+        $description = esc_html( get_the_excerpt() );
+    }
+    // If it's a game, however, we get its summary (set via ACF).
+    else if ( !$description && ( is_singular( 'giochi' ) ) ) {
+        $description = esc_html( get_field( 'game_summary' ) );
+    }
+    return $description;
+}
+add_filter( 'wpseo_twitter_description', 'shinka_yoast_twitter_description' );
+
+/**
+ * Disable comments RSS feeds.
+ */
+add_filter( 'feed_links_show_comments_feed', '__return_false' );

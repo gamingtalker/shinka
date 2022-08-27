@@ -25,9 +25,28 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<script>
+	/* Dark mode. */
+	let colorMode = localStorage.getItem("colorMode");
+	switch (colorMode) {
+		case "dark":
+			document.body.classList.add("dark-mode");
+		case "light":
+			// Do nothing. It's default.
+			break;
+		default:
+			if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+				localStorage.setItem("colorMode", "dark");
+				document.body.classList.add("dark-mode");
+			}
+			else {
+				localStorage.setItem("colorMode", "light");
+			}
+			break;
+	}
+</script>
 <div class="shinka-body">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'shinka' ); ?></a>
-
 	<header id="header" class="shinka-header">
 		<div class="shinka-header__container">
 			<a href="<?php echo get_home_url(); ?>" class="shinka-header__logo" title="GamingTalker">

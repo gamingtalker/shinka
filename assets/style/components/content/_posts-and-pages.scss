@@ -538,6 +538,11 @@
 			opacity: .9;
 			transition-duration: .2s;
 		}
+		.shinka-utils__image-wrapper {
+			img {
+				opacity: .8;
+			}
+		}
 	}
 }
 
@@ -665,7 +670,7 @@
 .shinka__twitter-icon {
 	transition: all .2s ease;
 	&:hover {
-		fill: #1DA1F2;
+		fill: #1DA1F2 !important;
 	}
 }
 
@@ -1129,7 +1134,7 @@
 		flex: 0 0 30%;
 		margin: 0;
 		padding-left: 15px;
-		border-left: 1px solid $shinka__border;	
+		border-left: 1px solid $shinka__border;
 		.shinka__in-post-title:first-of-type {
 			margin-top: 0;
 		}

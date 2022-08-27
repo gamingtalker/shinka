@@ -49,6 +49,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 --------------------------------------------------------------*/
 /* Custom */
+/* Dark theme */
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -1608,6 +1609,10 @@ textarea {
 	transition-duration: .2s;
 }
 
+.shinka-sidebar a .shinka-utils__image-wrapper img, .shinka__recommended-content a .shinka-utils__image-wrapper img, .shinka-game-releases__item a .shinka-utils__image-wrapper img, .shinka__post-game-heading a .shinka-utils__image-wrapper img, .shinka__post-game-cover a .shinka-utils__image-wrapper img {
+	opacity: .8;
+}
+
 .shinka-sidebar__new-post-wrapper {
 	display: flex;
 	flex-wrap: wrap;
@@ -1739,7 +1744,7 @@ textarea {
 }
 
 .shinka__twitter-icon:hover {
-	fill: #1DA1F2;
+	fill: #1DA1F2 !important;
 }
 
 .shinka-post__image-caption {
@@ -2480,6 +2485,77 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+/* Dark theme
+--------------------------------------------- */
+body.dark-mode {
+	background: #0e0e0e;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode li, .dark-mode td, .dark-mode th, .dark-mode .shinka-post__tags, .dark-mode .shinka__post-game-text, .dark-mode .shinka-game__info-detail, .dark-mode .shinka-game__info-bold, .dark-mode .shinka-archive__pre-content-details-field {
+	color: #ffffff;
+}
+
+.dark-mode .shinka-sidebar a, .dark-mode .shinka__recommended-content a, .dark-mode .shinka-game-releases__item a, .dark-mode .shinka__post-game-heading a, .dark-mode .shinka__post-game-cover a, .dark-mode .shinka-archive__timeline-news-title a {
+	color: #ffffff;
+}
+
+.dark-mode .shinka-sidebar a:hover, .dark-mode .shinka__recommended-content a:hover, .dark-mode .shinka-game-releases__item a:hover, .dark-mode .shinka__post-game-heading a:hover, .dark-mode .shinka__post-game-cover a:hover, .dark-mode .shinka-archive__timeline-news-title a:hover {
+	color: #ff1414 !important;
+}
+
+.dark-mode blockquote {
+	background: #151515;
+	border-color: #262626;
+}
+
+.dark-mode td, .dark-mode th {
+	border: 1px solid #262626;
+}
+
+.dark-mode tr:nth-child(even) {
+	background: #191919;
+}
+
+.dark-mode tr:nth-child(odd) {
+	background: #202020;
+}
+
+.dark-mode .shinka__post-game {
+	background: #151515;
+}
+
+.dark-mode .shinka-archive__timeline-news-category {
+	color: #ff1414;
+}
+
+.dark-mode .shinka-sidebar {
+	border-color: #262626;
+}
+
+.dark-mode .shinka-search__field {
+	background: #151515;
+	border-color: #262626;
+	color: #ffffff;
+}
+
+.dark-mode input[type="search"] {
+	color: #ffffff;
+}
+
+.dark-mode .shinka-home__hot-news-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__post-game-heading a:hover h3 {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2s;
+}
+
+.dark-mode .shinka__twitter-icon {
+	fill: #ffffff;
+}
+
+.dark-mode .shinka-game__info-content {
+	border-color: #262626;
 }
 
 /*# sourceMappingURL=style.css.map */
