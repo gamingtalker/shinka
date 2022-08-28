@@ -24,6 +24,7 @@
 .shinka-home__news-image {
 	display: block;
     transition: transform .25s ease-in-out;
+	width: 100%;
 }
 
 .shinka-home__news-text {
@@ -516,6 +517,9 @@
 	a, img {
 		display: block;
 	}
+	img {
+		width: 100%;
+	}
 }
 
 .shinka__recommended-content-text, .shinka-sidebar__popular-post-text {
@@ -539,8 +543,9 @@
 			transition-duration: .2s;
 		}
 		.shinka-utils__image-wrapper {
-			img {
-				opacity: .8;
+			img:hover {
+				opacity: .9;
+				transition-duration: .2s;
 			}
 		}
 	}
@@ -658,9 +663,6 @@
 .shinka-archive__pre-content-meta {
 	display: flex;
 	flex-flow: column;
-	a {
-		margin-left: 10px;
-  	}
 }
 
 .shinka-archive__pre-content-text {
@@ -690,7 +692,7 @@
 }
 
 .shinka-post__review {
-	margin: 0 -15px 20px -15px;
+	margin: 0 -15px;
 	background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -734,6 +736,7 @@
     font-size: 40px;
     justify-content: center;
     align-items: center;
+	margin-top: 15px;
 }
 
 .shinka-game-releases__container {
@@ -1198,6 +1201,9 @@
 	.shinka-archive__pre-content-meta {
 		flex-flow: row;
 		align-items: baseline;
+		a {
+			margin-left: 10px;
+		}
 	}
 	
 	.shinka-archive__pre-content-text {
@@ -1205,7 +1211,7 @@
 	}
 
 	.shinka-post__review {
-		margin: 0 0 20px 0;
+		margin: 0;
 	}
 	
 	.shinka-post__review-wrapper {

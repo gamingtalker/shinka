@@ -16,8 +16,6 @@ get_header();
 			<?php get_template_part( 'template-parts/archive/timeline' ); ?>
 		</div>
 	</div>
-	<?php else: ?>
-		<p class="shinka-inline__paragraph"><?php esc_html_e( 'Nessun risultato trovato.', 'shinka' ); ?></p>
 	<?php endif; ?>
 </div>
 <?php

@@ -52,28 +52,48 @@ class shinka_widget_articles extends WP_Widget {
         $the_query = new WP_Query( $articles_query ); ?>
         <div class="shinka-sidebar__new-post-wrapper">
         <?php if( $the_query->have_posts() ) : ?>
-            <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
+                $post_thumbnail_id = get_post_thumbnail_id();
+                $post_thumbnail_size = 'medium';
+                $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium' );
+                $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'thumbnail' );
+                $post_title = get_the_title();
+            ?>
             <div class="shinka-sidebar__new-post">
-                <?php if ( has_post_thumbnail() ) :
-                    $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium' ); ?>
+                <?php if ( has_post_thumbnail() ) : ?>
                     <div class="shinka-sidebar__new-post-image">
                         <a href="<?php esc_url( the_permalink() ); ?>">
                             <figure class="shinka-utils__image-wrapper">
-                                <img class="shinka-sidebar__new-post-thumb shinka-utils__crop16x9" src="<?php echo esc_url( $featured_image_url ); ?>">
+                            <?php 
+                            the_post_thumbnail(
+                                'medium',
+                                [
+                                    'class' => 'shinka-sidebar__new-post-thumb shinka-utils__crop-16x9',
+                                    'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
+                                                wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 1000w, ',
+                                    'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
+                                    'alt' => esc_html( $post_title ),
+                                    'loading' => 'lazy'
+                                ],
+                            );
+                            ?>
                             </figure>
                         </a>
                     </div>
                 <?php endif; ?>
                 <div class="shinka-sidebar__new-post-text">
                     <a href="<?php esc_url( the_permalink() ); ?>">
-                        <h3 class="shinka-sidebar__new-post-title"><?php esc_html( the_title() ); ?></h3>
+                        <h3 class="shinka-sidebar__new-post-title"><?php echo esc_html( $post_title ); ?></h3>
                     </a>
                 </div>
             </div>
-            <?php endwhile; ?>
-            <?php endif; ?>
+            <?php 
+                endwhile;
+                wp_reset_postdata();
+                endif; 
+            ?>
         </div>
-        <?php wp_reset_postdata();
+        <?php
         echo $after_widget;
     }
 
@@ -164,28 +184,48 @@ class shinka_widget_guides extends WP_Widget {
         $the_query = new WP_Query( $guides_query ); ?>
         <div class="shinka-sidebar__new-post-wrapper">
         <?php if( $the_query->have_posts() ) : ?>
-            <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
+                $post_thumbnail_id = get_post_thumbnail_id();
+                $post_thumbnail_size = 'medium';
+                $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium' );
+                $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'thumbnail' );
+                $post_title = get_the_title();
+            ?>
             <div class="shinka-sidebar__new-post">
-                <?php if ( has_post_thumbnail() ) :
-                    $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium' ); ?>
+                <?php if ( has_post_thumbnail() ) : ?>
                     <div class="shinka-sidebar__new-post-image">
                         <a href="<?php esc_url( the_permalink() ); ?>">
                             <figure class="shinka-utils__image-wrapper">
-                                <img class="shinka-sidebar__new-post-thumb shinka-utils__crop16x9" src="<?php echo esc_url( $featured_image_url ); ?>">
+                            <?php 
+                            the_post_thumbnail(
+                                'medium',
+                                [
+                                    'class' => 'shinka-sidebar__new-post-thumb shinka-utils__crop-16x9',
+                                    'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
+                                                wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 1000w, ',
+                                    'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
+                                    'alt' => esc_html( $post_title ),
+                                    'loading' => 'lazy'
+                                ],
+                            );
+                            ?>
                             </figure>
                         </a>
                     </div>
                 <?php endif; ?>
                 <div class="shinka-sidebar__new-post-text">
                     <a href="<?php esc_url( the_permalink() ); ?>">
-                        <h3 class="shinka-sidebar__new-post-title"><?php esc_html( the_title() ); ?></h3>
+                        <h3 class="shinka-sidebar__new-post-title"><?php echo esc_html( $post_title ); ?></h3>
                     </a>
                 </div>
             </div>
-            <?php endwhile; ?>
-            <?php endif; ?>
+            <?php 
+                endwhile;
+                wp_reset_postdata();
+                endif; 
+            ?>
         </div>
-        <?php wp_reset_postdata();
+        <?php
         echo $after_widget;
     }
 

@@ -2,7 +2,7 @@
 /**
  * The header for our theme
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * This is the template that displays all of the <head> section and everything up until <div id="main-content">
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -47,6 +47,7 @@
 </script>
 <div class="shinka-body">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'shinka' ); ?></a>
+	<!-- Header -->
 	<header id="header" class="shinka-header">
 		<div class="shinka-header__container">
 			<a href="<?php echo get_home_url(); ?>" class="shinka-header__logo" title="GamingTalker">

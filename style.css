@@ -62,7 +62,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -1062,6 +1062,7 @@ textarea {
 .shinka-home__news-image {
 	display: block;
 	transition: transform .25s ease-in-out;
+	width: 100%;
 }
 
 .shinka-home__news-text {
@@ -1587,6 +1588,10 @@ textarea {
 	display: block;
 }
 
+.shinka__recommended-content-image img, .shinka-sidebar__popular-post-image img, .shinka-game-releases__image img {
+	width: 100%;
+}
+
 .shinka__recommended-content-text, .shinka-sidebar__popular-post-text {
 	margin-top: 5px;
 }
@@ -1609,8 +1614,9 @@ textarea {
 	transition-duration: .2s;
 }
 
-.shinka-sidebar a .shinka-utils__image-wrapper img, .shinka__recommended-content a .shinka-utils__image-wrapper img, .shinka-game-releases__item a .shinka-utils__image-wrapper img, .shinka__post-game-heading a .shinka-utils__image-wrapper img, .shinka__post-game-cover a .shinka-utils__image-wrapper img {
-	opacity: .8;
+.shinka-sidebar a .shinka-utils__image-wrapper img:hover, .shinka__recommended-content a .shinka-utils__image-wrapper img:hover, .shinka-game-releases__item a .shinka-utils__image-wrapper img:hover, .shinka__post-game-heading a .shinka-utils__image-wrapper img:hover, .shinka__post-game-cover a .shinka-utils__image-wrapper img:hover {
+	opacity: .9;
+	transition-duration: .2s;
 }
 
 .shinka-sidebar__new-post-wrapper {
@@ -1731,10 +1737,6 @@ textarea {
 	flex-flow: column;
 }
 
-.shinka-archive__pre-content-meta a {
-	margin-left: 10px;
-}
-
 .shinka-archive__pre-content-text {
 	line-height: 1.7em;
 }
@@ -1763,7 +1765,7 @@ textarea {
 }
 
 .shinka-post__review {
-	margin: 0 -15px 20px -15px;
+	margin: 0 -15px;
 	background-size: cover;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
@@ -1808,6 +1810,7 @@ textarea {
 	font-size: 40px;
 	justify-content: center;
 	align-items: center;
+	margin-top: 15px;
 }
 
 .shinka-game-releases__container {
@@ -2233,11 +2236,14 @@ textarea {
 		flex-flow: row;
 		align-items: baseline;
 	}
+	.shinka-archive__pre-content-meta a {
+		margin-left: 10px;
+	}
 	.shinka-archive__pre-content-text {
 		line-height: 1.7em;
 	}
 	.shinka-post__review {
-		margin: 0 0 20px 0;
+		margin: 0;
 	}
 	.shinka-post__review-wrapper {
 		padding: 15px;
@@ -2522,7 +2528,7 @@ body.dark-mode {
 	background: #202020;
 }
 
-.dark-mode .shinka__post-game {
+.dark-mode .shinka__post-game, .dark-mode .shinka-timeline__extra {
 	background: #151515;
 }
 

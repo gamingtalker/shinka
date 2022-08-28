@@ -182,3 +182,16 @@ add_filter( 'wpseo_twitter_description', 'shinka_yoast_twitter_description' );
  * Disable comments RSS feeds.
  */
 add_filter( 'feed_links_show_comments_feed', '__return_false' );
+
+/**
+ * Remove width and height set in images.
+ */
+function shinka_remove_img_attr( $html ) {
+    return preg_replace( '/(width|height)="\d+"\s/', "", $html );
+}
+add_filter( 'post_thumbnail_html', 'shinka_remove_img_attr' );
+
+function max_srcset_image_wd() {
+	return 900; // Max srcset width.
+}
+add_filter( 'max_srcset_image_width', 'max_srcset_image_wd', 10 , 2 );

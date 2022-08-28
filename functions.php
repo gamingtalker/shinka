@@ -195,6 +195,11 @@ remove_filter( 'the_title', 'wptexturize' );
 remove_filter( 'the_excerpt', 'wptexturize' );
 
 /**
+ * Custom image sizes.
+ */
+add_image_size( 'post_thumbnail', 900, 506 );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
