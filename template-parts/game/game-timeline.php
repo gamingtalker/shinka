@@ -21,8 +21,8 @@ $the_query = new WP_Query( $game_query );
 ?>
 <!-- Game posts -->
 <div class="shinka-archive__timeline-content shinka-game__timeline-content">
-    <?php if( $the_query->have_posts() ):
-        while( $the_query->have_posts() ) : $the_query->the_post();
+    <?php if ( $the_query->have_posts() ) :
+        while ( $the_query->have_posts() ) : $the_query->the_post();
             $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
             $post_permalink = get_the_permalink();
             $post_title = $post->post_title;

@@ -319,6 +319,7 @@
 
 .shinka-post__thumbnail-img {
 	display: block;
+	width: 100%;
 }
 
 .shinka-post__content {
@@ -354,6 +355,12 @@
 	}
 	h2, h3, h4, h5, h6 {
 		margin-bottom: .5em;
+	}
+}
+
+.shinka-post__type-review {
+	.shinka-post__content {
+		border: none;
 	}
 }
 
@@ -404,8 +411,8 @@
 	display: flex;
 	margin-top: 8px;
 	svg {
-		width: 25px;
-		height: 25px;
+		width: 30px;
+		height: 30px;
 		display: block;
 	}
 }
@@ -1288,14 +1295,11 @@
 
 	.shinka-game__cover {
 		width: 30%;
+		margin-right: 20px;
 	}
 
 	.shinka-game__cover-link {
 		margin: 0;
 		width: 100%;
-	}
-
-	.shinka-game__heading {
-		margin-left: 20px;
 	}
 }

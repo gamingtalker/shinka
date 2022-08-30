@@ -5,8 +5,8 @@
 <!-- Home secondary timeline -->
 <div class="shinka-archive__timeline-container shinka-archive__timeline-container-secondary shinka-home__timeline-container">
     <div class="shinka-archive__timeline-content">
-    <?php if( $timeline_query->have_posts() ):
-        for( $i=0; $i<( $default_posts_per_page - 7 ); $i++ ) {
+    <?php if ( $timeline_query->have_posts() ) :
+        for ( $i=0; $i<( $default_posts_per_page - 7 ); $i++ ) {
             $timeline_query->the_post();
             $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); 
             $post_permalink = get_the_permalink();
@@ -24,7 +24,7 @@
             $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
     ?>
         <article class="shinka-archive__timeline-news">
-            <?php if( $featured_img_url ): ?>
+            <?php if ( $featured_img_url ) : ?>
             <div class="shinka-archive__timeline-news-media">
                 <a href="<?php echo esc_url( the_permalink() ); ?>">
                     <figure class="shinka-utils__image-wrapper">
@@ -47,7 +47,7 @@
             <?php endif; ?>
             <div class="shinka-archive__timeline-news-text">
                 <?php 
-                    if( $article_category ): 
+                    if ( $article_category ) : 
                 ?>
                 <p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata"><?php echo esc_html( $article_category ); ?></p>
                 <?php endif; ?>
@@ -56,7 +56,7 @@
                 </h2>
                 <p class="shinka-archive__timeline-news-date shinka-archive__timeline-news-metadata"><time datetime="<?php the_time( 'c' ); ?>"><?php echo $post_date; ?></time></p>
                 <?php
-                    if( $article_excerpt ):
+                    if ( $article_excerpt ) :
                 ?>
                 <p class="shinka-archive__timeline-news-excerpt shinka-archive__timeline-news-metadata"><?php echo esc_html( $article_excerpt ); ?></p>
                 <?php endif; ?>
@@ -66,7 +66,7 @@
         } endif;
     ?>
     </div>
-    <?php if ( !wp_is_mobile() ): ?>
+    <?php if ( !wp_is_mobile() ) : ?>
         <aside id="sidebar" class="shinka-sidebar">
             <?php dynamic_sidebar( 'categories-sidebar' ); ?>
         </aside>

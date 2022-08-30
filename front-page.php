@@ -56,7 +56,7 @@ $timeline_query = new WP_Query( $timeline_posts );
         <div class="shinka-archive__load-more-button">
             <a href="/notizie/" class="shinka-archive__load-more-link">Altre notizie</a>
         </div>
-        <?php if ( wp_is_mobile() ):
+        <?php if ( wp_is_mobile() ) :
             get_sidebar();
         endif;
         ?>

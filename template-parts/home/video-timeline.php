@@ -11,7 +11,7 @@ $video_posts = array(
 );
 $video_query = new WP_Query( $video_posts );
 
-if( $video_query->have_posts() ):
+if ( $video_query->have_posts() ) :
 ?>
 <!-- Home video timeline -->
 <div class="shinka-timeline__extra">
@@ -22,7 +22,7 @@ if( $video_query->have_posts() ):
         </div>
         <div class="shinka-timeline__extra-news-wrapper">
             <?php 
-                while( $video_query->have_posts() ) : $video_query->the_post();
+                while ( $video_query->have_posts() ) : $video_query->the_post();
                 $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' ); 
                 $post_permalink = get_the_permalink();
                 $post_title = $post->post_title;

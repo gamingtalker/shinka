@@ -51,38 +51,27 @@ class shinka_widget_articles extends WP_Widget {
         );
         $the_query = new WP_Query( $articles_query ); ?>
         <div class="shinka-sidebar__new-post-wrapper">
-        <?php if( $the_query->have_posts() ) : ?>
-            <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
-                $post_thumbnail_id = get_post_thumbnail_id();
-                $post_thumbnail_size = 'medium';
-                $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium' );
-                $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'thumbnail' );
-                $post_title = get_the_title();
+        <?php 
+            if ( $the_query->have_posts() ) :
+                while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                    $post_thumbnail_id = get_post_thumbnail_id();
+                    $post_thumbnail_size = 'medium';
+                    $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
+                    $post_title = get_the_title();
+                    $post_permalink = get_the_permalink();
             ?>
             <div class="shinka-sidebar__new-post">
                 <?php if ( has_post_thumbnail() ) : ?>
                     <div class="shinka-sidebar__new-post-image">
-                        <a href="<?php esc_url( the_permalink() ); ?>">
+                        <a href="<?php echo esc_url( $post_permalink ); ?>">
                             <figure class="shinka-utils__image-wrapper">
-                            <?php 
-                            the_post_thumbnail(
-                                'medium',
-                                [
-                                    'class' => 'shinka-sidebar__new-post-thumb shinka-utils__crop-16x9',
-                                    'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
-                                                wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 1000w, ',
-                                    'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
-                                    'alt' => esc_html( $post_title ),
-                                    'loading' => 'lazy'
-                                ],
-                            );
-                            ?>
+                                <img src="<?php echo esc_url( $post_thumbnail_src ); ?>" class="shinka-sidebar__new-post-thumb shinka-utils__crop-16x9" alt="<?php echo esc_attr( $post_title ); ?>" loading="lazy">
                             </figure>
                         </a>
                     </div>
                 <?php endif; ?>
                 <div class="shinka-sidebar__new-post-text">
-                    <a href="<?php esc_url( the_permalink() ); ?>">
+                    <a href="<?php esc_url( $post_permalink ); ?>">
                         <h3 class="shinka-sidebar__new-post-title"><?php echo esc_html( $post_title ); ?></h3>
                     </a>
                 </div>
@@ -94,7 +83,7 @@ class shinka_widget_articles extends WP_Widget {
             ?>
         </div>
         <?php
-        echo $after_widget;
+            echo $after_widget;
     }
 
     /**
@@ -109,11 +98,11 @@ class shinka_widget_articles extends WP_Widget {
             $title = $instance[ 'title' ];
         }
         else {
-            $title = __( 'Ultimi articoli', 'gt_widget_domain' );
+            $title = __( 'Ultimi articoli', 'shinka' );
         }
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'shinka' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
     <?php
@@ -183,38 +172,27 @@ class shinka_widget_guides extends WP_Widget {
         );
         $the_query = new WP_Query( $guides_query ); ?>
         <div class="shinka-sidebar__new-post-wrapper">
-        <?php if( $the_query->have_posts() ) : ?>
-            <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
-                $post_thumbnail_id = get_post_thumbnail_id();
-                $post_thumbnail_size = 'medium';
-                $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium' );
-                $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'thumbnail' );
-                $post_title = get_the_title();
+        <?php 
+            if ( $the_query->have_posts() ) :
+                while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                    $post_thumbnail_id = get_post_thumbnail_id();
+                    $post_thumbnail_size = 'medium';
+                    $post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
+                    $post_title = get_the_title();
+                    $post_permalink = get_the_permalink();
             ?>
             <div class="shinka-sidebar__new-post">
                 <?php if ( has_post_thumbnail() ) : ?>
                     <div class="shinka-sidebar__new-post-image">
-                        <a href="<?php esc_url( the_permalink() ); ?>">
+                        <a href="<?php echo esc_url( $post_permalink ); ?>">
                             <figure class="shinka-utils__image-wrapper">
-                            <?php 
-                            the_post_thumbnail(
-                                'medium',
-                                [
-                                    'class' => 'shinka-sidebar__new-post-thumb shinka-utils__crop-16x9',
-                                    'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
-                                                wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 1000w, ',
-                                    'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
-                                    'alt' => esc_html( $post_title ),
-                                    'loading' => 'lazy'
-                                ],
-                            );
-                            ?>
+                                <img src="<?php echo esc_url( $post_thumbnail_src ); ?>" class="shinka-sidebar__new-post-thumb shinka-utils__crop-16x9" alt="<?php echo esc_attr( $post_title ); ?>" loading="lazy">
                             </figure>
                         </a>
                     </div>
                 <?php endif; ?>
                 <div class="shinka-sidebar__new-post-text">
-                    <a href="<?php esc_url( the_permalink() ); ?>">
+                    <a href="<?php esc_url( $post_permalink ); ?>">
                         <h3 class="shinka-sidebar__new-post-title"><?php echo esc_html( $post_title ); ?></h3>
                     </a>
                 </div>
@@ -241,11 +219,11 @@ class shinka_widget_guides extends WP_Widget {
             $title = $instance[ 'title' ];
         }
         else {
-            $title = __( 'Ultime guide', 'gt_widget_domain' );
+            $title = __( 'Ultime guide', 'shinka' );
         }
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'shinka' ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
     <?php

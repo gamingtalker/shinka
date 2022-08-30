@@ -15,12 +15,12 @@ $recommended_posts = array(
 );
 $recommended_query = new WP_Query( $recommended_posts );
 
-if( $recommended_query->have_posts() ):
+if ( $recommended_query->have_posts() ) :
 ?>
 <!-- Recommended content -->
 <h3 class="shinka__in-post-title">Contenuti consigliati</h3>
 <div class="shinka__recommended-content">
-    <?php while( $recommended_query->have_posts() ):
+    <?php while ( $recommended_query->have_posts() ) :
         $recommended_query->the_post();
         $post_id = $post->post_id;
         $post_permalink = get_the_permalink();
@@ -31,7 +31,7 @@ if( $recommended_query->have_posts() ):
         $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'medium_large' );
     ?>
     <article class="shinka__recommended-content-post">
-        <?php if ( has_post_thumbnail() ): ?>
+        <?php if ( has_post_thumbnail() ) : ?>
         <div class="shinka__recommended-content-image">
             <a href="<?php echo esc_url( $post_permalink ); ?>">
                 <figure class="shinka-utils__image-wrapper">

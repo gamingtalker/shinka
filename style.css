@@ -62,7 +62,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
- html {
+html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -384,7 +384,7 @@ html {
 /* Typography
 --------------------------------------------- */
 @font-face {
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 300;
 	font-display: swap;
@@ -393,7 +393,7 @@ html {
 
 /* roboto-regular - latin */
 @font-face {
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
@@ -402,7 +402,7 @@ html {
 
 /* roboto-italic - latin */
 @font-face {
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 400;
 	font-display: swap;
@@ -411,7 +411,7 @@ html {
 
 /* roboto-700 - latin */
 @font-face {
-	font-family: 'Roboto';
+	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
@@ -424,7 +424,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #000000;
+	color: #000;
 	font-family: "Roboto", "Arial", "sans-serif";
 	font-size: 18px;
 	line-height: 1.5;
@@ -584,7 +584,7 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 /* Links
@@ -683,12 +683,14 @@ textarea {
 .shinka-header {
 	background: #212121;
 	height: 60px;
+	position: relative;
+	z-index: 9999;
 }
 
 .shinka-header__navigation {
 	display: none;
 	position: absolute;
-	z-index: 99999;
+	z-index: 9999;
 	top: 60px;
 	width: 100%;
 	background: #323232;
@@ -714,7 +716,7 @@ textarea {
 }
 
 .shinka-header__menu li a, .sub-menu li a {
-	color: #ffffff;
+	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-weight: 600;
@@ -723,7 +725,7 @@ textarea {
 }
 
 .shinka-header__menu li a:visited, .sub-menu li a:visited {
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-header__container {
@@ -738,7 +740,7 @@ textarea {
 	width: 20px;
 	height: 20px;
 	display: block;
-	fill: #ffffff;
+	fill: #fff;
 }
 
 .shinka-header__logo {
@@ -793,13 +795,13 @@ textarea {
 
 .shinka-footer__links {
 	margin-top: 15px;
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-footer__text {
 	text-align: center;
 	margin-top: 15px;
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-footer__text-content {
@@ -815,7 +817,7 @@ textarea {
 	width: 20px;
 	height: 20px;
 	display: block;
-	fill: #ffffff;
+	fill: #fff;
 }
 
 .shinka-footer__logo svg {
@@ -833,7 +835,7 @@ textarea {
 
 .shinka-footer__menu a {
 	display: block;
-	color: #ffffff;
+	color: #fff;
 	padding: 10px;
 	font-weight: 600;
 	text-align: center;
@@ -846,7 +848,7 @@ textarea {
 	left: 0;
 	right: 0;
 	background: #323232;
-	z-index: 99999;
+	z-index: 0;
 }
 
 .shinka-inline-search__wrapper .shinka-search__form {
@@ -868,7 +870,7 @@ textarea {
 	width: 20px;
 	height: 20px;
 	display: block;
-	fill: #ffffff;
+	fill: #fff;
 }
 
 .shinka-search__form {
@@ -895,6 +897,7 @@ textarea {
 	display: none;
 	border-top: 1px solid #606060;
 	background: #494949;
+	z-index: 9999;
 }
 
 .sub-menu a {
@@ -1070,13 +1073,13 @@ textarea {
 	left: 16px;
 	bottom: 16px;
 	right: 16px;
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-home__news-title {
 	line-height: 1.2em;
 	font-size: 19px;
-	color: #ffffff;
+	color: #fff;
 	margin-top: 8px;
 }
 
@@ -1118,7 +1121,7 @@ textarea {
 }
 
 .shinka-home__hot-news-text a {
-	color: #000000;
+	color: #000;
 }
 
 .shinka-home__hot-news-text a:hover {
@@ -1214,7 +1217,7 @@ textarea {
 }
 
 .shinka-archive__timeline-news-title a {
-	color: #000000;
+	color: #000;
 }
 
 .shinka-archive__timeline-news-title a:hover {
@@ -1235,7 +1238,7 @@ textarea {
 }
 
 .shinka-timeline__extra-heading-title, .shinka-timeline__extra-news-title, .shinka-timeline__extra-heading-link {
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-timeline__extra-news-title {
@@ -1308,7 +1311,7 @@ textarea {
 	background: #ff1414;
 	font-weight: 600;
 	display: block;
-	color: #ffffff;
+	color: #fff;
 	width: 100%;
 	text-transform: uppercase;
 }
@@ -1335,7 +1338,7 @@ textarea {
 }
 
 .shinka-post__categories-link {
-	color: #ffffff;
+	color: #fff;
 	background: #ff1414;
 	text-transform: uppercase;
 	font-size: 15px;
@@ -1370,6 +1373,7 @@ textarea {
 
 .shinka-post__thumbnail-img {
 	display: block;
+	width: 100%;
 }
 
 .shinka-post__content {
@@ -1414,6 +1418,10 @@ textarea {
 
 .shinka-post__content h2, .shinka-post__content h3, .shinka-post__content h4, .shinka-post__content h5, .shinka-post__content h6 {
 	margin-bottom: .5em;
+}
+
+.shinka-post__type-review .shinka-post__content {
+	border: none;
 }
 
 .embed-wrapper {
@@ -1469,8 +1477,8 @@ textarea {
 }
 
 .shinka-post__share svg {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	display: block;
 }
 
@@ -1551,7 +1559,7 @@ textarea {
 }
 
 .shinka__post-game-heading a {
-	color: #000000;
+	color: #000;
 }
 
 .shinka__post-game-heading a:hover {
@@ -1605,7 +1613,7 @@ textarea {
 }
 
 .shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a, .shinka__post-game-heading a, .shinka__post-game-cover a {
-	color: #000000;
+	color: #000;
 }
 
 .shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover, .shinka__post-game-heading a:hover, .shinka__post-game-cover a:hover {
@@ -1671,7 +1679,7 @@ textarea {
 	margin-top: 20px;
 	display: inline-block;
 	background: #ff1414;
-	color: #ffffff;
+	color: #fff;
 	font-weight: 600;
 	padding: 15px;
 	border: 1px solid transparent;
@@ -1693,7 +1701,7 @@ textarea {
 }
 
 .nav-links span {
-	color: #ffffff;
+	color: #fff;
 	background: #ff1414;
 }
 
@@ -1704,13 +1712,13 @@ textarea {
 }
 
 .nav-links a:hover {
-	color: #ffffff;
+	color: #fff;
 	background: #ff1414;
 }
 
 .nav-links .page-numbers.dots {
 	color: #ff1414;
-	background: #ffffff;
+	background: #fff;
 	border: 1px solid #ff1414;
 }
 
@@ -1770,7 +1778,7 @@ textarea {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	position: relative;
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-post__review::before {
@@ -1799,7 +1807,7 @@ textarea {
 	margin: 0 !important;
 	font-size: 40px !important;
 	font-weight: 600;
-	color: #ffffff;
+	color: #fff;
 }
 
 .shinka-post__review-vote {
@@ -1910,7 +1918,7 @@ textarea {
 	padding: 3px 6px;
 	margin-left: 5px;
 	border-radius: 3px;
-	color: #ffffff;
+	color: #fff;
 	font-weight: 600;
 	cursor: default;
 }
@@ -2305,13 +2313,11 @@ textarea {
 	}
 	.shinka-game__cover {
 		width: 30%;
+		margin-right: 20px;
 	}
 	.shinka-game__cover-link {
 		margin: 0;
 		width: 100%;
-	}
-	.shinka-game__heading {
-		margin-left: 20px;
 	}
 }
 
@@ -2500,11 +2506,11 @@ body.dark-mode {
 }
 
 .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode li, .dark-mode td, .dark-mode th, .dark-mode .shinka-post__tags, .dark-mode .shinka__post-game-text, .dark-mode .shinka-game__info-detail, .dark-mode .shinka-game__info-bold, .dark-mode .shinka-archive__pre-content-details-field {
-	color: #ffffff;
+	color: #fff;
 }
 
 .dark-mode .shinka-sidebar a, .dark-mode .shinka__recommended-content a, .dark-mode .shinka-game-releases__item a, .dark-mode .shinka__post-game-heading a, .dark-mode .shinka__post-game-cover a, .dark-mode .shinka-archive__timeline-news-title a {
-	color: #ffffff;
+	color: #fff;
 }
 
 .dark-mode .shinka-sidebar a:hover, .dark-mode .shinka__recommended-content a:hover, .dark-mode .shinka-game-releases__item a:hover, .dark-mode .shinka__post-game-heading a:hover, .dark-mode .shinka__post-game-cover a:hover, .dark-mode .shinka-archive__timeline-news-title a:hover {
@@ -2536,18 +2542,18 @@ body.dark-mode {
 	color: #ff1414;
 }
 
-.dark-mode .shinka-sidebar {
+.dark-mode .shinka-sidebar, .dark-mode .shinka-post__content {
 	border-color: #262626;
 }
 
 .dark-mode .shinka-search__field {
 	background: #151515;
 	border-color: #262626;
-	color: #ffffff;
+	color: #fff;
 }
 
 .dark-mode input[type="search"] {
-	color: #ffffff;
+	color: #fff;
 }
 
 .dark-mode .shinka-home__hot-news-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__post-game-heading a:hover h3 {
@@ -2557,7 +2563,7 @@ body.dark-mode {
 }
 
 .dark-mode .shinka__twitter-icon {
-	fill: #ffffff;
+	fill: #fff;
 }
 
 .dark-mode .shinka-game__info-content {

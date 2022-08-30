@@ -8,7 +8,7 @@ body.dark-mode {
     }
     .shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a, .shinka__post-game-heading a, .shinka__post-game-cover a, .shinka-archive__timeline-news-title a {
         &:hover {
-            color: $shinka__red !important; // Da cambiare.
+            color: $shinka__red !important;
         }
         color: $shinka__white;
     }
@@ -25,13 +25,13 @@ body.dark-mode {
     tr:nth-child(odd) {
         background: #202020;
     }
-    .shinka__post-game {
+    .shinka__post-game, .shinka-timeline__extra {
         background: $shinka__dark-background;
     }
     .shinka-archive__timeline-news-category {
         color: $shinka__red;
     }
-    .shinka-sidebar {
+    .shinka-sidebar, .shinka-post__content {
         border-color: $shinka__dark-border;
     }
     .shinka-search__field {

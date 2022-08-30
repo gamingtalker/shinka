@@ -49,19 +49,19 @@ get_header();
                     <div class="shinka-archive__pre-content-meta">
                         <h1 class="shinka-archive__pre-content-title"><?php echo esc_html( $company_name ); ?></h1>
                     </div>
-                    <?php if ( $company_biography ): ?>
+                    <?php if ( $company_biography ) : ?>
                     <?php echo ( $company_biography ); ?>
                     <?php else: ?>
                         <p class="shinka-archive__pre-content-text">Descrizione non disponibile.</p>
                     <?php endif; ?>
-                    <?php if ( $company_office || $company_foundation ): ?>
+                    <?php if ( $company_office || $company_foundation ) : ?>
                     <div class="shinka-archive__pre-content-details">
-                        <?php if ( $company_office ): ?>
+                        <?php if ( $company_office ) : ?>
                         <div class="shinka-archive__pre-content-details-field">
                             <span>Sede</span>: <?php echo esc_html( $company_office ); ?>
                         </div>
                         <?php endif; ?>
-                        <?php if ( $company_foundation ): ?>
+                        <?php if ( $company_foundation ) : ?>
                         <div class="shinka-archive__pre-content-details-field">
                             <span>Anno di fondazione</span>: <?php echo esc_html( $company_foundation ); ?>
                         </div>
@@ -75,7 +75,7 @@ get_header();
             </div>
             <div class="shinka-archive__timeline-container">
                 <div class="shinka-archive__timeline-content">
-                    <?php if( $the_query->have_posts() ):
+                    <?php if ( $the_query->have_posts() ) :
                         while ( $the_query->have_posts() ) : $the_query->the_post();
                         $post_title = get_the_title();
                         $post_url = get_the_permalink();
@@ -83,7 +83,7 @@ get_header();
                         $game_cover = get_field( 'game_cover' );
                     ?>
                         <div class="shinka-archive__timeline-news">
-                            <?php if ( $post_image ): ?>
+                            <?php if ( $post_image ) : ?>
                             <div class="shinka-archive__timeline-news-media">
                                 <a href="<?php echo esc_url( $post_url ); ?>">
                                     <img class="shinka-archive__timeline-news-image" src="<?php echo esc_url( $post_image ); ?>" alt="<?php echo esc_html( $post_title ); ?>">

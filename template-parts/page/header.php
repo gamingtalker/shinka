@@ -17,7 +17,7 @@ $post_title = get_the_title();
 <!-- Page content -->
 <div class="shinka-post__content-wrapper">
     <div class="shinka-post__content-container">
-        <?php if ( has_post_thumbnail() ): ?>
+        <?php if ( has_post_thumbnail() ) : ?>
         <div class="shinka-post__thumbnail">
             <figure class="shinka-post__thumbnail-wrapper">
                 <?php
@@ -32,7 +32,7 @@ $post_title = get_the_title();
                     ],
                 );
                 ?>
-                <?php if ( $post_thumbnail_caption ): ?>
+                <?php if ( $post_thumbnail_caption ) : ?>
                     <figcaption><?php echo esc_html( $post_thumbnail_caption ); ?></figcaption>
                 <?php endif; ?>
             </figure>

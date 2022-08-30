@@ -2,15 +2,15 @@
     $is_archive_search = false;
 ?>
 <div class="shinka-post__heading">
-    <?php if( is_author() ):
+    <?php if ( is_author() ) :
         $author_name = $args['author_name'];
     ?>
     <h2>Articoli di <?php echo esc_html( $author_name ); ?></h2>
     <?php
-        elseif ( is_post_type_archive( 'giochi' ) ): ?>
+        elseif ( is_post_type_archive( 'giochi' ) ) : ?>
             <h1 class="shinka-post__title">Giochi</h1>
         <?php
-        elseif ( is_search() ): ?>
+        elseif ( is_search() ) : ?>
             <h1 class="shinka-post__title"><?php printf( esc_html__( 'Risultati per: %s', 'shinka' ), get_search_query() ); ?></h1>
         <?php
         $is_archive_search = true;
@@ -22,7 +22,7 @@
 <!-- Archive content -->
 <div class="shinka-archive__timeline-container">
     <div class="shinka-archive__timeline-content">
-        <?php if( $is_archive_search ): ?>
+        <?php if ( $is_archive_search ) : ?>
             <div class="shinka-inline-search__wrapper">
                 <form role="search" method="get" id="search-form" class="shinka-search__form" action="/">
                     <input type="search" class="shinka-search__field" placeholder="<?php echo esc_attr( 'Cerca...', 'placeholder', 'radiate' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
@@ -35,18 +35,18 @@
             </div>
         <?php
         endif;
-        if( have_posts() ):
+        if ( have_posts() ) :
         while ( have_posts() ) : the_post();
             $post_title = get_the_title();
             $post_url = get_the_permalink();
             $post_image = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
             // Check if post is a game.
-            if( get_post_type() == 'giochi' ):
+            if ( get_post_type() == 'giochi' ) :
                 $game_summary = get_field( 'game_summary' );
                 $timeline_post_type = 'giochi';
             endif;
             // Check if post isn't a game.
-            if( get_post_type() == 'post' ):
+            if ( get_post_type() == 'post' ) :
                 $post_excerpt = get_the_excerpt();
                 $post_date = get_the_date( 'j F Y, H:i' );
                 $post_category = get_field( 'article_category' );
@@ -54,7 +54,7 @@
             endif;
         ?>
         <div class="shinka-archive__timeline-news">
-            <?php if ( $post_image ): ?>
+            <?php if ( $post_image ) : ?>
             <div class="shinka-archive__timeline-news-media">
                 <a href="<?php echo esc_url( $post_url ); ?>">
                     <figure class="shinka-utils__image-wrapper">
@@ -76,15 +76,15 @@
             </div>
             <?php endif; ?>
             <div class="shinka-archive__timeline-news-text">
-                <?php if( $timeline_post_type == 'post' ): ?>
+                <?php if ( $timeline_post_type == 'post' ) : ?>
                 <p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata"><?php echo esc_html( $post_category ); ?></p>
                 <?php endif; ?>
                 <h2 class="shinka-archive__timeline-news-title">
                     <a href="<?php echo esc_url( $post_url ); ?>"><?php echo esc_html( $post_title ); ?></a>
                 </h2>
-                <?php if( $timeline_post_type == 'post' ): ?>
+                <?php if ( $timeline_post_type == 'post' ) : ?>
                 <p class="shinka-archive__timeline-news-date shinka-archive__timeline-news-metadata"><time datetime="<?php the_time( 'c' ); ?>"><?php echo $post_date; ?></time></p>
-                <?php if ( $post_excerpt ): ?>
+                <?php if ( $post_excerpt ) : ?>
                     <p class="shinka-archive__timeline-news-excerpt shinka-archive__timeline-news-metadata"><?php echo esc_html( $post_excerpt ); ?></p>
                 <?php 
                     endif;

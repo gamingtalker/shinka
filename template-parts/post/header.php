@@ -16,12 +16,12 @@ $post_thumbnail_src = $args['post_thumbnail_src'];
 $post_thumbnail_srcset = $args['post_thumbnail_srcset'];
 $post_thumbnail_caption = $args['post_thumbnail_caption'];
 
-if ( $categories_list ):
+if ( $categories_list ) :
 ?>
 <!-- Post categories -->
 <div class="shinka-post__categories">
     <ul class="shinka-post__categories-wrapper">
-        <?php foreach ( $categories_list as $category ): ?>
+        <?php foreach ( $categories_list as $category ) : ?>
         <li class="shinka-post__categories-main">
             <a class="shinka-post__categories-link" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"><?php echo esc_html( $category->name ); ?></a>
         </li>
@@ -32,7 +32,7 @@ if ( $categories_list ):
 <!-- Post meta -->
 <div class="shinka-post__heading">
     <h1 class="shinka-post__title"><?php echo esc_html( $post_title ); ?></h1>
-    <?php if ( $post_excerpt ): ?>
+    <?php if ( $post_excerpt ) : ?>
         <p class="shinka-post__excerpt"><?php echo esc_html( $post_excerpt ); ?></p>
     <?php endif; ?>
     <div class="shinka-post__meta">
@@ -64,7 +64,7 @@ if ( $categories_list ):
 <!-- Post content -->
 <div class="shinka-post__content-wrapper">
     <div class="shinka-post__content-container">
-        <?php if ( $post_thumbnail_id ): ?>
+        <?php if ( $post_thumbnail_id ) : ?>
         <div class="shinka-post__thumbnail">
             <figure class="shinka-post__thumbnail-wrapper">
                 <?php
@@ -73,13 +73,13 @@ if ( $categories_list ):
                     [
                         'class' => 'shinka-post__thumbnail-img shinka-utils__crop-16x9',
                         'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
-                                    wp_get_attachment_image_url( get_post_thumbnail_id(), 'large' ) . ' 1000w, ',
+                                    wp_get_attachment_image_url( get_post_thumbnail_id(), 'post_thumbnail' ) . ' 1000w, ',
                         'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
                         'alt' => esc_html( $post_title ),
                     ],
                 );
                 ?>
-                <?php if ( $post_thumbnail_caption ): ?>
+                <?php if ( $post_thumbnail_caption ) : ?>
                     <figcaption class="shinka-post__image-caption"><?php echo esc_html( $post_thumbnail_caption ); ?></figcaption>
                 <?php endif; ?>
             </figure>

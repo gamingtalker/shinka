@@ -15,16 +15,16 @@ $review_summary = get_field( 'review_summary' );
 $review_vote = get_field( 'review_vote' );
 $vote_color;
 switch ( $review_vote ) {
-    case ( $review_vote < 6 ):
+    case ( $review_vote < 6 ) :
         $vote_color = "#ff1414";
         break;
-    case ( $review_vote >= 6 && $review_vote <= 6.5 ):
+    case ( $review_vote >= 6 && $review_vote <= 6.5 ) :
         $vote_color = "#f65002";
         break;
-    case ( $review_vote >= 7 && $review_vote <= 8.5 ):
+    case ( $review_vote >= 7 && $review_vote <= 8.5 ) :
         $vote_color = "#00cd00";
         break;
-    case ( $review_vote >= 9 && $review_vote <= 10 ):
+    case ( $review_vote >= 9 && $review_vote <= 10 ) :
         $vote_color = "#008000";
         break;
 }
@@ -43,6 +43,7 @@ switch ( $review_vote ) {
         </div>
     </div>
 </div>
+<?php if ( $game_title ) :  ?>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -55,7 +56,7 @@ switch ( $review_vote ) {
         "image": "<?php echo esc_url( $game_featured_image ); ?>",
         "author": {
             "@type": "Organization",
-            "name": "<?php foreach ( $game_developers as $game_developer ): echo esc_html( get_the_title( $game_developer->ID ) ); endforeach; ?>"
+            "name": "<?php foreach ( $game_developers as $game_developer ) : echo esc_html( get_the_title( $game_developer->ID ) ); endforeach; ?>"
         }
     },
     "reviewRating": {
@@ -71,3 +72,4 @@ switch ( $review_vote ) {
     "reviewBody": "<?php echo esc_html( $review_summary ); ?>"
 }
 </script>
+<?php endif; ?>

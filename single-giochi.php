@@ -13,6 +13,7 @@
 $game_title = get_the_title();
 $game_permalink = get_permalink();
 $game_featured_image = get_the_post_thumbnail_url();
+$game_summary = get_field( 'game_summary' );
 $game_genres = get_field( 'game_genres' );
 $game_release_date = get_field( 'game_release_date' );
 $game_platforms = get_field( 'game_platforms' );
@@ -24,6 +25,7 @@ $game_rating = get_field( 'game_rating' );
 $game_languages = get_field( 'game_languages' );
 $game_deck_compatibility = get_field( 'game_deck_compatibility' );
 $game_slug = get_post_field( 'post_name' );
+$counter = 0;
 
 get_header();
 ?>
@@ -72,6 +74,17 @@ get_header();
                         );
                     ?>
                 </div>
+                <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "VideoGame",
+                    "name": "<?php echo esc_html( $game_title ); ?>",
+                    "url": "<?php echo esc_url( $game_permalink ); ?>",
+                    "image": "<?php echo esc_url( $game_featured_image ); ?>",
+                    "description": "<?php echo esc_html( $game_summary ); ?>",
+                    "gamePlatform": [<?php foreach ( $game_platforms as $game_platform ) : if ( $counter == count( $game_platforms ) - 1 ) { ?>"<?php echo esc_html( $game_platform ); ?>"<?php } else { echo ( '"' . $game_platform . '", ' ); } $counter = $counter + 1; endforeach; ?>]
+                }
+                </script>
                 <?php
                 get_sidebar();
                 ?>

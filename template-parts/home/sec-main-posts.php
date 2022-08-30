@@ -15,11 +15,11 @@ $sub_feat_posts = array(
 );
 $sub_main_posts_query = new WP_Query( $sub_feat_posts );
 ?>
-<?php if( $sub_main_posts_query->have_posts() ): ?>
+<?php if ( $sub_main_posts_query->have_posts() ) : ?>
 <!-- Home secondary hot posts -->
 <div class="shinka-home__hot-news-container">
     <?php 
-        while( $sub_main_posts_query->have_posts() ) : $sub_main_posts_query->the_post();
+        while ( $sub_main_posts_query->have_posts() ) : $sub_main_posts_query->the_post();
         $post_permalink = get_the_permalink();
         $post_title = $post->post_title;
         $post_thumbnail_id = get_post_thumbnail_id();

@@ -19,7 +19,7 @@ $main_posts = array(
 );
 $main_posts_query = new WP_Query( $main_posts );
 ?>
-<?php if( $main_posts_query->have_posts() ): ?>
+<?php if ( $main_posts_query->have_posts() ) : ?>
 <!-- Home main posts -->
 <div class="shinka-home__main-news">
     <?php for( $i=0; $i<1; $i++ ) {
@@ -56,7 +56,7 @@ $main_posts_query = new WP_Query( $main_posts );
         </a>
         <div class="shinka-home__news-text">
             <div class="shinka-home__news-category">
-                <?php if ( $article_category ): ?>
+                <?php if ( $article_category ) : ?>
                     <p><?php echo esc_html( $article_category ); ?></p>
                 <?php else: ?>
                     <p>Notizia</p>
@@ -70,8 +70,8 @@ $main_posts_query = new WP_Query( $main_posts );
     <?php } ?>
 <?php endif; ?>
     <div class="shinka-home__sec-story-group">
-        <?php if( $main_posts_query->have_posts() ):
-        for( $i=0; $i<2; $i++ ) {
+        <?php if ( $main_posts_query->have_posts() ) :
+        for ( $i=0; $i<2; $i++ ) {
             $main_posts_query->the_post();
             $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); 
             $post_permalink = get_the_permalink();
@@ -105,7 +105,7 @@ $main_posts_query = new WP_Query( $main_posts );
             </a>
             <div class="shinka-home__news-text">
                 <div class="shinka-home__news-category">
-                    <?php if ( $article_category ): ?>
+                    <?php if ( $article_category ) : ?>
                         <p><?php echo esc_html( $article_category ); ?></p>
                     <?php else: ?>
                         <p>Notizia</p>

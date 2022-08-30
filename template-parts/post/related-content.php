@@ -14,12 +14,12 @@ $query_args = [
 ];
 $tag_query = new WP_Query( $query_args );
 ?>
-<?php if( $tag_query->have_posts() ): ?>
+<?php if ( $tag_query->have_posts() ) : ?>
 <!-- Related posts -->
 <div class="shinka__related-content">
     <h3>Articoli correlati</h3>
     <?php 
-        while( $tag_query->have_posts() ):
+        while ( $tag_query->have_posts() ) :
             $tag_query->the_post(); 
             $post_permalink = get_the_permalink();
             $post_title = $post->post_title; 

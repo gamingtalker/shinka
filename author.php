@@ -35,7 +35,7 @@ get_header();
 						</a>
 						<?php endif; ?>
 					</div>
-					<?php if ( $author_bio ): ?>
+					<?php if ( $author_bio ) : ?>
 					<p class="shinka-archive__pre-content-text"><?php echo esc_html( $author_bio ); ?></p>
 					<?php else: ?>
 						<p class="shinka-archive__pre-content-text">Autore di GamingTalker.</p>

@@ -18,7 +18,7 @@ $author_id = ( $post->post_author ); // Get post author.
  * Game variables.
  */
 $games_list = get_field( 'article_games' );
-if( $games_list ):
+if ( $games_list ) :
 	$game_id = ( $games_list[0]->ID );
 	$game_featured_image = get_the_post_thumbnail_url( $game_id );
 	$game_permalink = get_permalink( $game_id );
@@ -36,12 +36,16 @@ endif;
  */
 $post_thumbnail_id = get_post_thumbnail_id();
 $post_thumbnail_size = 'medium';
-$post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium' );
+$post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, 'medium_large' );
 $post_thumbnail_srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'post_thumbnail' );
 $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 ?>
 
+<?php if ( $article_category == 'Recensione' ) : ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'shinka-post__main shinka-post__type-review' ); ?>>
+	<?php else: ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'shinka-post__main' ); ?>>
+	<?php endif; ?>
 	<?php 
 		get_template_part( 
 			'template-parts/post/header',
@@ -75,7 +79,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 			?>
 		</div>
 		<?php
-			if( $article_category == 'Recensione' ):
+			if ( $article_category == 'Recensione' ) :
 				get_template_part(
 					'template-parts/post/review',
 					null,
@@ -90,7 +94,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 				);
 			endif;
 		?>
-		<?php if ( $tags_list ): ?>
+		<?php if ( $tags_list ) : ?>
 		<!-- Post tags -->
 		<div class="shinka-post__tags">
 			<?php /* translators: 1: list of tags. */
@@ -103,7 +107,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 			// Get related content.
 			get_template_part( 'template-parts/post/related-content' );
 			// Get post game.
-			if( $games_list ):
+			if ( $games_list ) :
 				get_template_part(
 					'template-parts/post/game',
 					null,
@@ -121,7 +125,7 @@ $post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 				);
 			endif;
 			// Load comments if open.
-			if ( comments_open() ): 
+			if ( comments_open() ) : 
 			?>
 			<!-- Post comments -->
 			<h3 class="shinka__in-post-title">Commenti</h3>
