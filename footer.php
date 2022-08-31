@@ -14,7 +14,7 @@
 	<footer id="footer" class="shinka-footer">
 		<div class="shinka-footer__container">
 			<div class="shinka-footer__main">
-				<a href="<?php echo get_home_url(); ?>" class="shinka-footer__logo" title="GamingTalker">
+				<a href="<?php echo esc_url( home_url() ); ?>" class="shinka-footer__logo" title="GamingTalker">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224.49 108.6"><defs><style>.cls-1{fill:#ff1414;}.cls-2{fill:#fff;}</style></defs>
 						<g>
 							<g>
@@ -63,14 +63,14 @@
 			</div>
 			<nav id="footer-menu" class="shinka-footer__links">
 				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' 	=> 'menu-footer',
-						'menu_id'        	=> '',
-						'container_class'	=> 'shinka-footer__navigation-container',
-						'menu_class'		=> 'shinka-footer__menu'
-					)
-				);
+					wp_nav_menu(
+						array(
+							'theme_location' 	=> 'menu-footer',
+							'menu_id'        	=> '',
+							'container_class'	=> 'shinka-footer__navigation-container',
+							'menu_class'		=> 'shinka-footer__menu'
+						)
+					);
 				?>
 			</nav>
 			<div class="shinka-footer__text">

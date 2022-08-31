@@ -1,29 +1,27 @@
 <?php 
-/**
- * Article variables.
- */
-$categories_list = get_the_category();
-$post_excerpt = get_the_excerpt(); // Get post excerpt.
-$author_id = $args['author_id'];
-$article_category = $args['article_category'];
-$post_title = get_the_title();
+    /**
+     * Article variables.
+     */
+    $categories_list = get_the_category();
+    $post_excerpt = get_the_excerpt(); // Get post excerpt.
+    $author_id = $args['author_id'];
+    $article_category = $args['article_category'];
+    $post_title = get_the_title();
 
-/**
- * Post thumbnail variables.
- */
-$post_thumbnail_id = $args['post_thumbnail_id'];
-$post_thumbnail_src = $args['post_thumbnail_src'];
-$post_thumbnail_srcset = $args['post_thumbnail_srcset'];
-$post_thumbnail_caption = $args['post_thumbnail_caption'];
+    /**
+     * Post thumbnail variables.
+     */
+    $post_thumbnail_id = $args['post_thumbnail_id'];
+    $post_thumbnail_caption = $args['post_thumbnail_caption'];
 
-if ( $categories_list ) :
+    if ( $categories_list ) :
 ?>
 <!-- Post categories -->
 <div class="shinka-post__categories">
     <ul class="shinka-post__categories-wrapper">
         <?php foreach ( $categories_list as $category ) : ?>
         <li class="shinka-post__categories-main">
-            <a class="shinka-post__categories-link" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"><?php echo esc_html( $category->name ); ?></a>
+            <a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>" class="shinka-post__categories-link"><?php echo esc_html( $category->name ); ?></a>
         </li>
         <?php endforeach; ?>
     </ul>
@@ -36,7 +34,7 @@ if ( $categories_list ) :
         <p class="shinka-post__excerpt"><?php echo esc_html( $post_excerpt ); ?></p>
     <?php endif; ?>
     <div class="shinka-post__meta">
-        <p class="shinka-post__info"><?php echo esc_html( $article_category ); ?> di <a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>"><?php the_author_meta( 'display_name', $author_id ); ?></a> | <time datetime="<?php the_time( 'c' ); ?>"><?php echo get_the_date( 'j F Y, H:i' ); ?></time></p>
+        <p class="shinka-post__info"><?php echo esc_html( $article_category ); ?> di <a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>"><?php esc_html( the_author_meta( 'display_name', $author_id ) ); ?></a> | <time datetime="<?php esc_attr( the_time( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'j F Y, H:i' ) ); ?></time></p>
     </div>
     <div class="shinka-post__share">
         <div class="shinka-post__sns-btn shinka-post__sns-btn-facebook">
@@ -68,16 +66,16 @@ if ( $categories_list ) :
         <div class="shinka-post__thumbnail">
             <figure class="shinka-post__thumbnail-wrapper">
                 <?php
-                the_post_thumbnail(
-                    'medium',
-                    [
-                        'class' => 'shinka-post__thumbnail-img shinka-utils__crop-16x9',
-                        'srcset' => wp_get_attachment_image_url( get_post_thumbnail_id(), 'medium' ) . ' 700w, ' .
-                                    wp_get_attachment_image_url( get_post_thumbnail_id(), 'post_thumbnail' ) . ' 1000w, ',
-                        'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
-                        'alt' => esc_html( $post_title ),
-                    ],
-                );
+                    the_post_thumbnail(
+                        'medium',
+                        [
+                            'class' => 'shinka-post__thumbnail-img shinka-utils__crop-16x9',
+                            'srcset' => wp_get_attachment_image_url( $post_thumbnail_id, 'hot_post_thumbnail' ) . ' 700w, ' .
+                                        wp_get_attachment_image_url( $post_thumbnail_id, 'post_thumbnail' ) . ' 1000w, ',
+                            'sizes' => '(max-width: 700px) 400w, (max-width: 1000px) 800w, (max-width: 1200px) 1000w',
+                            'alt' => esc_attr( $post_title ),
+                        ],
+                    );
                 ?>
                 <?php if ( $post_thumbnail_caption ) : ?>
                     <figcaption class="shinka-post__image-caption"><?php echo esc_html( $post_thumbnail_caption ); ?></figcaption>

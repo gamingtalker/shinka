@@ -9,9 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'shinka-post__main' ); ?>>
-		<?php 
-			get_template_part( 'template-parts/page/header' );
-		?>
+		<?php get_template_part( 'template-parts/page/header' ); ?>
 			<div class="shinka-post__content">
 				<?php
 				the_content(
@@ -31,9 +29,7 @@
 				?>
 			</div>
 		</div>
-		<?php
-		get_sidebar();
-		?>
+		<?php get_sidebar(); ?>
 		</div>
 	</div>
 </article>

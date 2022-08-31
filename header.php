@@ -53,11 +53,11 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="shinka-body">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'shinka' ); ?></a>
+	<a href="#primary" class="skip-link screen-reader-text" ><?php esc_html_e( 'Skip to content', 'shinka' ); ?></a>
 	<!-- Header -->
 	<header id="header" class="shinka-header">
 		<div class="shinka-header__container">
-			<a href="<?php echo get_home_url(); ?>" class="shinka-header__logo" title="GamingTalker">
+			<a href="<?php echo esc_url( home_url() ); ?>" class="shinka-header__logo" title="GamingTalker">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224.49 108.6"><defs><style>.cls-1{fill:#ff1414;}.cls-2{fill:#fff;}</style></defs>
 					<g>
 						<g>
@@ -78,14 +78,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</a>
 			<nav id="header-menu" class="shinka-header__navigation">
 				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' 	=> 'menu-header',
-						'menu_id'        	=> 'main-menu',
-						'container_class'	=> 'shinka-header__navigation-container',
-						'menu_class'		=> 'shinka-header__menu'
-					)
-				);
+					wp_nav_menu(
+						array(
+							'theme_location' 	=> 'menu-header',
+							'menu_id'        	=> 'main-menu',
+							'container_class'	=> 'shinka-header__navigation-container',
+							'menu_class'		=> 'shinka-header__menu'
+						)
+					);
 				?>
 			</nav>
 			<div class="shinka-header__sns">

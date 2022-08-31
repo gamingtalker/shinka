@@ -198,6 +198,9 @@ remove_filter( 'the_excerpt', 'wptexturize' );
  * Custom image sizes.
  */
 add_image_size( 'post_thumbnail', 900, 506 );
+add_image_size( 'hot_post_thumbnail', 400, 225 );
+remove_image_size( '1536x1536' );
+remove_image_size( '2048x2048' );
 
 /**
  * Implement the Custom Header feature.

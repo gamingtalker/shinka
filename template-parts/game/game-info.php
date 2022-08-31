@@ -8,7 +8,7 @@
     <?php if ( $game_cover ) : ?>
     <div class="shinka-game__cover">
         <a href="<?php echo esc_url( $game_cover['url'] ); ?>" class="shinka-game__cover-link post-img-link">
-            <img class="shinka-game__cover-image" src="<?php echo esc_url( $game_cover['sizes']['medium_large'] ); ?>" alt="<?php echo esc_html( $game_title ); ?>">
+            <img src="<?php echo esc_url( $game_cover['sizes']['medium_large'] ); ?>" class="shinka-game__cover-image" alt="<?php echo esc_attr( $game_title ); ?>">
         </a>
     </div>
     <?php endif; ?>

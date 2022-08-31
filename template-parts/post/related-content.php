@@ -1,18 +1,18 @@
 <?php
-$post_tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
-$query_args = [
-    'post__not_in'        => array( get_queried_object_id() ),
-    'posts_per_page'      => 5,
-    'ignore_sticky_posts' => 1,
-    'orderby'             => 'date',
-    'tax_query' => [
-        [
-            'taxonomy' => 'post_tag',
-            'terms'    => $post_tags
+    $post_tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
+    $query_args = [
+        'post__not_in'        => array( get_queried_object_id() ),
+        'posts_per_page'      => 5,
+        'ignore_sticky_posts' => 1,
+        'orderby'             => 'date',
+        'tax_query' => [
+            [
+                'taxonomy' => 'post_tag',
+                'terms'    => $post_tags
+            ]
         ]
-    ]
-];
-$tag_query = new WP_Query( $query_args );
+    ];
+    $tag_query = new WP_Query( $query_args );
 ?>
 <?php if ( $tag_query->have_posts() ) : ?>
 <!-- Related posts -->

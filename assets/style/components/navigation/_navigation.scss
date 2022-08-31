@@ -2,13 +2,13 @@
 	background: $shinka__header;
     height: 60px;
 	position: relative;
-	z-index: 9999;
+	z-index: 999;
 }
 
 .shinka-header__navigation {
 	display: none;
 	position: absolute;
-	z-index: 9999;
+	z-index: 999;
     top: 60px;
     width: 100%;
     background: #323232;

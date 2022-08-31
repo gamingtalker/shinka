@@ -1,17 +1,17 @@
 <?php
-/**
- * The template for displaying author page
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package _s
- */
-$author_id = $post->post_author;
-$author_name = get_the_author_meta( 'display_name', $author_id );
-$twitter_slug = get_the_author_meta( 'twitter', $author_id );
-$author_bio = get_the_author_meta( 'description', $author_id );
+	/**
+	 * The template for displaying author page
+	 *
+	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+	 *
+	 * @package _s
+	 */
+	$author_id = $post->post_author;
+	$author_name = get_the_author_meta( 'display_name', $author_id );
+	$twitter_slug = get_the_author_meta( 'twitter', $author_id );
+	$author_bio = get_the_author_meta( 'description', $author_id );
 
-get_header();
+	get_header();
 ?>
 <div id="main-content" class="shinka-page">
 	<div class="shinka-wrapper">
@@ -19,10 +19,11 @@ get_header();
 		<div class="shinka-post__main">
 			<!-- Author bio -->
 			<div class="shinka-archive__pre-content">
-				<?php $user = wp_get_current_user();
+				<?php 
+					$user = wp_get_current_user();
 					if ( $user ) :
 				?>
-				<img src="<?php echo esc_url( get_avatar_url( $author_id ) ); ?>" alt="Immagine di <?php echo esc_html( $author_name ); ?>" />
+				<img src="<?php echo esc_url( get_avatar_url( $author_id ) ); ?>" alt="Immagine di <?php echo esc_attr( $author_name ); ?>" />
 				<?php endif; ?>
 				<div class="shinka-archive__pre-content-main">
 					<div class="shinka-archive__pre-content-meta">
@@ -50,7 +51,7 @@ get_header();
 					array(
 						'author_name' => $author_name,
 					),
-				); 
+				);
 			?>
 		</div>
 	</div>

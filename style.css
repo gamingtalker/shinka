@@ -684,13 +684,13 @@ textarea {
 	background: #212121;
 	height: 60px;
 	position: relative;
-	z-index: 9999;
+	z-index: 999;
 }
 
 .shinka-header__navigation {
 	display: none;
 	position: absolute;
-	z-index: 9999;
+	z-index: 999;
 	top: 60px;
 	width: 100%;
 	background: #323232;
@@ -1202,6 +1202,10 @@ textarea {
 	flex: 2;
 }
 
+.shinka-archive__timeline-news-text .shinka-archive__timeline-news-title:first-child {
+	margin: 0;
+}
+
 .shinka-archive__timeline-news-metadata {
 	font-size: 12px;
 }
@@ -1209,6 +1213,7 @@ textarea {
 .shinka-archive__timeline-news-category {
 	color: #ff1414;
 	font-weight: 600;
+	margin: 0 !important;
 }
 
 .shinka-archive__timeline-news-title {
@@ -2070,6 +2075,10 @@ textarea {
 	width: 100%;
 }
 
+.shinka-archive__timeline-image {
+	display: block;
+}
+
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -2137,7 +2146,7 @@ textarea {
 	}
 	.shinka-archive__timeline-news-media {
 		margin-right: 20px;
-		flex: 3;
+		flex: 2;
 	}
 	.shinka-archive__timeline-news-text {
 		flex: 5;
@@ -2155,12 +2164,12 @@ textarea {
 		font-size: 16px;
 	}
 	.shinka-archive__timeline-news-title {
-		font-size: 25px;
+		font-size: 25px !important;
 		margin-top: 7px;
 	}
 	.shinka-archive__timeline-news-excerpt {
 		display: block;
-		font-size: 18px;
+		font-size: 18px !important;
 	}
 	.shinka-timeline__extra-news-wrapper {
 		overflow: hidden;
@@ -2318,6 +2327,21 @@ textarea {
 	.shinka-game__cover-link {
 		margin: 0;
 		width: 100%;
+	}
+	.shinka-home__news-title {
+		font-size: 24px;
+	}
+	.shinka-home__hot-news-title, .shinka-timeline__extra-news-title {
+		font-size: 18px;
+	}
+	.shinka-archive__timeline-news-title {
+		font-size: 22px;
+	}
+	.shinka-archive__timeline-news-metadata {
+		font-size: 15px;
+	}
+	.shinka-timeline__extra-news {
+		flex: 0 1 25%;
 	}
 }
 
@@ -2542,7 +2566,7 @@ body.dark-mode {
 	color: #ff1414;
 }
 
-.dark-mode .shinka-sidebar, .dark-mode .shinka-post__content {
+.dark-mode .shinka-sidebar, .dark-mode .shinka-post__content, .dark-mode .shinka-archive__timeline-news, .dark-mode .shinka-archive__sidebar, .dark-mode .shinka-game__info-content, .dark-mode .shinka-archive__pre-content, .dark-mode .shinka-game-releases__item {
 	border-color: #262626;
 }
 
