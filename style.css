@@ -62,7 +62,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -1168,10 +1168,6 @@ textarea {
 	border: none;
 }
 
-.shinka-archive__timeline-news:last-of-type {
-	padding-bottom: 0;
-}
-
 .shinka-archive__timeline-content .shinka-inline-search__wrapper + .shinka-archive__timeline-news {
 	border: none;
 }
@@ -2098,7 +2094,7 @@ textarea {
 		flex-direction: column;
 	}
 	.shinka-home__news-title-big {
-		font-size: 28px;
+		font-size: 28px !important;
 	}
 	.shinka-home__news-title-small {
 		font-size: 20px;

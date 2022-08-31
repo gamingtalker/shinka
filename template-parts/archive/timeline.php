@@ -56,14 +56,16 @@
             <div class="shinka-archive__timeline-news-text">
                 <?php 
                     if ( $timeline_post_type == 'post' ) :
-                        if ( $post_category ): 
+                        if ( $post_category ):
                 ?>
                 <p class="shinka-archive__timeline-news-category shinka-archive__timeline-news-metadata"><?php echo esc_html( $post_category ); ?></p>
-                <?php endif; ?>
+                <?php 
+                    endif;
+                    endif;
+                ?>
                 <h2 class="shinka-archive__timeline-news-title">
                     <a href="<?php echo esc_url( $post_url ); ?>"><?php echo esc_html( $post_title ); ?></a>
                 </h2>
-                <?php endif; ?>
                 <?php if ( $timeline_post_type == 'post' ) : ?>
                 <p class="shinka-archive__timeline-news-date shinka-archive__timeline-news-metadata"><time datetime="<?php esc_attr( the_time( 'c' ) ); ?>"><?php echo esc_html( $post_date ); ?></time></p>
                 <?php if ( $post_excerpt ) : ?>

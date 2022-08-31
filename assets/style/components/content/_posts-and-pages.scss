@@ -120,9 +120,6 @@
 		padding-top: 0;
 		border: none;
 	}
-	&:last-of-type {
-		padding-bottom: 0;
-	}
 }
 
 .shinka-archive__timeline-content .shinka-inline-search__wrapper + .shinka-archive__timeline-news {
@@ -1024,7 +1021,7 @@
 	}
 
 	.shinka-home__news-title-big {
-		font-size: 28px;
+		font-size: 28px !important;
 	}
 
 	.shinka-home__news-title-small {
