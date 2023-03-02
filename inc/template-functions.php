@@ -33,7 +33,7 @@ add_filter( 'login_errors', 'shinka_login_error' );
  * Link logo on the login page to the website.
  */
 function shinka_login_logo() {
-	return get_bloginfo( 'url' );
+	return esc_url( home_url() );
 }
 add_filter( 'login_headerurl', 'shinka_login_logo' );
 
@@ -150,6 +150,158 @@ add_action( 'admin_init', 'shinka_add_editor_styles' );
  * Custom CSS for the login page.
  */
 function shinka_custom_login() {
-	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/assets/admin/style/login.css" />';
+	echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri()  . '/assets/admin/style/login.css" />';
 }
 add_action( 'login_head', 'shinka_custom_login' );
+
+/**
+ * Yoast SEO filters.
+ */
+function shinka_yoast_twitter_image( $image ) {
+    if ( !$image ) {
+        $image = esc_url( get_the_post_thumbnail_url( get_the_ID() ) );
+    }
+    return $image;
+};
+add_filter( 'wpseo_twitter_image', 'shinka_yoast_twitter_image' );
+
+function shinka_yoast_twitter_description( $description ) {
+    // If the page is a post, get the excerpt.
+    if ( !$description && ( is_archive() || is_singular( 'post' ) ) ) {
+        $description = esc_html( get_the_excerpt() );
+    }
+    // If it's a game, however, we get its summary (set via ACF).
+    else if ( !$description && ( is_singular( 'giochi' ) ) ) {
+        $description = esc_html( get_field( 'game_summary' ) );
+    }
+    return $description;
+}
+add_filter( 'wpseo_twitter_description', 'shinka_yoast_twitter_description' );
+
+/**
+ * Disable comments RSS feeds.
+ */
+add_filter( 'feed_links_show_comments_feed', '__return_false' );
+
+/**
+ * Remove width and height set in images.
+ */
+function shinka_remove_img_attr( $html ) {
+    return preg_replace( '/(width|height)="\d+"\s/', "", $html );
+}
+add_filter( 'post_thumbnail_html', 'shinka_remove_img_attr' );
+
+/**
+ * Set maximum srcset width.
+ */
+function max_srcset_image_wd() {
+	return 900; // Max srcset width.
+}
+add_filter( 'max_srcset_image_width', 'max_srcset_image_wd', 10 , 2 );
+
+/**
+ * Add content to <head> via wp_head().
+ */
+function shinka_header_metadata() { ?>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon.ico">
+    <link rel="manifest" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/static/manifest.json">
+    <!-- iOS / macOS metadata -->
+    <link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="GamingTalker">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Android metadata -->
+    <meta name="application-name" content="GamingTalker">
+    <meta name="theme-color" content="#000000">
+    <!-- Windows metadata -->
+    <meta name="msapplication-TileImage" content="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon-180x180.png">
+    <meta name="msapplication-TileColor" content="#000000">
+
+<?php }
+add_action( 'wp_head', 'shinka_header_metadata' );
+add_action( 'admin_head', 'shinka_header_metadata' );
+
+function shinka_header_script() { ?>
+	<!-- Load iubenda script -->
+	<script type="text/javascript">
+		var _iub = _iub || [];
+		_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"consentOnContinuedBrowsing":false,"cookiePolicyInOtherWindow":true,"floatingPreferencesButtonDisplay":"bottom-right","floatingPreferencesButtonHover":true,"invalidateConsentWithoutLog":true,"perPurposeConsent":true,"siteId":1392326,"whitelabel":false,"cookiePolicyId":69782818,"lang":"it", "banner":{ "acceptButtonDisplay":true,"closeButtonDisplay":false,"continueWithoutAcceptingButtonDisplay":true,"customizeButtonDisplay":true,"explicitWithdrawal":true,"fontSizeBody":"16px","listPurposes":true,"position":"bottom","rejectButtonDisplay":true,"slideDown":false,"content":"GamingTalker utilizza i cookie per migliorare l'esperienza d'utilizzo del sito. Per maggiori informazioni, consulta la <a href=\"//www.iubenda.com/privacy-policy/69782818?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-privacy-policy-lnk\">privacy policy</a> e la <a href=\"//www.iubenda.com/privacy-policy/69782818/cookie-policy?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-cookie-policy-lnk\">cookie policy</a>.\n<br><br>\nPuoi liberamente prestare, rifiutare o revocare il tuo consenso, in qualsiasi momento, accedendo al pannello delle preferenze. Puoi acconsentire all’utilizzo di tali tecnologie utilizzando il pulsante “Accetta”. Chiudendo questa informativa, continui senza accettare.","customizeButtonCaption":"Scopri di più" }};
+	</script>
+	<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+	<!-- Load Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('require', 'displayfeatures');
+		ga('create', 'UA-127312747-1', 'auto');
+		ga('set', 'anonymizeIp', true);
+		ga('send', 'pageview');
+	</script>
+	<!-- Google Analytics end -->
+
+	<!-- Load Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WJ857G8');</script>
+	<!-- Google Tag Manager end -->
+
+	<!-- Load Matomo -->
+	<script>
+	var _paq = window._paq = window._paq || [];
+	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	_paq.push(["setCookieDomain", "*.www.gamingtalker.it"]);
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="//analytics.gamingtalker.it/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	})();
+	</script>
+	<noscript><p><img src="//analytics.gamingtalker.it/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Matomo Code -->
+<?php }
+add_action( 'wp_head', 'shinka_header_script' );
+
+/**
+ * Add content to wp_footer().
+ */
+function shinka_footer_script() { ?>
+    <!-- Begin comScore Tag -->
+    <script class="_iub_cs_activate" type="text/plain">
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "36803024" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = "https://sb.scorecardresearch.com/cs/36803024/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+    </script>
+    <!-- End comScore Tag -->
+<?php }
+add_action( 'wp_footer', 'shinka_footer_script', 100 );
+
+/**
+ * Gutenberg styles.
+ */
+function shinka_gutenberg_styles() {
+    // If page uses blocks, don't do anything.
+	if ( has_blocks() ) {
+		return;
+	}
+    // Otherwise dequeue Gutenberg's style.
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+}
+add_action( 'wp_enqueue_scripts', 'shinka_gutenberg_styles' );

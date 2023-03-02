@@ -53,7 +53,7 @@
         });
         // Post share.
         var postURL = encodeURIComponent(document.URL);
-        var postTitle = document.getElementsByClassName("shinka-post__title")[0].innerText;
+        var postTitle = document.title;
         console.log("Social message: " + postTitle + " - " + postURL);
         $(".shinka-post__sns-btn-facebook").on("click", function() {
             const url = "https://www.facebook.com/sharer.php?u=" + postURL + "?utm_source=facebook%26utm_medium=social%26utm_campaign=social_share";
@@ -70,6 +70,20 @@
         $(".shinka-post__sns-btn-telegram").on("click", function() {
             const url = "https://t.me/share/url?url=" + postURL + "?utm_source=telegram%26utm_medium=social%26utm_campaign=social_share" + "&text=" + postTitle;
             window.open(url, "_blank");
+        });
+        // Dark theme.
+        $(".shinka-header__dark-icon").click( function() {
+            colorMode = localStorage.getItem("colorMode");
+            if (colorMode === "dark") {
+                localStorage.setItem("colorMode", "light");
+                document.body.classList.remove("dark-mode");
+                console.log("Tema chiaro attivato!");
+            }
+            else if (colorMode === "light" || colorMode === "") {
+                localStorage.setItem("colorMode", "dark");
+                document.body.classList.add("dark-mode");
+                console.log("Tema scuro attivato!");
+            }
         });
     });
 })( jQuery );

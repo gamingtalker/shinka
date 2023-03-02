@@ -24,6 +24,7 @@
 .shinka-home__news-image {
 	display: block;
     transition: transform .25s ease-in-out;
+	width: 100%;
 }
 
 .shinka-home__news-text {
@@ -119,9 +120,6 @@
 		padding-top: 0;
 		border: none;
 	}
-	&:last-of-type {
-		padding-bottom: 0;
-	}
 }
 
 .shinka-archive__timeline-content .shinka-inline-search__wrapper + .shinka-archive__timeline-news {
@@ -150,6 +148,9 @@
 
 .shinka-archive__timeline-news-text {
 	flex: 2;
+	.shinka-archive__timeline-news-title:first-child {
+		margin: 0;
+	}
 }
 
 .shinka-archive__timeline-news-metadata {
@@ -159,6 +160,7 @@
 .shinka-archive__timeline-news-category {
 	color: $shinka__red;
 	font-weight: 600;
+	margin: 0 !important;
 }
 
 .shinka-archive__timeline-news-title {
@@ -239,7 +241,7 @@
 }
 
 .home .shinka-sidebar {
-	padding: 0 15px;
+	display: none;
 }
 
 .shinka-archive__timeline-container-secondary {
@@ -267,12 +269,22 @@
 	margin-top: 20px;
 }
 
+.shinka-post__categories {
+	overflow: hidden;
+}
+
 .shinka-post__categories-wrapper {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	display: flex;
     align-items: center;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	&::-webkit-scrollbar {
+		height: 0px;
+		background: transparent;
+	}
 }
 
 .shinka-post__categories-main {
@@ -288,6 +300,7 @@
 	text-transform: uppercase;
 	font-size: 15px;
 	font-weight: 600;
+	white-space: nowrap;
 	padding: 7px;
 }
 
@@ -318,10 +331,12 @@
 
 .shinka-post__thumbnail-img {
 	display: block;
+	width: 100%;
 }
 
 .shinka-post__content {
 	border-bottom: 1px solid $shinka__border;
+	word-break: break-word;
 	p {
 		font-size: 17px;
 		line-height: 1.8em;
@@ -353,6 +368,12 @@
 	}
 	h2, h3, h4, h5, h6 {
 		margin-bottom: .5em;
+	}
+}
+
+.shinka-post__type-review {
+	.shinka-post__content {
+		border: none;
 	}
 }
 
@@ -403,8 +424,8 @@
 	display: flex;
 	margin-top: 8px;
 	svg {
-		width: 25px;
-		height: 25px;
+		width: 30px;
+		height: 30px;
 		display: block;
 	}
 }
@@ -451,6 +472,13 @@
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     grid-gap: 10px;
+}
+
+.shinka__game-no-cover {
+	display: block;
+	.shinka__post-game-details {
+		margin-top: 10px;
+	}
 }
 
 .shinka__post-game-cover-img {
@@ -516,6 +544,9 @@
 	a, img {
 		display: block;
 	}
+	img {
+		width: 100%;
+	}
 }
 
 .shinka__recommended-content-text, .shinka-sidebar__popular-post-text {
@@ -537,6 +568,12 @@
 			color: $shinka__red;
 			opacity: .9;
 			transition-duration: .2s;
+		}
+		.shinka-utils__image-wrapper {
+			img:hover {
+				opacity: .9;
+				transition-duration: .2s;
+			}
 		}
 	}
 }
@@ -653,9 +690,6 @@
 .shinka-archive__pre-content-meta {
 	display: flex;
 	flex-flow: column;
-	a {
-		margin-left: 10px;
-  	}
 }
 
 .shinka-archive__pre-content-text {
@@ -665,7 +699,7 @@
 .shinka__twitter-icon {
 	transition: all .2s ease;
 	&:hover {
-		fill: #1DA1F2;
+		fill: #1DA1F2 !important;
 	}
 }
 
@@ -685,7 +719,7 @@
 }
 
 .shinka-post__review {
-	margin: 0 -15px 20px -15px;
+	margin: 0 -15px;
 	background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -729,6 +763,7 @@
     font-size: 40px;
     justify-content: center;
     align-items: center;
+	margin-top: 15px;
 }
 
 .shinka-game-releases__container {
@@ -886,7 +921,7 @@
 }
 
 .shinka-game__cover {
-    margin-top: -150px;
+    margin-top: -100px;
 	position: relative;
 }
 
@@ -903,6 +938,7 @@
 
 .shinka-game__main-info {
 	display: flex;
+	position: relative;
     flex-direction: column;
 	padding: 0 15px;
 }
@@ -978,6 +1014,31 @@
 	width: 100%;
 }
 
+.shinka-archive__timeline-image {
+	display: block;
+}
+
+.search .shinka-archive__timeline-news:first-of-type {
+	padding-top: 15px;
+}
+
+#disqus_thread {
+	width: 100% !important;
+}
+
+.shinka-sponsor__horizontal {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	iframe {
+		margin: 15px;
+	}
+}
+
+.shinka-sponsor__square {
+	text-align: center; 
+}
+
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -1001,7 +1062,7 @@
 	}
 
 	.shinka-home__news-title-big {
-		font-size: 28px;
+		font-size: 28px !important;
 	}
 
 	.shinka-home__news-title-small {
@@ -1058,7 +1119,7 @@
 
 	.shinka-archive__timeline-news-media {
 		margin-right: 20px;
-		flex: 3;
+		flex: 2;
 	}
 
 	.shinka-archive__timeline-news-text {
@@ -1081,13 +1142,13 @@
 	}
 
 	.shinka-archive__timeline-news-title {
-		font-size: 25px;
+		font-size: 25px !important;
 		margin-top: 7px;
 	}
 
 	.shinka-archive__timeline-news-excerpt {
 		display: block;
-		font-size: 18px;
+		font-size: 18px !important;
 	}
 
 	.shinka-timeline__extra-news-wrapper {
@@ -1129,7 +1190,7 @@
 		flex: 0 0 30%;
 		margin: 0;
 		padding-left: 15px;
-		border-left: 1px solid $shinka__border;	
+		border-left: 1px solid $shinka__border;
 		.shinka__in-post-title:first-of-type {
 			margin-top: 0;
 		}
@@ -1193,6 +1254,9 @@
 	.shinka-archive__pre-content-meta {
 		flex-flow: row;
 		align-items: baseline;
+		a {
+			margin-left: 10px;
+		}
 	}
 	
 	.shinka-archive__pre-content-text {
@@ -1200,7 +1264,7 @@
 	}
 
 	.shinka-post__review {
-		margin: 0 0 20px 0;
+		margin: 0;
 	}
 	
 	.shinka-post__review-wrapper {
@@ -1218,9 +1282,8 @@
 		padding: 0 15px;
 	}
 	
-	.shinka-game__cover {
-		width: 20% !important;
-		margin-top: -250px;
+	.shinka-game__cover + .shinka-game__heading {
+		margin-left: 11vw !important;
 	}
 
 	.shinka-game__content {
@@ -1240,11 +1303,16 @@
 	}
 
 	.home .shinka-sidebar {
+		display: block;
 		padding-right: 0;
 	}
 
 	.shinka-game__timeline-content {
 		padding: 0;
+	}
+
+	.shinka-post__categories-wrapper {
+		overflow-x: initial; 
 	}
 }
 
@@ -1276,7 +1344,10 @@
 	}
 
 	.shinka-game__cover {
-		width: 30%;
+	    width: 20%;
+		margin-top: 0;
+		position: absolute;
+		bottom: 0;
 	}
 
 	.shinka-game__cover-link {
@@ -1284,7 +1355,28 @@
 		width: 100%;
 	}
 
-	.shinka-game__heading {
-		margin-left: 20px;
+	.shinka-game__cover + .shinka-game__heading {
+		position: relative;
+		margin-left: 22vw; 
+	}
+
+	.shinka-home__news-title {
+		font-size: 24px;
+	}
+
+	.shinka-home__hot-news-title, .shinka-timeline__extra-news-title {
+		font-size: 18px;
+	}
+
+	.shinka-archive__timeline-news-title {
+		font-size: 22px;
+	}
+
+	.shinka-archive__timeline-news-metadata {
+		font-size: 15px;
+	}
+
+	.shinka-timeline__extra-news {
+		flex: 0 1 25%;
 	}
 }

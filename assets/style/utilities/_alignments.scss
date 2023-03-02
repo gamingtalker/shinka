@@ -5,7 +5,7 @@
 
 	/*rtl:ignore*/
 	margin-right: 1.5em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 }
 
 .alignright {
@@ -15,7 +15,7 @@
 
 	/*rtl:ignore*/
 	margin-left: 1.5em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 }
 
 .aligncenter {
@@ -23,5 +23,5 @@
 
 	@include center-block;
 
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 }

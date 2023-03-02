@@ -1,7 +1,8 @@
 .gallery {
 	margin-bottom: 1em;
 	display: grid;
-	grid-gap: 1.5em;
+	grid-gap: 0.5em;
+	align-items: center;
 }
 
 .gallery-item {
@@ -21,4 +22,8 @@
 
 .gallery-caption {
 	display: block;
+}
+
+.gallery-icon a img {
+	margin: auto;
 }

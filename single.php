@@ -9,7 +9,6 @@
 
 get_header();
 ?>
-
 	<div id="main-content" class="shinka-page">
 		<div class="shinka-wrapper">
 			<?php

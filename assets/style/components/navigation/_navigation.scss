@@ -1,12 +1,14 @@
 .shinka-header {
 	background: $shinka__header;
     height: 60px;
+	position: relative;
+	z-index: 999;
 }
 
 .shinka-header__navigation {
 	display: none;
 	position: absolute;
-	z-index: 99999;
+	z-index: 999;
     top: 60px;
     width: 100%;
     background: #323232;
@@ -57,15 +59,12 @@
 .shinka-header__logo {
 	margin-left: 15px;
 	svg {
-		width: 100%;
+		width: 230px;
 	}
 }
 
 .shinka-header__sns-icon {
 	margin-left: 10px;
-	svg {
-		width: 100%;
-	}
 }
 
 .shinka-header__sns {
@@ -133,7 +132,7 @@
 
 .shinka-footer__logo {
 	svg {
-		width: 100%;
+		width: 230px;
 	}
 }
 
@@ -160,7 +159,7 @@
     left: 0;
 	right: 0;
     background: #323232;
-    z-index: 99999;
+    z-index: 0;
 }
 
 .shinka-inline-search__wrapper {
@@ -206,6 +205,7 @@
 	display: none;
 	border-top: 1px solid #606060;
     background: #494949;
+	z-index: 9999;
 	a {
 		display: block;
 		&::after {
@@ -241,30 +241,37 @@
 		max-width: 1280px;
 		margin: auto;
 	}
+
 	.shinka-header__logo, .shinka-footer__logo {
 		margin: 0;
 		svg {
 			height: 25px;
 		}
 	}
+
 	.shinka-header__menu-icon {
 		display: none;
 	}
+
 	.shinka-header__sns, .shinka-footer__sns {
 		display: flex;
 		margin-left: auto;
 	}
+
 	.shinka-header__sns-icon, .shinka-footer__sns-icon {
 		margin-left: 15px;
 	}
+
 	.shinka-header__dark-icon {
 		border-left: 1px solid #424242;
 		padding-left: 10px;
 		margin-left: 10px;
 	}
+
 	.shinka-header__dark-icon, .shinka-header__search-icon {
 		cursor: pointer;
 	}
+
 	.shinka-header__navigation {
 		margin-left: 30px;
 		display: block;
@@ -274,9 +281,11 @@
 		background: $shinka__header;
 		z-index: 1;
 	}
+
 	.shinka-header__navigation-container {
 		padding: 0;
 	}
+
 	.shinka-header__menu {
 		display: flex;
 		align-items: center;
@@ -292,6 +301,7 @@
 			border: none;
 		}
 	}
+
 	.menu-item-has-children {
 		a {
 			&::after {
@@ -308,6 +318,7 @@
 			}
 		}
 	}
+
 	.sub-menu {
 		position: absolute;
 		border: none;
@@ -317,14 +328,17 @@
 			margin-top: 5px;
 		}
 	}
+
 	.shinka-footer__main {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
+
 	.shinka-footer__sns {
 		margin-top: 0;
 	}
+
 	.shinka-footer__container {
 		width: 1280px;
 		max-width: 1280px;
@@ -332,16 +346,19 @@
 		padding: 15px 0;
 		align-items: unset;
 	}
+
 	.shinka-footer__menu {
 		a {
 			margin: 0 10px;
 			padding: 0;
 		}
 	}
+
 	.shinka-search__wrapper {
 		margin-left: calc(50% - 50vw);
 		margin-right: calc(50% - 50vw);	
 	}
+
 	.shinka-search__form {
 		width: 1280px;
 		max-width: 1280px;

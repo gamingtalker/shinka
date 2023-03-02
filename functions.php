@@ -184,6 +184,7 @@ remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
 add_filter( 'emoji_svg_url', '__return_false' );
 
 /**
@@ -192,6 +193,14 @@ add_filter( 'emoji_svg_url', '__return_false' );
 remove_filter( 'the_content', 'wptexturize' );
 remove_filter( 'the_title', 'wptexturize' );
 remove_filter( 'the_excerpt', 'wptexturize' );
+
+/**
+ * Custom image sizes.
+ */
+add_image_size( 'post_thumbnail', 900, 506 );
+add_image_size( 'hot_post_thumbnail', 400, 225 );
+remove_image_size( '1536x1536' );
+remove_image_size( '2048x2048' );
 
 /**
  * Implement the Custom Header feature.
