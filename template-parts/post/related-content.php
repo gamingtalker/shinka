@@ -3,6 +3,10 @@
     $query_args = [
         'post__not_in'        => array( get_queried_object_id() ),
         'posts_per_page'      => 5,
+<<<<<<< HEAD
+=======
+        'ignore_sticky_posts' => 1,
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
         'orderby'             => 'date',
         'tax_query' => [
             [

@@ -209,7 +209,10 @@ function shinka_header_metadata() { ?>
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon-16x16.png">
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/favicon.ico">
+<<<<<<< HEAD
     <link rel="manifest" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/static/manifest.json">
+=======
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
     <!-- iOS / macOS metadata -->
     <link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icons/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="GamingTalker">
@@ -229,7 +232,11 @@ function shinka_header_script() { ?>
 	<!-- Load iubenda script -->
 	<script type="text/javascript">
 		var _iub = _iub || [];
+<<<<<<< HEAD
 		_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"consentOnContinuedBrowsing":false,"cookiePolicyInOtherWindow":true,"floatingPreferencesButtonDisplay":"bottom-right","floatingPreferencesButtonHover":true,"invalidateConsentWithoutLog":true,"perPurposeConsent":true,"siteId":1392326,"whitelabel":false,"cookiePolicyId":69782818,"lang":"it", "banner":{ "acceptButtonDisplay":true,"closeButtonDisplay":false,"continueWithoutAcceptingButtonDisplay":true,"customizeButtonDisplay":true,"explicitWithdrawal":true,"fontSizeBody":"16px","listPurposes":true,"position":"bottom","rejectButtonDisplay":true,"slideDown":false,"content":"GamingTalker utilizza i cookie per migliorare l'esperienza d'utilizzo del sito. Per maggiori informazioni, consulta la <a href=\"//www.iubenda.com/privacy-policy/69782818?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-privacy-policy-lnk\">privacy policy</a> e la <a href=\"//www.iubenda.com/privacy-policy/69782818/cookie-policy?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-cookie-policy-lnk\">cookie policy</a>.\n<br><br>\nPuoi liberamente prestare, rifiutare o revocare il tuo consenso, in qualsiasi momento, accedendo al pannello delle preferenze. Puoi acconsentire all’utilizzo di tali tecnologie utilizzando il pulsante “Accetta”. Chiudendo questa informativa, continui senza accettare.","customizeButtonCaption":"Scopri di più" }};
+=======
+		_iub.csConfiguration = {"askConsentAtCookiePolicyUpdate":true,"consentOnContinuedBrowsing":false,"cookiePolicyInOtherWindow":true,"floatingPreferencesButtonDisplay":"bottom-right","floatingPreferencesButtonHover":true,"invalidateConsentWithoutLog":true,"perPurposeConsent":true,"purposes":"1,2,3,4,5","siteId":1392326,"whitelabel":false,"cookiePolicyId":69782818,"lang":"it", "banner":{ "acceptButtonDisplay":true,"closeButtonRejects":true,"customizeButtonDisplay":true,"explicitWithdrawal":true,"fontSize":"16px","listPurposes":true,"position":"bottom","rejectButtonDisplay":true,"slideDown":false,"content":"GamingTalker utilizza i cookie per migliorare l'esperienza d'utilizzo del sito. Per maggiori informazioni, consulta la <a href=\"//www.iubenda.com/privacy-policy/69782818?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-privacy-policy-lnk\">privacy policy</a> e la <a href=\"//www.iubenda.com/privacy-policy/69782818/cookie-policy?an=no&amp;s_ck=false&amp;newmarkup=yes\" class=\"iubenda-cs-cookie-policy-lnk\">cookie policy</a>.\n<br><br>\nPuoi liberamente prestare, rifiutare o revocare il tuo consenso, in qualsiasi momento, accedendo al pannello delle preferenze. Puoi acconsentire all’utilizzo di tali tecnologie utilizzando il pulsante “Accetta”. Chiudendo questa informativa, continui senza accettare.","customizeButtonCaption":"Scopri di più" }};
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 	</script>
 	<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 

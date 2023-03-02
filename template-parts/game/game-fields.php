@@ -8,8 +8,11 @@
     $game_rating = $args['game_rating'];
     $game_languages = $args['game_languages'];
     $game_deck_compatibility = $args['game_deck_compatibility'];
+<<<<<<< HEAD
     $game_dev_array = array();
     $game_publisher_array = array();
+=======
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 ?>
 <!-- Game details -->
 <div class="shinka-game__info">
@@ -18,6 +21,7 @@
         <?php if ( $game_developers ) : ?>
         <div class="shinka-game__info-content">
             <span class="shinka-game__info-bold">Sviluppatore</span>
+<<<<<<< HEAD
             <span class="shinka-game__info-detail">
                 <?php
                     foreach ( $game_developers as $game_developer ) :
@@ -30,6 +34,17 @@
                     echo implode( ', ', $game_dev_array );
                 ?>
             </span>
+=======
+            <?php
+                foreach ( $game_developers as $game_developer ) :
+                    $developer_permalink = get_permalink( $game_developer->ID );
+                    $developer_name = get_the_title( $game_developer->ID );
+            ?>
+            <span class="shinka-game__info-detail">
+                <a href="<?php echo esc_url( $developer_permalink ); ?>"><?php echo esc_html( $developer_name ); ?></a>
+            </span>
+            <?php endforeach; ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
         </div>
         <?php 
             endif;
@@ -37,6 +52,7 @@
         ?> 
         <div class="shinka-game__info-content">
             <span class="shinka-game__info-bold">Publisher</span>
+<<<<<<< HEAD
             <span class="shinka-game__info-detail">
                 <?php
                     foreach ( $game_publishers as $game_publisher ) :
@@ -49,6 +65,17 @@
                     echo implode( ', ', $game_publisher_array );
                 ?>
             </span>
+=======
+            <?php
+                foreach ( $game_publishers as $game_publisher ) :
+                    $publisher_permalink = get_permalink( $game_publisher->ID );
+                    $publisher_name = get_the_title( $game_publisher->ID );
+            ?>
+            <span class="shinka-game__info-detail">
+                <a href="<?php echo esc_url( $publisher_permalink ); ?>"><?php echo esc_html( $publisher_name ); ?></a>
+            </span>
+            <?php endforeach; ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
         </div>
         <?php endif; ?>
         <div class="shinka-game__info-content">

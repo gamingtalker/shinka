@@ -12,6 +12,7 @@
     $game_platforms = $args['game_platforms'];
     $game_release_date = $args['game_release_date'];
     $game_temp_date = $args['game_temp_date'];
+<<<<<<< HEAD
     $game_dev_array = array();
     $game_publisher_array = array();
 ?>
@@ -19,14 +20,25 @@
 <div class="shinka__post-game">
     <?php if ( $game_cover ) : ?>
     <div class="shinka__post-game-wrapper">
+=======
+?>
+<h3 class="shinka__in-post-title">In questo articolo</h3>
+<div class="shinka__post-game">
+    <div class="shinka__post-game-wrapper">
+        <?php if ( $game_cover ) : ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
         <div class="shinka__post-game-cover">
             <a href="<?php echo esc_url( $game_permalink ); ?>">
                 <img src="<?php echo esc_url( $game_cover['sizes']['medium'] ); ?>" class="shinka__post-game-cover-img" alt="<?php echo esc_attr( $game_title ); ?>">
             </a>
         </div>
+<<<<<<< HEAD
     <?php else: ?>
     <div class="shinka__post-game-wrapper shinka__game-no-cover">
     <?php endif; ?> 
+=======
+        <?php endif; ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
         <div class="shinka__post-game-heading">
             <a href="<?php echo esc_url( $game_permalink ); ?>">
                 <h3 class="shinka__post-game-title"><?php echo esc_html( $game_title ); ?></h3>
@@ -40,6 +52,7 @@
             <div class="shinka__post-game-developer shinka__post-game-text">
                 <span class="shinka__post-game-text-bold">Sviluppatore: </span>
                 <span class="shinka__post-game-text-content">
+<<<<<<< HEAD
                     <?php
                         foreach ( $game_developers as $game_developer ) :
                             $developer_permalink = get_permalink( $game_developer->ID );
@@ -50,6 +63,14 @@
                         endforeach;
                         echo implode( ', ', $game_dev_array );
                     ?>
+=======
+                <?php 
+                    foreach ( $game_developers as $game_developer ) :
+                        $developer_permalink = get_permalink( $game_developer->ID );
+                        $developer_name = get_the_title( $game_developer->ID ); ?>
+                        <a href="<?php echo esc_url( $developer_permalink ); ?>"><?php echo esc_html( $developer_name ); ?></a>
+                <?php endforeach; ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
                 </span>
             </div>
             <?php 
@@ -59,6 +80,7 @@
             <div class="shinka__post-game-publisher shinka__post-game-text">
                 <span class="shinka__post-game-text-bold">Publisher: </span>
                 <span class="shinka__post-game-text-content">
+<<<<<<< HEAD
                     <?php
                         foreach ( $game_publishers as $game_publisher ) :
                             $publisher_permalink = get_permalink( $game_publisher->ID );
@@ -69,6 +91,14 @@
                         endforeach;
                         echo implode( ', ', $game_publisher_array );
                     ?>
+=======
+                <?php 
+                    foreach ( $game_publishers as $game_publisher ) :
+                        $publisher_permalink = get_permalink( $game_publisher->ID );
+                        $publisher_name = get_the_title( $game_publisher->ID ); ?>
+                        <a href="<?php echo esc_url( $publisher_permalink ); ?>"><?php echo esc_html( $publisher_name ); ?></a>
+                <?php endforeach; ?>
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
                 </span>
             </div>
             <?php endif; ?>

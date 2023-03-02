@@ -62,9 +62,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+<<<<<<< HEAD
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%; }
+=======
+ html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 /* Sections
 	 ========================================================================== */
@@ -348,6 +355,7 @@ html {
 /* Typography
 --------------------------------------------- */
 @font-face {
+<<<<<<< HEAD
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
@@ -377,6 +385,41 @@ html {
   font-weight: 700;
   font-display: swap;
   src: url("assets/fonts/roboto-bold.woff2") format("woff2"), url("assets/fonts/roboto-bold.woff") format("woff"); }
+=======
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("assets/fonts/roboto-light.woff2") format("woff2"), url("assets/fonts/roboto-light.woff") format("woff");
+}
+
+/* roboto-regular - latin */
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("assets/fonts/roboto-regular.woff2") format("woff2"), url("assets/fonts/roboto-regular.woff") format("woff");
+}
+
+/* roboto-italic - latin */
+@font-face {
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 400;
+	font-display: swap;
+	src: url("assets/fonts/roboto-italic.woff2") format("woff2"), url("assets/fonts/roboto-italic.woff") format("woff");
+}
+
+/* roboto-700 - latin */
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("assets/fonts/roboto-bold.woff2") format("woff2"), url("assets/fonts/roboto-bold.woff") format("woff");
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 body,
 button,
@@ -384,11 +427,20 @@ input,
 select,
 optgroup,
 textarea {
+<<<<<<< HEAD
   color: #000;
   font-family: "Roboto", "Arial", "sans-serif";
   font-size: 18px;
   line-height: 1.5;
   word-wrap: break-word; }
+=======
+	color: #000;
+	font-family: "Roboto", "Arial", "sans-serif";
+	font-size: 18px;
+	line-height: 1.5;
+	word-wrap: break-word;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0; }
@@ -514,7 +566,12 @@ tr:nth-child(even) {
   background-color: #f2f2f2; }
 
 tr:nth-child(odd) {
+<<<<<<< HEAD
   background-color: #fff; }
+=======
+	background-color: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 /* Links
 --------------------------------------------- */
@@ -599,6 +656,7 @@ textarea {
 /* Navigation
 --------------------------------------------- */
 .shinka-header {
+<<<<<<< HEAD
   background: #212121;
   height: 60px;
   position: relative;
@@ -611,11 +669,28 @@ textarea {
   top: 60px;
   width: 100%;
   background: #323232; }
+=======
+	background: #212121;
+	height: 60px;
+	position: relative;
+	z-index: 999;
+}
+
+.shinka-header__navigation {
+	display: none;
+	position: absolute;
+	z-index: 999;
+	top: 60px;
+	width: 100%;
+	background: #323232;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-header__navigation-container {
   padding: 0; }
 
 .shinka-header__menu, .sub-menu {
+<<<<<<< HEAD
   padding: 0;
   margin: 0;
   list-style-type: none; }
@@ -645,6 +720,49 @@ textarea {
     height: 20px;
     display: block;
     fill: #fff; }
+=======
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.shinka-header__menu li, .sub-menu li {
+	border-top: 1px solid #606060;
+}
+
+.shinka-header__menu li:first-of-type, .sub-menu li:first-of-type {
+	margin-top: 0;
+	border: none;
+}
+
+.shinka-header__menu li a, .sub-menu li a {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 600;
+	display: block;
+	padding: 8px 15px;
+}
+
+.shinka-header__menu li a:visited, .sub-menu li a:visited {
+	color: #fff;
+}
+
+.shinka-header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 100%;
+}
+
+.shinka-header__container svg {
+	width: 20px;
+	height: 20px;
+	display: block;
+	fill: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-header__logo {
   margin-left: 15px; }
@@ -682,6 +800,7 @@ textarea {
   justify-content: space-between; }
 
 .shinka-footer__links {
+<<<<<<< HEAD
   margin-top: 15px;
   color: #fff; }
 
@@ -689,6 +808,17 @@ textarea {
   text-align: center;
   margin-top: 15px;
   color: #fff; }
+=======
+	margin-top: 15px;
+	color: #fff;
+}
+
+.shinka-footer__text {
+	text-align: center;
+	margin-top: 15px;
+	color: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-footer__text-content {
   margin-top: 10px;
@@ -697,15 +827,24 @@ textarea {
     margin: 0; }
 
 .shinka-footer__sns svg, .shinka-footer__logo svg {
+<<<<<<< HEAD
   width: 20px;
   height: 20px;
   display: block;
   fill: #fff; }
+=======
+	width: 20px;
+	height: 20px;
+	display: block;
+	fill: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-footer__logo svg {
   width: 230px; }
 
 .shinka-footer__menu {
+<<<<<<< HEAD
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -727,6 +866,33 @@ textarea {
   right: 0;
   background: #323232;
   z-index: 0; }
+=======
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.shinka-footer__menu a {
+	display: block;
+	color: #fff;
+	padding: 10px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.shinka-search__wrapper {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #323232;
+	z-index: 0;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-inline-search__wrapper .shinka-search__form {
   padding: 0; }
@@ -739,10 +905,18 @@ textarea {
   border: 1px solid #d8d8d8; }
 
 .shinka-inline-search__wrapper svg {
+<<<<<<< HEAD
   width: 20px;
   height: 20px;
   display: block;
   fill: #fff; }
+=======
+	width: 20px;
+	height: 20px;
+	display: block;
+	fill: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-search__form {
   display: flex;
@@ -762,6 +936,7 @@ textarea {
   cursor: pointer; }
 
 .sub-menu {
+<<<<<<< HEAD
   display: none;
   border-top: 1px solid #606060;
   background: #494949;
@@ -770,6 +945,21 @@ textarea {
     display: block; }
     .sub-menu a::after {
       content: none !important; }
+=======
+	display: none;
+	border-top: 1px solid #606060;
+	background: #494949;
+	z-index: 9999;
+}
+
+.sub-menu a {
+	display: block;
+}
+
+.sub-menu a::after {
+	content: none !important;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .menu-item-has-children a {
   display: flex !important;
@@ -889,6 +1079,7 @@ textarea {
     transform: scale(1.05); }
 
 .shinka-home__news-image {
+<<<<<<< HEAD
   display: block;
   transition: transform .25s ease-in-out;
   width: 100%; }
@@ -905,6 +1096,27 @@ textarea {
   font-size: 19px;
   color: #fff;
   margin-top: 8px; }
+=======
+	display: block;
+	transition: transform .25s ease-in-out;
+	width: 100%;
+}
+
+.shinka-home__news-text {
+	position: absolute;
+	left: 16px;
+	bottom: 16px;
+	right: 16px;
+	color: #fff;
+}
+
+.shinka-home__news-title {
+	line-height: 1.2em;
+	font-size: 19px;
+	color: #fff;
+	margin-top: 8px;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-home__news-category {
   display: inline-block;
@@ -931,11 +1143,24 @@ textarea {
     margin-top: 15px; }
 
 .shinka-home__hot-news-text {
+<<<<<<< HEAD
   margin-top: 5px; }
   .shinka-home__hot-news-text a {
     color: #000; }
     .shinka-home__hot-news-text a:hover {
       color: #ff1414; }
+=======
+	margin-top: 5px;
+}
+
+.shinka-home__hot-news-text a {
+	color: #000;
+}
+
+.shinka-home__hot-news-text a:hover {
+	color: #ff1414;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-home__hot-news-title, .shinka__recommended-content-title, .shinka-timeline__extra-news-title {
   font-size: 15px;
@@ -959,6 +1184,7 @@ textarea {
   padding: 0 15px; }
 
 .shinka-archive__timeline-news {
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   padding-top: 15px;
@@ -967,6 +1193,19 @@ textarea {
   .shinka-archive__timeline-news:first-of-type {
     padding-top: 0;
     border: none; }
+=======
+	display: flex;
+	align-items: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-top: 1px solid #d8d8d8;
+}
+
+.shinka-archive__timeline-news:first-of-type {
+	padding-top: 0;
+	border: none;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__timeline-content .shinka-inline-search__wrapper + .shinka-archive__timeline-news {
   border: none; }
@@ -992,10 +1231,15 @@ textarea {
   .shinka-archive__timeline-news-text .shinka-archive__timeline-news-title:first-child {
     margin: 0; }
 
+.shinka-archive__timeline-news-text .shinka-archive__timeline-news-title:first-child {
+	margin: 0;
+}
+
 .shinka-archive__timeline-news-metadata {
   font-size: 12px; }
 
 .shinka-archive__timeline-news-category {
+<<<<<<< HEAD
   color: #ff1414;
   font-weight: 600;
   margin: 0 !important; }
@@ -1007,6 +1251,25 @@ textarea {
     color: #000; }
   .shinka-archive__timeline-news-title a:hover {
     color: #ff1414; }
+=======
+	color: #ff1414;
+	font-weight: 600;
+	margin: 0 !important;
+}
+
+.shinka-archive__timeline-news-title {
+	font-size: 16px;
+	line-height: 1.3em;
+}
+
+.shinka-archive__timeline-news-title a {
+	color: #000;
+}
+
+.shinka-archive__timeline-news-title a:hover {
+	color: #ff1414;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__timeline-news-excerpt {
   display: none; }
@@ -1019,7 +1282,12 @@ textarea {
   padding: 15px; }
 
 .shinka-timeline__extra-heading-title, .shinka-timeline__extra-news-title, .shinka-timeline__extra-heading-link {
+<<<<<<< HEAD
   color: #fff; }
+=======
+	color: #fff;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-timeline__extra-news-title {
   transition: all .2s ease; }
@@ -1069,6 +1337,7 @@ textarea {
   text-align: center; }
 
 .shinka-archive__load-more-link, .shinka-game-releases__filter-button-item {
+<<<<<<< HEAD
   padding: 15px;
   background: #ff1414;
   font-weight: 600;
@@ -1076,6 +1345,16 @@ textarea {
   color: #fff;
   width: 100%;
   text-transform: uppercase; }
+=======
+	padding: 15px;
+	background: #ff1414;
+	font-weight: 600;
+	display: block;
+	color: #fff;
+	width: 100%;
+	text-transform: uppercase;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__main {
   padding: 0 15px;
@@ -1102,6 +1381,7 @@ textarea {
     margin: 0; }
 
 .shinka-post__categories-link {
+<<<<<<< HEAD
   color: #fff;
   background: #ff1414;
   text-transform: uppercase;
@@ -1109,6 +1389,15 @@ textarea {
   font-weight: 600;
   white-space: nowrap;
   padding: 7px; }
+=======
+	color: #fff;
+	background: #ff1414;
+	text-transform: uppercase;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 7px;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__heading {
   margin-top: 10px; }
@@ -1131,8 +1420,14 @@ textarea {
   line-height: 1.7em; }
 
 .shinka-post__thumbnail-img {
+<<<<<<< HEAD
   display: block;
   width: 100%; }
+=======
+	display: block;
+	width: 100%;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__content {
   border-bottom: 1px solid #d8d8d8;
@@ -1164,6 +1459,10 @@ textarea {
 
 .shinka-post__type-review .shinka-post__content {
   border: none; }
+
+.shinka-post__type-review .shinka-post__content {
+	border: none;
+}
 
 .embed-wrapper {
   position: relative;
@@ -1202,12 +1501,24 @@ textarea {
       margin: 0; }
 
 .shinka-post__share {
+<<<<<<< HEAD
   display: flex;
   margin-top: 8px; }
   .shinka-post__share svg {
     width: 30px;
     height: 30px;
     display: block; }
+=======
+	display: flex;
+	margin-top: 8px;
+}
+
+.shinka-post__share svg {
+	width: 30px;
+	height: 30px;
+	display: block;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__sns-btn {
   margin-left: 5px; }
@@ -1267,11 +1578,22 @@ textarea {
   grid-area: 2 / 1 / 3 / 3; }
 
 .shinka__post-game-heading a {
+<<<<<<< HEAD
   color: #000; }
   .shinka__post-game-heading a:hover {
     color: #ff1414;
     opacity: .9;
     transition-duration: .2; }
+=======
+	color: #000;
+}
+
+.shinka__post-game-heading a:hover {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka__post-game-title {
   display: inline-block; }
@@ -1296,6 +1618,10 @@ textarea {
 .shinka__recommended-content-image img, .shinka-sidebar__popular-post-image img, .shinka-game-releases__image img {
   width: 100%; }
 
+.shinka__recommended-content-image img, .shinka-sidebar__popular-post-image img, .shinka-game-releases__image img {
+	width: 100%;
+}
+
 .shinka__recommended-content-text, .shinka-sidebar__popular-post-text {
   margin-top: 5px; }
 
@@ -1306,6 +1632,7 @@ textarea {
   width: 100%; }
 
 .shinka-sidebar a, .shinka__recommended-content a, .shinka-game-releases__item a, .shinka__post-game-heading a, .shinka__post-game-cover a {
+<<<<<<< HEAD
   color: #000; }
   .shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover, .shinka__post-game-heading a:hover, .shinka__post-game-cover a:hover {
     color: #ff1414;
@@ -1314,6 +1641,21 @@ textarea {
   .shinka-sidebar a .shinka-utils__image-wrapper img:hover, .shinka__recommended-content a .shinka-utils__image-wrapper img:hover, .shinka-game-releases__item a .shinka-utils__image-wrapper img:hover, .shinka__post-game-heading a .shinka-utils__image-wrapper img:hover, .shinka__post-game-cover a .shinka-utils__image-wrapper img:hover {
     opacity: .9;
     transition-duration: .2s; }
+=======
+	color: #000;
+}
+
+.shinka-sidebar a:hover, .shinka__recommended-content a:hover, .shinka-game-releases__item a:hover, .shinka__post-game-heading a:hover, .shinka__post-game-cover a:hover {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2s;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
+
+.shinka-sidebar a .shinka-utils__image-wrapper img:hover, .shinka__recommended-content a .shinka-utils__image-wrapper img:hover, .shinka-game-releases__item a .shinka-utils__image-wrapper img:hover, .shinka__post-game-heading a .shinka-utils__image-wrapper img:hover, .shinka__post-game-cover a .shinka-utils__image-wrapper img:hover {
+	opacity: .9;
+	transition-duration: .2s;
+}
 
 .shinka-sidebar__new-post-wrapper {
   display: flex;
@@ -1347,6 +1689,7 @@ textarea {
   margin-top: 0; }
 
 .shinka__error-404 {
+<<<<<<< HEAD
   padding: 50px;
   text-align: center; }
   .shinka__error-404 p {
@@ -1360,6 +1703,26 @@ textarea {
     padding: 15px;
     border: 1px solid transparent;
     border-radius: 5px; }
+=======
+	padding: 50px;
+	text-align: center;
+}
+
+.shinka__error-404 p {
+	margin-top: 20px;
+}
+
+.shinka__error-404 a {
+	margin-top: 20px;
+	display: inline-block;
+	background: #ff1414;
+	color: #fff;
+	font-weight: 600;
+	padding: 15px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__timeline-news-date {
   margin-top: 5px; }
@@ -1373,6 +1736,7 @@ textarea {
   font-weight: 600; }
 
 .nav-links span {
+<<<<<<< HEAD
   color: #fff;
   background: #ff1414; }
 
@@ -1388,6 +1752,28 @@ textarea {
   color: #ff1414;
   background: #fff;
   border: 1px solid #ff1414; }
+=======
+	color: #fff;
+	background: #ff1414;
+}
+
+.nav-links a {
+	color: #ff1414;
+	border: 1px solid #ff1414;
+	transition: all .2s ease;
+}
+
+.nav-links a:hover {
+	color: #fff;
+	background: #ff1414;
+}
+
+.nav-links .page-numbers.dots {
+	color: #ff1414;
+	background: #fff;
+	border: 1px solid #ff1414;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__pre-content {
   display: flex;
@@ -1404,16 +1790,31 @@ textarea {
   text-align: center; }
 
 .shinka-archive__pre-content-meta {
+<<<<<<< HEAD
   display: flex;
   flex-flow: column; }
+=======
+	display: flex;
+	flex-flow: column;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__pre-content-text {
   line-height: 1.7em; }
 
 .shinka__twitter-icon {
+<<<<<<< HEAD
   transition: all .2s ease; }
   .shinka__twitter-icon:hover {
     fill: #1DA1F2 !important; }
+=======
+	transition: all .2s ease;
+}
+
+.shinka__twitter-icon:hover {
+	fill: #1DA1F2 !important;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__image-caption {
   font-size: 14px;
@@ -1428,6 +1829,7 @@ textarea {
   margin-top: 10px; }
 
 .shinka-post__review {
+<<<<<<< HEAD
   margin: 0 -15px;
   background-size: cover;
   background-position: 50% 50%;
@@ -1444,6 +1846,27 @@ textarea {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9); }
+=======
+	margin: 0 -15px;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	position: relative;
+	color: #fff;
+}
+
+.shinka-post__review::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-post__review-wrapper {
   padding: 15px;
@@ -1454,6 +1877,7 @@ textarea {
   font-size: 16px; }
 
 .shinka-post__review-vote-text {
+<<<<<<< HEAD
   margin: 0 !important;
   font-size: 40px !important;
   font-weight: 600;
@@ -1468,6 +1892,24 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-top: 15px; }
+=======
+	margin: 0 !important;
+	font-size: 40px !important;
+	font-weight: 600;
+	color: #fff;
+}
+
+.shinka-post__review-vote {
+	display: inline-flex;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	font-size: 40px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-game-releases__container {
   padding: 0; }
@@ -1539,6 +1981,7 @@ textarea {
     font-size: 17px; }
 
 .shinka-game-releases__platform-text, .shinka-game__genre-text {
+<<<<<<< HEAD
   padding: 3px 6px;
   margin-left: 5px;
   border-radius: 3px;
@@ -1547,6 +1990,19 @@ textarea {
   cursor: default; }
   .shinka-game-releases__platform-text:first-of-type, .shinka-game__genre-text:first-of-type {
     margin: 0; }
+=======
+	padding: 3px 6px;
+	margin-left: 5px;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 600;
+	cursor: default;
+}
+
+.shinka-game-releases__platform-text:first-of-type, .shinka-game__genre-text:first-of-type {
+	margin: 0;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 .shinka-archive__pre-content-details {
   margin-top: 10px; }
@@ -1679,7 +2135,12 @@ textarea {
 .shinka-sponsor__square {
   text-align: center; }
 
+.shinka-archive__timeline-image {
+	display: block;
+}
+
 @media (min-width: 1200px) {
+<<<<<<< HEAD
   .shinka-wrapper {
     margin: auto;
     width: 1280px;
@@ -1877,6 +2338,272 @@ textarea {
     font-size: 15px; }
   .shinka-timeline__extra-news {
     flex: 0 1 25%; } }
+=======
+	.shinka-wrapper {
+		margin: auto;
+		width: 1280px;
+		max-width: 1280px;
+	}
+	.shinka-home__main-news {
+		display: flex;
+		margin-top: 20px;
+	}
+	.shinka-home__main-story {
+		flex: 0 1 66.666666%;
+	}
+	.shinka-home__sec-story-group {
+		display: flex;
+		flex: 0 1 33.333333%;
+		flex-direction: column;
+	}
+	.shinka-home__news-title-big {
+		font-size: 28px !important;
+	}
+	.shinka-home__news-title-small {
+		font-size: 20px;
+	}
+	.shinka-home__hot-news-container {
+		display: flex;
+		flex-wrap: nowrap;
+		padding: 0;
+		margin-top: 20px;
+	}
+	.shinka-home__hot-news, .shinka__recommended-content-post {
+		flex: 0 1 25%;
+		margin-right: 20px;
+	}
+	.shinka-home__hot-news:last-child, .shinka__recommended-content-post:last-child {
+		margin-right: 0;
+	}
+	.shinka-home__hot-news:nth-child(3), .shinka-home__hot-news:nth-child(4), .shinka__recommended-content-post:nth-child(3), .shinka__recommended-content-post:nth-child(4) {
+		margin-top: 0;
+	}
+	.shinka-home__hot-news:nth-child(odd), .shinka__recommended-content-post:nth-child(odd) {
+		margin-right: 20px;
+	}
+	.shinka-home__hot-news-title, .shinka__recommended-content-title, .shinka-timeline__extra-news-title {
+		font-size: 20px;
+		line-height: 1.5em;
+		margin-top: 8px;
+	}
+	.shinka-home__title {
+		padding: 0;
+	}
+	.shinka-archive__timeline-container {
+		display: flex;
+		padding: 0;
+	}
+	.shinka-archive__sidebar {
+		margin-top: 0;
+		flex: 0 0 30%;
+		padding-left: 15px;
+		border-left: 1px solid #d8d8d8;
+	}
+	.shinka-archive__timeline-content {
+		flex: 0 0 70%;
+		padding-right: 15px;
+	}
+	.shinka-archive__timeline-news-media {
+		margin-right: 20px;
+		flex: 2;
+	}
+	.shinka-archive__timeline-news-text {
+		flex: 5;
+	}
+	.shinka-archive__timeline-news-metadata {
+		margin-top: 7px;
+	}
+	.shinka-archive__timeline-news-metadata:first {
+		margin-top: 0;
+	}
+	.shinka-archive__timeline-news-category {
+		font-size: 14px;
+	}
+	.shinka-archive__timeline-news-date {
+		font-size: 16px;
+	}
+	.shinka-archive__timeline-news-title {
+		font-size: 25px !important;
+		margin-top: 7px;
+	}
+	.shinka-archive__timeline-news-excerpt {
+		display: block;
+		font-size: 18px !important;
+	}
+	.shinka-timeline__extra-news-wrapper {
+		overflow: hidden;
+	}
+	.shinka-timeline__extra-content {
+		padding: 30px;
+	}
+	.shinka-timeline__extra-news {
+		flex: 0 1 25%;
+		margin-right: 20px;
+	}
+	.shinka-archive__load-more-button {
+		padding: 0;
+	}
+	.shinka-archive__load-more-link {
+		font-size: 21px;
+	}
+	.shinka-post__thumbnail-wrapper {
+		margin-top: 0;
+	}
+	.shinka-post__content-wrapper {
+		margin-top: 15px;
+		display: flex;
+	}
+	.shinka-post__content-container, .shinka-game__wrapper {
+		flex: 0 0 70%;
+		padding-right: 15px;
+	}
+	.shinka-sidebar {
+		flex: 0 0 30%;
+		margin: 0;
+		padding-left: 15px;
+		border-left: 1px solid #d8d8d8;
+	}
+	.shinka-sidebar .shinka__in-post-title:first-of-type {
+		margin-top: 0;
+	}
+	.shinka-post__title {
+		font-size: 40px;
+	}
+	.shinka-post__share {
+		margin-top: 10px;
+	}
+	.shinka-post__share svg {
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+	.shinka-post__sns-btn {
+		margin-left: 10px;
+	}
+	.shinka-post__content p, .shinka-post__content ul, .shinka-post__content ol {
+		font-size: 18px;
+	}
+	.shinka-post__main {
+		padding: 0;
+	}
+	.shinka__recommended-content {
+		display: flex;
+		flex-wrap: nowrap;
+		padding: 0;
+	}
+	.shinka__recommended-content-post {
+		margin-top: 0;
+	}
+	.shinka__error-404 {
+		padding: 200px;
+	}
+	.shinka-sidebar {
+		margin-top: 0;
+	}
+	.shinka-archive__pre-content {
+		flex-direction: row;
+	}
+	.shinka-archive__pre-content-main {
+		margin-top: 0;
+		margin-left: 20px;
+		text-align: left;
+	}
+	.shinka-archive__pre-content-meta {
+		flex-flow: row;
+		align-items: baseline;
+	}
+	.shinka-archive__pre-content-meta a {
+		margin-left: 10px;
+	}
+	.shinka-archive__pre-content-text {
+		line-height: 1.7em;
+	}
+	.shinka-post__review {
+		margin: 0;
+	}
+	.shinka-post__review-wrapper {
+		padding: 15px;
+		text-align: center;
+	}
+	.shinka-game-releases__filter {
+		flex: 0 0 20%;
+	}
+	.shinka-game-releases__content {
+		flex: 0 0 50%;
+		margin: 0;
+		padding: 0 15px;
+	}
+	.shinka-game__cover {
+		width: 20% !important;
+		margin-top: -250px;
+	}
+	.shinka-game__content {
+		display: flex;
+	}
+	.shinka-game__background {
+		height: 450px;
+	}
+	.shinka-game__title {
+		font-size: 40px;
+	}
+	.shinka-game__main-info, .shinka-game__content {
+		padding: 0;
+	}
+	.home .shinka-sidebar {
+		padding-right: 0;
+	}
+	.shinka-game__timeline-content {
+		padding: 0;
+	}
+}
+
+@media (min-width: 700px) {
+	.shinka__post-game-wrapper {
+		grid-template-columns: 1fr 4fr;
+		grid-template-rows: none;
+		grid-gap: 20px;
+	}
+	.shinka__post-game-cover {
+		grid-row: 1 / 4;
+	}
+	.shinka__post-game-details {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-gap: 10px;
+		grid-area: 2;
+	}
+	.shinka__post-game-text {
+		margin: 0;
+	}
+	.shinka-game__main-info {
+		flex-direction: row;
+	}
+	.shinka-game__cover {
+		width: 30%;
+		margin-right: 20px;
+	}
+	.shinka-game__cover-link {
+		margin: 0;
+		width: 100%;
+	}
+	.shinka-home__news-title {
+		font-size: 24px;
+	}
+	.shinka-home__hot-news-title, .shinka-timeline__extra-news-title {
+		font-size: 18px;
+	}
+	.shinka-archive__timeline-news-title {
+		font-size: 22px;
+	}
+	.shinka-archive__timeline-news-metadata {
+		font-size: 15px;
+	}
+	.shinka-timeline__extra-news {
+		flex: 0 1 25%;
+	}
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 /* Comments
 --------------------------------------------- */
@@ -2023,15 +2750,25 @@ textarea {
   margin-bottom: 1em; }
 
 .aligncenter {
+<<<<<<< HEAD
   clear: both;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em; }
+=======
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+}
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 
 /* Dark theme
 --------------------------------------------- */
 body.dark-mode {
+<<<<<<< HEAD
   background: #0e0e0e; }
 
 .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode li, .dark-mode td, .dark-mode th, .dark-mode .shinka-post__tags, .dark-mode .shinka__post-game-text, .dark-mode .shinka-game__info-detail, .dark-mode .shinka-game__info-bold, .dark-mode .shinka-archive__pre-content-details-field {
@@ -2085,3 +2822,74 @@ body.dark-mode {
 
 .dark-mode .shinka-game__info-content {
   border-color: #262626; }
+=======
+	background: #0e0e0e;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode p, .dark-mode li, .dark-mode td, .dark-mode th, .dark-mode .shinka-post__tags, .dark-mode .shinka__post-game-text, .dark-mode .shinka-game__info-detail, .dark-mode .shinka-game__info-bold, .dark-mode .shinka-archive__pre-content-details-field {
+	color: #fff;
+}
+
+.dark-mode .shinka-sidebar a, .dark-mode .shinka__recommended-content a, .dark-mode .shinka-game-releases__item a, .dark-mode .shinka__post-game-heading a, .dark-mode .shinka__post-game-cover a, .dark-mode .shinka-archive__timeline-news-title a {
+	color: #fff;
+}
+
+.dark-mode .shinka-sidebar a:hover, .dark-mode .shinka__recommended-content a:hover, .dark-mode .shinka-game-releases__item a:hover, .dark-mode .shinka__post-game-heading a:hover, .dark-mode .shinka__post-game-cover a:hover, .dark-mode .shinka-archive__timeline-news-title a:hover {
+	color: #ff1414 !important;
+}
+
+.dark-mode blockquote {
+	background: #151515;
+	border-color: #262626;
+}
+
+.dark-mode td, .dark-mode th {
+	border: 1px solid #262626;
+}
+
+.dark-mode tr:nth-child(even) {
+	background: #191919;
+}
+
+.dark-mode tr:nth-child(odd) {
+	background: #202020;
+}
+
+.dark-mode .shinka__post-game, .dark-mode .shinka-timeline__extra {
+	background: #151515;
+}
+
+.dark-mode .shinka-archive__timeline-news-category {
+	color: #ff1414;
+}
+
+.dark-mode .shinka-sidebar, .dark-mode .shinka-post__content, .dark-mode .shinka-archive__timeline-news, .dark-mode .shinka-archive__sidebar, .dark-mode .shinka-game__info-content, .dark-mode .shinka-archive__pre-content, .dark-mode .shinka-game-releases__item {
+	border-color: #262626;
+}
+
+.dark-mode .shinka-search__field {
+	background: #151515;
+	border-color: #262626;
+	color: #fff;
+}
+
+.dark-mode input[type="search"] {
+	color: #fff;
+}
+
+.dark-mode .shinka-home__hot-news-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__recommended-content-text a:hover h3, .dark-mode .shinka__post-game-heading a:hover h3 {
+	color: #ff1414;
+	opacity: .9;
+	transition-duration: .2s;
+}
+
+.dark-mode .shinka__twitter-icon {
+	fill: #fff;
+}
+
+.dark-mode .shinka-game__info-content {
+	border-color: #262626;
+}
+
+/*# sourceMappingURL=style.css.map */
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154

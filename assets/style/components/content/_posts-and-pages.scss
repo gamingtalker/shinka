@@ -1018,6 +1018,7 @@
 	display: block;
 }
 
+<<<<<<< HEAD
 .search .shinka-archive__timeline-news:first-of-type {
 	padding-top: 15px;
 }
@@ -1039,6 +1040,8 @@
 	text-align: center; 
 }
 
+=======
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 @media (min-width: 1200px) {
 	.shinka-wrapper {
 		margin: auto;
@@ -1344,10 +1347,15 @@
 	}
 
 	.shinka-game__cover {
+<<<<<<< HEAD
 	    width: 20%;
 		margin-top: 0;
 		position: absolute;
 		bottom: 0;
+=======
+		width: 30%;
+		margin-right: 20px;
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 	}
 
 	.shinka-game__cover-link {
@@ -1355,11 +1363,14 @@
 		width: 100%;
 	}
 
+<<<<<<< HEAD
 	.shinka-game__cover + .shinka-game__heading {
 		position: relative;
 		margin-left: 22vw; 
 	}
 
+=======
+>>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 	.shinka-home__news-title {
 		font-size: 24px;
 	}
