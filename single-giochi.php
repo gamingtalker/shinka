@@ -48,7 +48,6 @@
             <div class="shinka-game__content">
                 <div class="shinka-game__wrapper">
                     <div class="shinka-game__description shinka-post__content">
-<<<<<<< HEAD
                         <?php 
                             the_content(
                                 sprintf(
@@ -65,9 +64,6 @@
                                 )
                             ); 
                         ?>
-=======
-                        <?php the_content(); ?>
->>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
                     </div>
                     <?php
                         get_template_part(

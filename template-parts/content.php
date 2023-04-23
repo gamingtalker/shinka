@@ -36,11 +36,8 @@
 	 * Post thumbnail variables.
 	 */
 	$post_thumbnail_id = get_post_thumbnail_id();
-<<<<<<< HEAD
 	$post_thumbnail_size = 'medium_large';
 	$post_thumbnail_src = wp_get_attachment_image_url( $post_thumbnail_id, $post_thumbnail_size );
-=======
->>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 	$post_thumbnail_caption = wp_get_attachment_caption( $post_thumbnail_id );
 ?>
 
@@ -54,10 +51,7 @@
 			'template-parts/post/header',
 			null,
 			array(
-<<<<<<< HEAD
 				'post_thumbnail_src' => $post_thumbnail_src,
-=======
->>>>>>> 479b35bd9a35899ed92fab36c2cc426696c0c154
 				'article_category' => $article_category,
 				'author_id' => $author_id,
 				'post_thumbnail_id' => $post_thumbnail_id,
